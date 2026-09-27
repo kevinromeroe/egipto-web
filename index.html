@@ -112,7 +112,7 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;pad
 <header>
   <div class="glyphs">𓋹 𓂀 𓊹 𓆃 𓋹</div>
   <h1>Viaje a Egipto 2026</h1>
-  <div class="sub">Kevin &amp; Angie · Bogotá → Madrid → Egipto → Grecia → Bogotá</div>
+  <div class="sub">Kevin &amp; Angie · Bogotá → Madrid → Egipto → Grecia → Madrid → Bogotá</div>
   <div class="meta">
     <span class="pill">📅 6 – 21 Oct</span>
     <span class="pill">🌙 15 días</span>
@@ -152,8 +152,7 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;pad
   <div class="ref"><table>
     <tr><td>🛂</td><td>Visa de <b>Egipto</b> (e-visa/llegada) + pasaporte vigente ≥6 meses</td></tr>
     <tr><td>🇪🇺</td><td>Requisitos <b>Schengen</b> (España/Grecia) para colombianos</td></tr>
-    <tr><td>🚢</td><td>Reservar <b>crucero por el Nilo</b> (embarque lun 12, desembarque jue 15)</td></tr>
-    <tr><td>🏨</td><td>Reservar <b>Atenas</b> (17–20) y <b>Madrid regreso</b> (20)</td></tr>
+    <tr><td>🏨</td><td>Reservar <b>Madrid regreso</b> (1 noche, 20 Oct, cerca del aeropuerto)</td></tr>
     <tr><td>🧾</td><td><b>Datos fiscales</b> al Airbnb de Madrid (ley española)</td></tr>
     <tr><td>🛡️</td><td><b>Seguro de viaje</b> · 🧳 evaluar <b>equipaje facturado</b></td></tr>
   </table></div>
@@ -203,7 +202,7 @@ const days=[
    {t:"12:00",a:"Checkout del Airbnb (dejar maletas)",type:"stay",ic:"🧳"},
    {t:"13:00",a:"Almuerzo temprano",type:"meal",ic:"🍽️"},
    {t:"15:30",a:"Traslado al aeropuerto (T2)",ic:"🚕"},
-   {t:"18:20",a:"Vuelo Aegean A3741 → Atenas (conexión 2h05) · 7TI2LS",type:"flight",ic:"✈️"},
+   {t:"18:20",a:"Vuelo Aegean A3741 → El Cairo vía Atenas (conexión 2h05) · 7TI2LS",type:"flight",ic:"✈️"},
    {t:"noche",a:"Cena a bordo / noche en tránsito",type:"meal",free:1,ic:"🌙"}],
   maps:[{n:"Aeropuerto Madrid-Barajas T2",q:"Aeropuerto Madrid Barajas Terminal 2"}]},
 
@@ -240,8 +239,8 @@ const days=[
    {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️"},
    {t:"14:00",a:"Embarque en el crucero · cóctel de bienvenida",type:"stay",ic:"🛳️"},
    {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
-  stayTag:{name:"Crucero por el Nilo (noche 1)",status:"pend"},
-  maps:[{n:"Aeropuerto de Aswan",q:"Aswan International Airport"},{n:"Templo de Philae",q:"Philae Temple"},{n:"Presa Alta",q:"Aswan High Dam"}]},
+  stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 1",status:"ok"},
+  maps:[{n:"Aeropuerto de Aswan",q:"Aswan International Airport"},{n:"Templo de Philae",q:"Philae Temple Aswan"},{n:"Presa Alta de Asuán",q:"Aswan High Dam"}]},
 
  {d:"13",m:"Oct",dow:"Martes",city:"Nilo · Aswan",icon:"⛵",
   desc:"Navegando el Nilo, con opción de Abu Simbel.",
@@ -251,8 +250,8 @@ const days=[
    {t:"12:00",a:"Navegación · almuerzo a bordo",type:"meal",ic:"🍽️"},
    {t:"16:00",a:"Templo de Kom Ombo al atardecer",ic:"🏛️"},
    {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
-  stayTag:{name:"Crucero por el Nilo (noche 2)",status:"pend"},
-  maps:[{n:"Abu Simbel",q:"Abu Simbel Temples"},{n:"Kom Ombo",q:"Kom Ombo Temple"}]},
+  stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 2",status:"ok"},
+  maps:[{n:"Abu Simbel",q:"Abu Simbel Temples"},{n:"Templo de Kom Ombo",q:"Kom Ombo Temple"}]},
 
  {d:"14",m:"Oct",dow:"Miércoles",city:"Nilo → Luxor",icon:"⛵",
   desc:"Templos junto al río rumbo a Luxor.",
@@ -261,7 +260,7 @@ const days=[
    {t:"09:00",a:"Templo de Edfu (en calesa)",ic:"🐎"},
    {t:"13:00",a:"Navegación · almuerzo · esclusa de Esna",type:"meal",ic:"🍽️"},
    {t:"20:00",a:"Cena · noche de galabeya (opcional)",type:"meal",ic:"🎉"}],
-  stayTag:{name:"Crucero por el Nilo (noche 3)",status:"pend"},
+  stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 3",status:"ok"},
   maps:[{n:"Templo de Edfu",q:"Temple of Edfu"}]},
 
  {d:"15",m:"Oct",dow:"Jueves",city:"Luxor",icon:"🏛️",
@@ -298,8 +297,8 @@ const days=[
    {t:"13:00",a:"Almuerzo en Plaka",type:"meal",ic:"🍽️"},
    {t:"16:00",a:"Ágora Antigua y Monastiraki",ic:"🏺"},
    {t:"20:30",a:"Cena griega",type:"meal",ic:"🍽️"}],
-  stayTag:{name:"Hotel en Atenas (centro/Plaka)",status:"pend"},
-  maps:[{n:"Acrópolis de Atenas",q:"Acropolis of Athens"},{n:"Plaka",q:"Plaka Athens"}]},
+  stayTag:{name:"Vasiliki's cosy apartment (Airbnb) · check-in 15:00",status:"ok"},
+  maps:[{n:"Airbnb (Galaxidiou 38)",q:"38.00761,23.72001"},{n:"Acrópolis de Atenas",q:"Acropolis of Athens"}]},
 
  {d:"18",m:"Oct",dow:"Domingo",city:"Atenas",icon:"🏛️",
   desc:"Museos y los barrios más bonitos.",
@@ -310,7 +309,7 @@ const days=[
    {t:"15:00",a:"Plaka, Anafiotika y colina Licabeto",ic:"🚶"},
    {t:"18:30",a:"Atardecer con vistas de la ciudad",ic:"🌇"},
    {t:"20:30",a:"Cena",type:"meal",ic:"🍽️"}],
-  stayTag:{name:"Hotel en Atenas",status:"pend"},
+  stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
   maps:[{n:"Museo de la Acrópolis",q:"Acropolis Museum"},{n:"Colina Licabeto",q:"Mount Lycabettus Athens"}]},
 
  {d:"19",m:"Oct",dow:"Lunes",city:"Atenas",icon:"🌊",
@@ -320,7 +319,7 @@ const days=[
    {t:"13:30",a:"Almuerzo en ruta",type:"meal",ic:"🍽️"},
    {t:"17:00",a:"Regreso · Museo Arqueológico Nacional (opcional)",ic:"🏺"},
    {t:"20:30",a:"Cena de despedida",type:"meal",ic:"🍷"}],
-  stayTag:{name:"Hotel en Atenas",status:"pend"},
+  stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
   maps:[{n:"Cabo Sunio",q:"Cape Sounion Temple of Poseidon"},{n:"Delfos",q:"Delphi Greece"}]},
 
  {d:"20",m:"Oct",dow:"Martes",city:"Atenas → Madrid",icon:"🛫",
@@ -346,9 +345,9 @@ const days=[
 const stays=[
  {city:"Madrid (ida)",dates:"7–9 Oct · 2 noches",name:"Airbnb La Casita de Vicálvaro",status:"ok",info:"C. de Villacarlos 10, Vicálvaro · 130 € total",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},
  {city:"El Cairo",dates:"10–12 Oct · 2 noches",name:"Estudio Zamalek 2 Taha Hussein",status:"ok",info:"Zamalek (Abu Al Feda) · a ~30-40 min de Giza",q:"Abu El Feda Street Zamalek Cairo"},
- {city:"Crucero Nilo",dates:"12–15 Oct · 3 noches",name:"Crucero Aswan → Luxor",status:"pend",info:"Embarque lun 12, desembarque jue 15",q:"Aswan Nile Cruise"},
+ {city:"Crucero Nilo",dates:"12–15 Oct · 3 noches",name:"Imperial Egypt (Viator) · Aswan → Luxor",status:"ok",info:"Embarque lun 12, desembarque jue 15 · 4.8★ (2.832 reseñas)",q:"Aswan Nile Cruise"},
  {city:"Luxor",dates:"15–16 Oct · 1 noche",name:"KR Elite Hotel ⭐9.5",status:"ok",info:"Orilla Este · COP 57.400 · cancelación gratis",q:"KR Elite Hotel Luxor"},
- {city:"Atenas",dates:"17–20 Oct · 3 noches",name:"Por reservar (Plaka / Koukaki)",status:"pend",info:"Sugerido: cerca de la Acrópolis",q:"Plaka Athens hotels"},
+ {city:"Atenas",dates:"17–20 Oct · 3 noches",name:"Vasiliki's cosy apartment (Airbnb)",status:"ok",info:"Galaxidiou 38 · COP 429.352 · check-in 15:00",q:"38.00761,23.72001"},
  {city:"Madrid (regreso)",dates:"20–21 Oct · 1 noche",name:"Por reservar (cerca aeropuerto)",status:"pend",info:"Sugerido: Hotel101 o B&B Aeropuerto",q:"hotels near Madrid Barajas airport"}
 ];
 
