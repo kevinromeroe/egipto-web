@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viaje a Egipto 2026 · Itinerario</title>
+<style>
+:root{
+  color-scheme: light;
+  --papyrus:#f4e8c9; --papyrus2:#efe0bd;
+  --gold:#c8a13a; --gold-d:#9c7c22; --gold-l:#e6c869;
+  --lapis:#173a63; --lapis-d:#0f2b4a; --lapis-l:#255286;
+  --nile:#0f8a8a; --nile-d:#0a6a6a;
+  --terra:#b5551f;
+  --ink:#3a2f1c; --muted:#7a6d52;
+  --card:#fffdf6; --line:#e5d3a6;
+  --ok:#1f8a54; --pend:#b23b3b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 50% -10%, #fdf6e3 0%, rgba(253,246,227,0) 55%),
+    linear-gradient(180deg,var(--papyrus) 0%, var(--papyrus2) 100%);
+  background-attachment:fixed;
+  line-height:1.55; padding-bottom:70px; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 14px}
+.serif{font-family:"Georgia","Times New Roman",serif}
+
+/* header */
+header{
+  background:linear-gradient(135deg,var(--lapis) 0%, var(--lapis-d) 60%, var(--nile-d) 100%);
+  color:#fff;padding:30px 16px 34px;text-align:center;position:relative;
+  border-bottom:5px solid var(--gold);
+}
+.glyphs{font-size:1.2rem;letter-spacing:8px;color:var(--gold-l);opacity:.9;margin-bottom:8px}
+header h1{font-family:"Georgia",serif;font-size:1.85rem;letter-spacing:1px;text-shadow:0 2px 8px rgba(0,0,0,.3)}
+header .sub{opacity:.92;margin-top:8px;font-size:.95rem}
+header .meta{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.pill{background:rgba(255,255,255,.14);border:1px solid var(--gold);color:var(--gold-l);
+  padding:5px 13px;border-radius:20px;font-size:.82rem;font-weight:600}
+.btns{margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{border:0;border-radius:11px;padding:12px 20px;font-size:.9rem;font-weight:700;cursor:pointer;
+  text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+.btn-gold{background:linear-gradient(135deg,var(--gold-l),var(--gold));color:#3a2f1c;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn:active{transform:translateY(1px)}
+
+.section-title{font-family:"Georgia",serif;font-size:1.15rem;font-weight:700;color:var(--lapis);
+  margin:28px 2px 12px;display:flex;align-items:center;gap:9px;padding-bottom:6px;
+  border-bottom:2px solid var(--gold)}
+.legend{text-align:center;font-size:.78rem;color:var(--muted);margin:2px 0 6px}
+
+/* day cards */
+.day{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:13px 0;
+  overflow:hidden;box-shadow:0 2px 10px rgba(120,90,20,.08)}
+.day-head{display:flex;align-items:center;gap:13px;padding:15px 16px;cursor:pointer;
+  background:linear-gradient(90deg,#fffdf6,#fbf3dd)}
+.date-badge{flex:0 0 auto;width:60px;text-align:center;
+  background:linear-gradient(135deg,var(--lapis-l),var(--lapis));color:#fff;
+  border:1.5px solid var(--gold);border-radius:12px;padding:6px 0;line-height:1.1}
+.date-badge .d{font-family:"Georgia",serif;font-size:1.4rem;font-weight:800}
+.date-badge .m{font-size:.66rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold-l)}
+.day-head .t{flex:1;min-width:0}
+.day-head .city{font-weight:700;font-size:1.05rem;color:var(--lapis-d)}
+.day-head .dow{font-size:.78rem;color:var(--muted)}
+.day-head .chev{color:var(--gold-d);font-size:1.3rem;transition:transform .25s;font-weight:700}
+.day.open .chev{transform:rotate(90deg)}
+.day-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.day.open .day-body{max-height:2200px}
+.day-inner{padding:6px 16px 18px}
+.desc{font-size:.9rem;color:var(--muted);font-style:italic;margin:6px 0 12px;
+  border-left:3px solid var(--gold-l);padding-left:10px}
+
+/* plan list */
+.plan{list-style:none;position:relative;margin-left:4px}
+.plan li{display:flex;gap:11px;padding:7px 0;align-items:flex-start;border-bottom:1px dashed #eadfbf}
+.plan li:last-child{border-bottom:0}
+.time{flex:0 0 auto;min-width:52px;font-weight:700;font-size:.82rem;color:var(--lapis);
+  background:#eef3f3;border:1px solid #cfe3e3;border-radius:7px;padding:2px 6px;text-align:center}
+.time.free{color:var(--muted);background:#f3ecd8;border-color:#e4d3a6}
+.act{flex:1;font-size:.9rem}
+.act .ic{margin-right:5px}
+li.meal .act{color:var(--terra);font-weight:600}
+li.flight .act{color:var(--nile-d);font-weight:600}
+li.stay .act{color:var(--gold-d);font-weight:600}
+
+.tag{display:inline-block;font-size:.66rem;font-weight:700;padding:2px 9px;border-radius:12px;margin-left:6px}
+.tag.ok{background:#e2f3ea;color:var(--ok)} .tag.pend{background:#fbe6e6;color:var(--pend)}
+
+.maps{display:inline-flex;align-items:center;gap:6px;margin:9px 8px 0 0;
+  background:var(--nile);color:#fff;text-decoration:none;padding:8px 13px;border-radius:9px;
+  font-size:.8rem;font-weight:600}
+.maps.g{background:var(--gold-d)}
+.info-line{margin-top:11px;font-size:.82rem;color:var(--muted)}
+
+/* reference blocks */
+.ref{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;margin:11px 0;
+  box-shadow:0 2px 8px rgba(120,90,20,.06)}
+.ref h3{font-family:"Georgia",serif;font-size:1rem;color:var(--lapis-d);margin-bottom:9px}
+.ref table{width:100%;border-collapse:collapse;font-size:.87rem}
+.ref td{padding:6px 4px;border-bottom:1px solid #f1e7cd;vertical-align:top}
+.ref td:first-child{color:var(--lapis);white-space:nowrap;padding-right:10px;font-weight:600}
+.dates-sm{font-size:.8rem;color:var(--muted);margin-bottom:4px}
+footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;padding:18px}
+.divider{text-align:center;color:var(--gold-d);letter-spacing:10px;margin:22px 0 4px;opacity:.7}
+</style>
+</head>
+<body>
+<header>
+  <div class="glyphs">𓋹 𓂀 𓊹 𓆃 𓋹</div>
+  <h1>Viaje a Egipto 2026</h1>
+  <div class="sub">Kevin &amp; Angie · Bogotá → Madrid → Egipto → Grecia → Bogotá</div>
+  <div class="meta">
+    <span class="pill">📅 6 – 21 Oct</span>
+    <span class="pill">🌙 15 días</span>
+    <span class="pill">👥 2 viajeros</span>
+  </div>
+  <div class="btns">
+    <button class="btn btn-gold" onclick="descargar()">⬇️ Descargar</button>
+    <button class="btn btn-ghost" onclick="imprimir()">🖨️ PDF</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="section-title">☥ Itinerario día a día</div>
+  <div class="legend">Toca cada día para ver el plan completo · horas sugeridas en hora local</div>
+  <div id="timeline"></div>
+
+  <div class="divider">𓊪 𓏏 𓎛</div>
+
+  <div class="section-title">✈️ Vuelos</div>
+  <div class="ref">
+    <table>
+      <tr><td>6 Oct</td><td><b>Bogotá → Madrid</b> · Iberia IB0154 · 21:25 → 7 Oct 14:10 · <b>P6EJR</b></td></tr>
+      <tr><td>9 Oct</td><td><b>Madrid → El Cairo</b> (vía Atenas) · Aegean A3741/A3930 · 18:20 → 10 Oct 02:50 · <b>7TI2LS</b></td></tr>
+      <tr><td>12 Oct</td><td><b>El Cairo → Aswan</b> · EgyptAir MS280 · 05:20 → 06:40 · <b>YM8EP2</b></td></tr>
+      <tr><td>16 Oct</td><td><b>Luxor → El Cairo</b> · EgyptAir MS069 · 21:10 → 22:20 · <b>YMGEXP</b></td></tr>
+      <tr><td>17 Oct</td><td><b>El Cairo → Atenas</b> · Aegean A3931 · 04:00 → 06:00 · <b>7TV5KM</b></td></tr>
+      <tr><td>20 Oct</td><td><b>Atenas → Madrid</b> · Aegean A3740 · 14:30 → 17:25 · <b>9XOAZB</b></td></tr>
+      <tr><td>21 Oct</td><td><b>Madrid → Bogotá</b> · Iberia IB0151 · 12:10 → 15:40 · <b>P6EJR</b></td></tr>
+    </table>
+    <div class="info-line">⚠️ Todos los tramos con <b>0 maletas facturadas</b> (solo equipaje de mano).</div>
+  </div>
+
+  <div class="section-title">🏨 Hospedajes</div>
+  <div id="stays"></div>
+
+  <div class="section-title">📝 Pendientes clave</div>
+  <div class="ref"><table>
+    <tr><td>🛂</td><td>Visa de <b>Egipto</b> (e-visa/llegada) + pasaporte vigente ≥6 meses</td></tr>
+    <tr><td>🇪🇺</td><td>Requisitos <b>Schengen</b> (España/Grecia) para colombianos</td></tr>
+    <tr><td>🚢</td><td>Reservar <b>crucero por el Nilo</b> (embarque lun 12, desembarque jue 15)</td></tr>
+    <tr><td>🏨</td><td>Reservar <b>Atenas</b> (17–20) y <b>Madrid regreso</b> (20)</td></tr>
+    <tr><td>🧾</td><td><b>Datos fiscales</b> al Airbnb de Madrid (ley española)</td></tr>
+    <tr><td>🛡️</td><td><b>Seguro de viaje</b> · 🧳 evaluar <b>equipaje facturado</b></td></tr>
+  </table></div>
+
+  <footer>
+    𓋹 Buen viaje, Kevin &amp; Angie 𓋹<br>
+    Horas en hora local. Verifica siempre en la aerolínea antes de cada vuelo.
+  </footer>
+</div>
+
+<script>
+const days=[
+ {d:"06",m:"Oct",dow:"Martes",city:"Bogotá → Madrid",icon:"🛫",
+  desc:"Inicio del viaje. Vuelo nocturno transatlántico.",
+  plan:[
+   {t:"18:00",a:"Llegar al aeropuerto El Dorado (check-in internacional)",ic:"🧳"},
+   {t:"21:25",a:"Vuelo Iberia IB0154 → Madrid · PNR P6EJR",type:"flight",ic:"✈️"},
+   {t:"noche",a:"Cena a bordo y descanso",type:"meal",free:1,ic:"🍽️"}],
+  maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]},
+
+ {d:"07",m:"Oct",dow:"Miércoles",city:"Madrid",icon:"🇪🇸",
+  desc:"Llegada a Madrid y primer contacto con la ciudad.",
+  plan:[
+   {t:"14:10",a:"Llegada a Madrid-Barajas T2",type:"flight",ic:"🛬"},
+   {t:"15:30",a:"Check-in Airbnb La Casita de Vicálvaro (metro L9)",type:"stay",ic:"🛏️"},
+   {t:"17:00",a:"Puerta del Sol, Plaza Mayor y Mercado de San Miguel",ic:"🚶"},
+   {t:"20:30",a:"Cena de tapas por La Latina / Cava Baja",type:"meal",ic:"🍷"}],
+  stayTag:{name:"Airbnb La Casita de Vicálvaro",status:"ok"},
+  maps:[{n:"La Casita de Vicálvaro",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},{n:"Plaza Mayor",q:"Plaza Mayor Madrid"}]},
+
+ {d:"08",m:"Oct",dow:"Jueves",city:"Madrid",icon:"🏛️",
+  desc:"Día completo de museos, parques y gastronomía madrileña.",
+  plan:[
+   {t:"09:00",a:"Desayuno: churros con chocolate en San Ginés",type:"meal",ic:"☕"},
+   {t:"10:00",a:"Museo del Prado",ic:"🖼️"},
+   {t:"13:30",a:"Almuerzo: cocido madrileño / menú del día",type:"meal",ic:"🍲"},
+   {t:"16:00",a:"Parque del Retiro y Palacio de Cristal",ic:"🌳"},
+   {t:"18:00",a:"Gran Vía y exterior del Palacio Real",ic:"🏰"},
+   {t:"21:00",a:"Cena",type:"meal",ic:"🍽️"}],
+  stayTag:{name:"Airbnb La Casita de Vicálvaro",status:"ok"},
+  maps:[{n:"Museo del Prado",q:"Museo del Prado Madrid"},{n:"Parque del Retiro",q:"Parque del Retiro Madrid"}]},
+
+ {d:"09",m:"Oct",dow:"Viernes",city:"Madrid → El Cairo",icon:"🛫",
+  desc:"Mañana libre y salida rumbo a Egipto (vía Atenas).",
+  plan:[
+   {t:"10:00",a:"Mañana libre: compras / barrio de Salamanca",ic:"🛍️"},
+   {t:"12:00",a:"Checkout del Airbnb (dejar maletas)",type:"stay",ic:"🧳"},
+   {t:"13:00",a:"Almuerzo temprano",type:"meal",ic:"🍽️"},
+   {t:"15:30",a:"Traslado al aeropuerto (T2)",ic:"🚕"},
+   {t:"18:20",a:"Vuelo Aegean A3741 → Atenas (conexión 2h05) · 7TI2LS",type:"flight",ic:"✈️"},
+   {t:"noche",a:"Cena a bordo / noche en tránsito",type:"meal",free:1,ic:"🌙"}],
+  maps:[{n:"Aeropuerto Madrid-Barajas T2",q:"Aeropuerto Madrid Barajas Terminal 2"}]},
+
+ {d:"10",m:"Oct",dow:"Sábado",city:"El Cairo",icon:"🐫",
+  desc:"Llegada de madrugada y ¡el gran día de las pirámides!",
+  plan:[
+   {t:"02:50",a:"Llegada a El Cairo (T3) · traslado a Zamalek",type:"flight",ic:"🛬"},
+   {t:"03:40",a:"Check-in y descanso en el Estudio Zamalek",type:"stay",ic:"🛏️"},
+   {t:"10:00",a:"Desayuno tardío",type:"meal",ic:"☕"},
+   {t:"11:00",a:"Pirámides de Giza y la Esfinge",ic:"🔺"},
+   {t:"14:00",a:"Almuerzo con vista a las pirámides",type:"meal",ic:"🍽️"},
+   {t:"16:00",a:"Paseo en camello opcional · atardecer en Giza",ic:"🐪"},
+   {t:"20:00",a:"Cena en Zamalek",type:"meal",ic:"🍽️"}],
+  stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
+  maps:[{n:"Estudio Zamalek (hotel)",q:"Abu El Feda Street Zamalek Cairo"},{n:"Pirámides de Giza",q:"Pyramids of Giza"}]},
+
+ {d:"11",m:"Oct",dow:"Domingo",city:"El Cairo",icon:"🏺",
+  desc:"Tesoros faraónicos y el bullicio del bazar.",
+  plan:[
+   {t:"09:00",a:"Desayuno",type:"meal",ic:"☕"},
+   {t:"10:00",a:"Gran Museo Egipcio (GEM) — junto a Giza",ic:"🏛️"},
+   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
+   {t:"15:30",a:"Bazar Khan el-Khalili + El Cairo copto (opcional)",ic:"🛍️"},
+   {t:"20:00",a:"Cena · preparar maleta (¡vuelo 05:20!)",type:"meal",ic:"🧳"}],
+  stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
+  maps:[{n:"Gran Museo Egipcio (GEM)",q:"Grand Egyptian Museum"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
+
+ {d:"12",m:"Oct",dow:"Lunes",city:"El Cairo → Aswan 🚢",icon:"🛥️",
+  desc:"Vuelo al sur y embarque en el crucero por el Nilo.",
+  plan:[
+   {t:"02:30",a:"Salida al aeropuerto de El Cairo",ic:"🚕"},
+   {t:"05:20",a:"Vuelo EgyptAir MS280 → Aswan (llega 06:40) · YM8EP2",type:"flight",ic:"✈️"},
+   {t:"08:30",a:"Presa Alta, Templo de Philae y Obelisco inacabado",ic:"🏛️"},
+   {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️"},
+   {t:"14:00",a:"Embarque en el crucero · cóctel de bienvenida",type:"stay",ic:"🛳️"},
+   {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
+  stayTag:{name:"Crucero por el Nilo (noche 1)",status:"pend"},
+  maps:[{n:"Aeropuerto de Aswan",q:"Aswan International Airport"},{n:"Templo de Philae",q:"Philae Temple"},{n:"Presa Alta",q:"Aswan High Dam"}]},
+
+ {d:"13",m:"Oct",dow:"Martes",city:"Nilo · Aswan",icon:"⛵",
+  desc:"Navegando el Nilo, con opción de Abu Simbel.",
+  plan:[
+   {t:"04:00",a:"Excursión opcional a Abu Simbel (madrugada)",ic:"🌄"},
+   {t:"09:00",a:"Desayuno a bordo",type:"meal",ic:"☕"},
+   {t:"12:00",a:"Navegación · almuerzo a bordo",type:"meal",ic:"🍽️"},
+   {t:"16:00",a:"Templo de Kom Ombo al atardecer",ic:"🏛️"},
+   {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
+  stayTag:{name:"Crucero por el Nilo (noche 2)",status:"pend"},
+  maps:[{n:"Abu Simbel",q:"Abu Simbel Temples"},{n:"Kom Ombo",q:"Kom Ombo Temple"}]},
+
+ {d:"14",m:"Oct",dow:"Miércoles",city:"Nilo → Luxor",icon:"⛵",
+  desc:"Templos junto al río rumbo a Luxor.",
+  plan:[
+   {t:"08:00",a:"Desayuno",type:"meal",ic:"☕"},
+   {t:"09:00",a:"Templo de Edfu (en calesa)",ic:"🐎"},
+   {t:"13:00",a:"Navegación · almuerzo · esclusa de Esna",type:"meal",ic:"🍽️"},
+   {t:"20:00",a:"Cena · noche de galabeya (opcional)",type:"meal",ic:"🎉"}],
+  stayTag:{name:"Crucero por el Nilo (noche 3)",status:"pend"},
+  maps:[{n:"Templo de Edfu",q:"Temple of Edfu"}]},
+
+ {d:"15",m:"Oct",dow:"Jueves",city:"Luxor",icon:"🏛️",
+  desc:"Desembarque y templos de la orilla Este.",
+  plan:[
+   {t:"08:00",a:"Desayuno y desembarque",type:"meal",ic:"☕"},
+   {t:"10:00",a:"Check-in KR Elite Hotel (dejar maletas)",type:"stay",ic:"🛏️"},
+   {t:"10:30",a:"Templo de Karnak",ic:"🏛️"},
+   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
+   {t:"16:30",a:"Templo de Luxor (atardecer)",ic:"🌇"},
+   {t:"20:00",a:"Cena en Luxor",type:"meal",ic:"🍽️"}],
+  stayTag:{name:"KR Elite Hotel ⭐9.5",status:"ok"},
+  maps:[{n:"KR Elite Hotel",q:"KR Elite Hotel Luxor"},{n:"Templo de Karnak",q:"Karnak Temple"},{n:"Templo de Luxor",q:"Luxor Temple"}]},
+
+ {d:"16",m:"Oct",dow:"Viernes",city:"Luxor → El Cairo",icon:"🎈",
+  desc:"Orilla Oeste y vuelo nocturno de regreso a El Cairo.",
+  plan:[
+   {t:"05:30",a:"Globo aerostático al amanecer (opcional)",ic:"🎈"},
+   {t:"08:00",a:"Desayuno · checkout (guardar maletas)",type:"meal",ic:"🧳"},
+   {t:"09:00",a:"Valle de los Reyes, Hatshepsut y Colosos de Memnón",ic:"⚰️"},
+   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
+   {t:"15:00",a:"Tarde libre / relax junto al Nilo",type:"free",ic:"🌴"},
+   {t:"19:00",a:"Traslado al aeropuerto de Luxor",ic:"🚕"},
+   {t:"21:10",a:"Vuelo EgyptAir MS069 → El Cairo (llega 22:20) · YMGEXP",type:"flight",ic:"✈️"},
+   {t:"noche",a:"Espera en el aeropuerto (conexión 04:00)",type:"free",ic:"🕓"}],
+  maps:[{n:"Valle de los Reyes",q:"Valley of the Kings"},{n:"Templo de Hatshepsut",q:"Mortuary Temple of Hatshepsut"}]},
+
+ {d:"17",m:"Oct",dow:"Sábado",city:"El Cairo → Atenas",icon:"🇬🇷",
+  desc:"Vuelo de madrugada a Grecia y primer día en Atenas.",
+  plan:[
+   {t:"04:00",a:"Vuelo Aegean A3931 → Atenas (llega 06:00) · 7TV5KM",type:"flight",ic:"✈️"},
+   {t:"07:30",a:"Traslado y dejar maletas · desayuno griego",type:"meal",ic:"☕"},
+   {t:"09:00",a:"Acrópolis y Partenón (temprano, menos gente)",ic:"🏛️"},
+   {t:"13:00",a:"Almuerzo en Plaka",type:"meal",ic:"🍽️"},
+   {t:"16:00",a:"Ágora Antigua y Monastiraki",ic:"🏺"},
+   {t:"20:30",a:"Cena griega",type:"meal",ic:"🍽️"}],
+  stayTag:{name:"Hotel en Atenas (centro/Plaka)",status:"pend"},
+  maps:[{n:"Acrópolis de Atenas",q:"Acropolis of Athens"},{n:"Plaka",q:"Plaka Athens"}]},
+
+ {d:"18",m:"Oct",dow:"Domingo",city:"Atenas",icon:"🏛️",
+  desc:"Museos y los barrios más bonitos.",
+  plan:[
+   {t:"09:00",a:"Desayuno",type:"meal",ic:"☕"},
+   {t:"10:00",a:"Museo de la Acrópolis",ic:"🏛️"},
+   {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️"},
+   {t:"15:00",a:"Plaka, Anafiotika y colina Licabeto",ic:"🚶"},
+   {t:"18:30",a:"Atardecer con vistas de la ciudad",ic:"🌇"},
+   {t:"20:30",a:"Cena",type:"meal",ic:"🍽️"}],
+  stayTag:{name:"Hotel en Atenas",status:"pend"},
+  maps:[{n:"Museo de la Acrópolis",q:"Acropolis Museum"},{n:"Colina Licabeto",q:"Mount Lycabettus Athens"}]},
+
+ {d:"19",m:"Oct",dow:"Lunes",city:"Atenas",icon:"🌊",
+  desc:"Excursión de un día o museos.",
+  plan:[
+   {t:"09:00",a:"Excursión: Cabo Sunio (Templo de Poseidón) o Delfos",ic:"🏛️"},
+   {t:"13:30",a:"Almuerzo en ruta",type:"meal",ic:"🍽️"},
+   {t:"17:00",a:"Regreso · Museo Arqueológico Nacional (opcional)",ic:"🏺"},
+   {t:"20:30",a:"Cena de despedida",type:"meal",ic:"🍷"}],
+  stayTag:{name:"Hotel en Atenas",status:"pend"},
+  maps:[{n:"Cabo Sunio",q:"Cape Sounion Temple of Poseidon"},{n:"Delfos",q:"Delphi Greece"}]},
+
+ {d:"20",m:"Oct",dow:"Martes",city:"Atenas → Madrid",icon:"🛫",
+  desc:"Última mañana en Grecia y vuelo a Madrid.",
+  plan:[
+   {t:"09:00",a:"Mañana libre / compras · checkout",ic:"🛍️"},
+   {t:"11:30",a:"Traslado al aeropuerto de Atenas",ic:"🚇"},
+   {t:"14:30",a:"Vuelo Aegean A3740 → Madrid (llega 17:25) · 9XOAZB",type:"flight",ic:"✈️"},
+   {t:"18:30",a:"Check-in hotel cerca del aeropuerto · cena tranquila",type:"stay",ic:"🛏️"}],
+  stayTag:{name:"Hotel Madrid (cerca aeropuerto)",status:"pend"},
+  maps:[{n:"Aeropuerto Madrid-Barajas",q:"Aeropuerto Madrid Barajas"}]},
+
+ {d:"21",m:"Oct",dow:"Miércoles",city:"Madrid → Bogotá",icon:"🏡",
+  desc:"Vuelo de regreso a casa. ¡Fin del viaje!",
+  plan:[
+   {t:"08:30",a:"Desayuno y checkout",type:"meal",ic:"☕"},
+   {t:"09:30",a:"Traslado al aeropuerto (T1)",ic:"🚕"},
+   {t:"12:10",a:"Vuelo Iberia IB0151 → Bogotá (llega 15:40) · P6EJR",type:"flight",ic:"✈️"},
+   {t:"15:40",a:"¡Llegada a casa! 🎉",ic:"🏡"}],
+  maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]}
+];
+
+const stays=[
+ {city:"Madrid (ida)",dates:"7–9 Oct · 2 noches",name:"Airbnb La Casita de Vicálvaro",status:"ok",info:"C. de Villacarlos 10, Vicálvaro · 130 € total",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},
+ {city:"El Cairo",dates:"10–12 Oct · 2 noches",name:"Estudio Zamalek 2 Taha Hussein",status:"ok",info:"Zamalek (Abu Al Feda) · a ~30-40 min de Giza",q:"Abu El Feda Street Zamalek Cairo"},
+ {city:"Crucero Nilo",dates:"12–15 Oct · 3 noches",name:"Crucero Aswan → Luxor",status:"pend",info:"Embarque lun 12, desembarque jue 15",q:"Aswan Nile Cruise"},
+ {city:"Luxor",dates:"15–16 Oct · 1 noche",name:"KR Elite Hotel ⭐9.5",status:"ok",info:"Orilla Este · COP 57.400 · cancelación gratis",q:"KR Elite Hotel Luxor"},
+ {city:"Atenas",dates:"17–20 Oct · 3 noches",name:"Por reservar (Plaka / Koukaki)",status:"pend",info:"Sugerido: cerca de la Acrópolis",q:"Plaka Athens hotels"},
+ {city:"Madrid (regreso)",dates:"20–21 Oct · 1 noche",name:"Por reservar (cerca aeropuerto)",status:"pend",info:"Sugerido: Hotel101 o B&B Aeropuerto",q:"hotels near Madrid Barajas airport"}
+];
+
+function mapsUrl(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);}
+
+function render(){
+ const tl=document.getElementById('timeline');
+ days.forEach((x,i)=>{
+   let li='';
+   x.plan.forEach(p=>{
+     const cls=(p.type||'')+(p.free?' ':'');
+     const tcls='time'+(p.free||p.t==='noche'||p.t==='libre'?' free':'');
+     li+='<li class="'+cls+'"><span class="'+tcls+'">'+p.t+'</span><span class="act"><span class="ic">'+(p.ic||'•')+'</span>'+p.a+'</span></li>';
+   });
+   let maps='';
+   if(x.maps)x.maps.forEach((m,j)=>maps+='<a class="maps'+(j%2?' g':'')+'" target="_blank" rel="noopener" href="'+mapsUrl(m.q)+'">📍 '+m.n+'</a>');
+   let stagLine='';
+   if(x.stayTag){const t=x.stayTag.status==='ok'?'<span class="tag ok">Reservado</span>':'<span class="tag pend">Pendiente</span>';
+     stagLine='<div class="info-line">🛏️ <b>'+x.stayTag.name+'</b>'+t+'</div>';}
+   const el=document.createElement('div');
+   el.className='day'+(i===0?' open':'');
+   el.innerHTML=
+    '<div class="day-head" onclick="this.parentNode.classList.toggle(\'open\')">'+
+      '<div class="date-badge"><div class="d">'+x.d+'</div><div class="m">'+x.m+'</div></div>'+
+      '<div class="t"><div class="city">'+x.icon+' '+x.city+'</div><div class="dow">'+x.dow+'</div></div>'+
+      '<div class="chev">›</div></div>'+
+    '<div class="day-body"><div class="day-inner">'+
+      '<div class="desc">'+x.desc+'</div>'+
+      '<ul class="plan">'+li+'</ul>'+stagLine+maps+
+    '</div></div>';
+   tl.appendChild(el);
+ });
+ const sc=document.getElementById('stays');
+ stays.forEach(s=>{
+   const t=s.status==='ok'?'<span class="tag ok">Reservado</span>':'<span class="tag pend">Pendiente</span>';
+   const el=document.createElement('div');el.className='ref';
+   el.innerHTML='<h3>'+s.city+' '+t+'</h3><div class="dates-sm">'+s.dates+'</div><div><b>'+s.name+'</b></div><div class="info-line">'+s.info+'</div><a class="maps" target="_blank" rel="noopener" href="'+mapsUrl(s.q)+'">📍 Google Maps</a>';
+   sc.appendChild(el);
+ });
+}
+render();
+function descargar(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const b=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Viaje-Egipto-2026.html';document.body.appendChild(a);a.click();a.remove();}
+function imprimir(){window.print();}
+</script>
+</body>
+</html>
