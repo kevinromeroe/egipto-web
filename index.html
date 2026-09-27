@@ -135,7 +135,7 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;pad
   <div class="ref">
     <table>
       <tr><td>6 Oct</td><td><b>Bogotá → Madrid</b> · Iberia IB0154 · 21:25 → 7 Oct 14:10 · <b>P6EJR</b></td></tr>
-      <tr><td>9 Oct</td><td><b>Madrid → El Cairo</b> (vía Atenas) · Aegean A3741/A3930 · 18:20 → 10 Oct 02:50 · <b>7TI2LS</b></td></tr>
+      <tr><td>9 Oct</td><td><b>Madrid → El Cairo</b> · A3741 18:20→Atenas 22:50 · <b>escala 2h05</b> · A3930 00:55→El Cairo 02:50 (+1) · <b>7TI2LS</b></td></tr>
       <tr><td>12 Oct</td><td><b>El Cairo → Aswan</b> · EgyptAir MS280 · 05:20 → 06:40 · <b>YM8EP2</b></td></tr>
       <tr><td>16 Oct</td><td><b>Luxor → El Cairo</b> · EgyptAir MS069 · 21:10 → 22:20 · <b>YMGEXP</b></td></tr>
       <tr><td>17 Oct</td><td><b>El Cairo → Atenas</b> · Aegean A3931 · 04:00 → 06:00 · <b>7TV5KM</b></td></tr>
@@ -150,11 +150,12 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;pad
 
   <div class="section-title">📝 Pendientes clave</div>
   <div class="ref"><table>
-    <tr><td>🛂</td><td>Visa de <b>Egipto</b> (e-visa/llegada) + pasaporte vigente ≥6 meses</td></tr>
-    <tr><td>🇪🇺</td><td>Requisitos <b>Schengen</b> (España/Grecia) para colombianos</td></tr>
+    <tr><td>🛂</td><td><b>e-Visa de Egipto</b> (online, 1 entrada, 30 días) + pasaporte vigente ≥6 meses</td></tr>
+    <tr><td>🇪🇺</td><td><b>Schengen:</b> colombianos SIN visa (≤90 días) ✓. Verificar <b>ETIAS</b> (€20 online) si ya aplica en oct 2026</td></tr>
     <tr><td>🏨</td><td>Reservar <b>Madrid regreso</b> (1 noche, 20 Oct, cerca del aeropuerto)</td></tr>
-    <tr><td>🧾</td><td><b>Datos fiscales</b> al Airbnb de Madrid (ley española)</td></tr>
-    <tr><td>🛡️</td><td><b>Seguro de viaje</b> · 🧳 evaluar <b>equipaje facturado</b></td></tr>
+    <tr><td>🪪</td><td>Dar <b>datos de identidad/pasaporte</b> al Airbnb de Madrid (registro de huéspedes, ley española)</td></tr>
+    <tr><td>🛡️</td><td><b>Seguro de viaje</b> con cobertura médica ≥€30.000 (Assist Card/SURA desde ~USD 25 · 15 días)</td></tr>
+    <tr><td>🧳</td><td>Evaluar <b>equipaje facturado</b> (todos los tramos van con 0 maletas)</td></tr>
   </table></div>
 
   <footer>
@@ -168,7 +169,7 @@ const days=[
  {d:"06",m:"Oct",dow:"Martes",city:"Bogotá → Madrid",icon:"🛫",
   desc:"Inicio del viaje. Vuelo nocturno transatlántico.",
   plan:[
-   {t:"18:00",a:"Llegar al aeropuerto El Dorado (check-in internacional)",ic:"🧳"},
+   {t:"18:00",a:"⏰ Estar en El Dorado (3h antes · vuelo internacional)",ic:"🕒"},
    {t:"21:25",a:"Vuelo Iberia IB0154 → Madrid · PNR P6EJR",type:"flight",ic:"✈️"},
    {t:"noche",a:"Cena a bordo y descanso",type:"meal",free:1,ic:"🍽️"}],
   maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]},
@@ -201,9 +202,10 @@ const days=[
    {t:"10:00",a:"Mañana libre: compras / barrio de Salamanca",ic:"🛍️"},
    {t:"12:00",a:"Checkout del Airbnb (dejar maletas)",type:"stay",ic:"🧳"},
    {t:"13:00",a:"Almuerzo temprano",type:"meal",ic:"🍽️"},
-   {t:"15:30",a:"Traslado al aeropuerto (T2)",ic:"🚕"},
-   {t:"18:20",a:"Vuelo Aegean A3741 → El Cairo vía Atenas (conexión 2h05) · 7TI2LS",type:"flight",ic:"✈️"},
-   {t:"noche",a:"Cena a bordo / noche en tránsito",type:"meal",free:1,ic:"🌙"}],
+   {t:"15:20",a:"⏰ Estar en Madrid-Barajas T2 (3h antes · internacional)",ic:"🕒"},
+   {t:"18:20",a:"Vuelo Aegean A3741 → Atenas (llega 22:50) · 7TI2LS",type:"flight",ic:"✈️"},
+   {t:"22:50",a:"Escala en Atenas · 2h05",type:"free",ic:"🔄"},
+   {t:"00:55",a:"Vuelo Aegean A3930 Atenas → El Cairo (llega 02:50 +1) · 7TI2LS",type:"flight",ic:"✈️"}],
   maps:[{n:"Aeropuerto Madrid-Barajas T2",q:"Aeropuerto Madrid Barajas Terminal 2"}]},
 
  {d:"10",m:"Oct",dow:"Sábado",city:"El Cairo",icon:"🐫",
@@ -233,7 +235,8 @@ const days=[
  {d:"12",m:"Oct",dow:"Lunes",city:"El Cairo → Aswan 🚢",icon:"🛥️",
   desc:"Vuelo al sur y embarque en el crucero por el Nilo.",
   plan:[
-   {t:"02:30",a:"Salida al aeropuerto de El Cairo",ic:"🚕"},
+   {t:"02:45",a:"Salida de Zamalek al aeropuerto",ic:"🚕"},
+   {t:"03:20",a:"⏰ En el aeropuerto de El Cairo (2h antes · doméstico)",ic:"🕒"},
    {t:"05:20",a:"Vuelo EgyptAir MS280 → Aswan (llega 06:40) · YM8EP2",type:"flight",ic:"✈️"},
    {t:"08:30",a:"Presa Alta, Templo de Philae y Obelisco inacabado",ic:"🏛️"},
    {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️"},
@@ -283,7 +286,7 @@ const days=[
    {t:"09:00",a:"Valle de los Reyes, Hatshepsut y Colosos de Memnón",ic:"⚰️"},
    {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
    {t:"15:00",a:"Tarde libre / relax junto al Nilo",type:"free",ic:"🌴"},
-   {t:"19:00",a:"Traslado al aeropuerto de Luxor",ic:"🚕"},
+   {t:"19:10",a:"⏰ En el aeropuerto de Luxor (2h antes · doméstico)",ic:"🕒"},
    {t:"21:10",a:"Vuelo EgyptAir MS069 → El Cairo (llega 22:20) · YMGEXP",type:"flight",ic:"✈️"},
    {t:"noche",a:"Espera en el aeropuerto (conexión 04:00)",type:"free",ic:"🕓"}],
   maps:[{n:"Valle de los Reyes",q:"Valley of the Kings"},{n:"Templo de Hatshepsut",q:"Mortuary Temple of Hatshepsut"}]},
@@ -291,6 +294,7 @@ const days=[
  {d:"17",m:"Oct",dow:"Sábado",city:"El Cairo → Atenas",icon:"🇬🇷",
   desc:"Vuelo de madrugada a Grecia y primer día en Atenas.",
   plan:[
+   {t:"01:00",a:"⏰ Check-in internacional en El Cairo (3h antes)",ic:"🕒"},
    {t:"04:00",a:"Vuelo Aegean A3931 → Atenas (llega 06:00) · 7TV5KM",type:"flight",ic:"✈️"},
    {t:"07:30",a:"Traslado y dejar maletas · desayuno griego",type:"meal",ic:"☕"},
    {t:"09:00",a:"Acrópolis y Partenón (temprano, menos gente)",ic:"🏛️"},
@@ -326,7 +330,7 @@ const days=[
   desc:"Última mañana en Grecia y vuelo a Madrid.",
   plan:[
    {t:"09:00",a:"Mañana libre / compras · checkout",ic:"🛍️"},
-   {t:"11:30",a:"Traslado al aeropuerto de Atenas",ic:"🚇"},
+   {t:"11:30",a:"⏰ En el aeropuerto de Atenas (3h antes · internacional)",ic:"🚇"},
    {t:"14:30",a:"Vuelo Aegean A3740 → Madrid (llega 17:25) · 9XOAZB",type:"flight",ic:"✈️"},
    {t:"18:30",a:"Check-in hotel cerca del aeropuerto · cena tranquila",type:"stay",ic:"🛏️"}],
   stayTag:{name:"Hotel Madrid (cerca aeropuerto)",status:"pend"},
@@ -336,7 +340,7 @@ const days=[
   desc:"Vuelo de regreso a casa. ¡Fin del viaje!",
   plan:[
    {t:"08:30",a:"Desayuno y checkout",type:"meal",ic:"☕"},
-   {t:"09:30",a:"Traslado al aeropuerto (T1)",ic:"🚕"},
+   {t:"09:10",a:"⏰ En Madrid-Barajas T1 (3h antes · internacional)",ic:"🕒"},
    {t:"12:10",a:"Vuelo Iberia IB0151 → Bogotá (llega 15:40) · P6EJR",type:"flight",ic:"✈️"},
    {t:"15:40",a:"¡Llegada a casa! 🎉",ic:"🏡"}],
   maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]}
