@@ -270,7 +270,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
   <table class="bud">
    <tr class="sub"><td colspan="3">🇪🇬 El Cairo</td></tr>
    <tr><td>Meseta de Giza (pirámides y Esfinge)</td><td>700 EGP</td><td>$13.5</td></tr>
-   <tr><td>Gran Museo Egipcio (GEM)</td><td>1.450 EGP</td><td>$27.9</td></tr>
+   <tr><td>Museo de la Civilización (momias reales, opcional)</td><td>~550 EGP</td><td>$10.6</td></tr>
    <tr><td>Monumentos de Al-Muizz (Qalawun y más)</td><td>220 EGP</td><td>$4.2</td></tr>
    <tr><td>Minaretes de Bab Zuweila</td><td>40 EGP</td><td>$0.8</td></tr>
    <tr><td>Bayt al-Suhaymi</td><td>~80–180 EGP</td><td>~$2.5</td></tr>
@@ -281,7 +281,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
    <tr><td>Deir el-Medina</td><td>220 EGP</td><td>$4.2</td></tr>
    <tr><td>Tumba de Ramsés V/VI (KV9)</td><td>220 EGP</td><td>$4.2</td></tr>
    <tr><td>Colosos de Memnón</td><td>gratis</td><td>$0</td></tr>
-   <tr class="tot"><td>Subtotal Egipto</td><td>~3.700 EGP</td><td>≈ $70</td></tr>
+   <tr class="tot"><td>Subtotal Egipto</td><td>~2.250 EGP (+550 si van al museo)</td><td>≈ $43–54</td></tr>
    <tr class="sub"><td colspan="3">⭐ Opcionales (si les sobra)</td></tr>
    <tr><td>Interior de la Gran Pirámide</td><td>1.500 EGP</td><td>$28.8</td></tr>
    <tr><td>Tumba de Tutankamón</td><td>700 EGP</td><td>$13.5</td></tr>
@@ -334,7 +334,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
   <div class="section-title">📝 Pendientes clave</div>
   <div class="ref"><table>
     <tr><td>🛂</td><td><b>URGENTE · Visa de Egipto:</b> e-Visa online (1 entrada, 30 días) o visa a la llegada en El Cairo (USD 25 en efectivo) + pasaporte vigente ≥6 meses</td></tr>
-    <tr><td>🎂</td><td><b>Corregir fecha de nacimiento de Angie</b> con EgyptAir (YM8EP2 dice 1998, YMGEXP dice 1997)</td></tr>
+    <tr><td>🎂</td><td><i>Recomendado, no bloqueante:</i> corregir la fecha de nacimiento de Angie en la reserva <b>YMGEXP</b> (dice 1997; la real es 1998)</td></tr>
     <tr><td>🌙</td><td>Confirmar con el anfitrión de Zamalek el <b>check-in de madrugada</b> del 10 Oct (llegada 02:50) o reservar la noche del 9</td></tr>
     <tr><td>🎫</td><td>Confirmar que el billete Iberia <b>…206</b> está a nombre de Angie</td></tr>
     <tr><td>🇪🇺</td><td><b>Schengen:</b> colombianos SIN visa (≤90 días) ✓. <b>ETIAS</b> aún no se exige en oct 2026 ✓</td></tr>
@@ -783,19 +783,20 @@ const days=[
   maps:[{n:"Estudio Zamalek (hotel)",q:"Abu El Feda Street Zamalek Cairo"},{n:"Pirámides de Giza",q:"Pyramids of Giza"}]},
 
  {d:"11",m:"Oct",dow:"Domingo",city:"El Cairo",icon:"🏺",
-  desc:"Tesoros faraónicos y el bullicio del bazar.",
+  desc:"El Cairo copto, las momias reales (opcional) y el bullicio del Cairo islámico.",
   plan:[
    {t:"09:00",a:"Desayuno",type:"meal",ic:"☕",c:"200–350 EGP",lo:4,hi:7,dish:["Feteer meshaltet (hojaldre egipcio con miel o queso)", "Huevos con pastirma", "Té con menta"]},
-   {t:"09:15",a:"<b>Uber</b> de Zamalek al Gran Museo Egipcio (~40 min)",type:"move",ic:"🚕"},
-   {t:"10:00",a:"Gran Museo Egipcio (GEM) — junto a Giza",ic:"🏛️",c:"Entrada 1.450 EGP + Uber ~400 EGP",lo:34,hi:37},
+   {t:"09:45",a:"<b>Uber</b> de Zamalek a El Cairo copto (estación Mar Girgis, ~20 min)",type:"move",ic:"🚕"},
+   {t:"10:00",a:"<b>El Cairo copto</b>: Iglesia Colgante → Iglesia de San Sergio → Sinagoga Ben Ezra · <b>todo a pie</b>, a 2–5 min entre sí",ic:"⛪",c:"Gratis (donación voluntaria) + Uber ~100 EGP por persona",lo:2,hi:2},
+   {t:"11:45",a:"Opcional: <b>Museo Nacional de la Civilización Egipcia</b>, la Sala de las Momias Reales (Ramsés II, Hatshepsut…) · ~10 min en Uber desde el barrio copto",ic:"🏛️",c:"~550 EGP + Uber ~60 EGP (opcional)",lo:0,hi:12},
    {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️",c:"300–600 EGP",lo:6,hi:12,dish:["Koshari (arroz, lentejas, pasta, garbanzos y salsa de tomate picante: el plato nacional)", "Sopa de lentejas (shorbat ads)", "Jugo de caña de azúcar (asab)"]},
-   {t:"14:45",a:"<b>Uber</b> del GEM a «Bab Al Futuh» (~45–60 min, cruza la ciudad). Desde ahí todo <b>a pie</b>: bajan por Al-Muizz ~1 km hasta el Khan el-Khalili y siguen 10 min hasta Bab Zuweila",type:"move",ic:"🚕"},
+   {t:"14:30",a:"<b>Uber</b> a «Bab Al Futuh» (~30 min). Desde ahí todo <b>a pie</b>: bajan por Al-Muizz ~1 km hasta el Khan el-Khalili y siguen 10 min hasta Bab Zuweila",type:"move",ic:"🚕"},
    {t:"15:30",a:"Calle Al-Muizz → Khan el-Khalili → minaretes de Bab Zuweila · té en El Fishawy",ic:"🛍️",c:"Monumentos ~390 EGP + Uber ~200 + té ~100 EGP",lo:13,hi:15,dish:["Té de menta en El Fishawy", "Karkadé (infusión de hibisco, fría o caliente)", "Sahlab (bebida caliente de leche con canela y frutos secos)"]},
    {t:"19:15",a:"<b>Uber</b> de Bab Zuweila / Al-Azhar a Zamalek (~25 min)",type:"move",ic:"🚕"},
    {t:"20:00",a:"Cena · preparar maleta (¡vuelo 05:20!)",type:"meal",ic:"🧳",c:"400–700 EGP",lo:8,hi:14,dish:["Hamam mahshi (pichón relleno de trigo: típico egipcio)", "Konafa (postre de fideos crujientes con almíbar)", "Basbousa (bizcocho de sémola)"]}],
   stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
-  guide:["g-gem", "g-islamico"],
-  maps:[{n:"Gran Museo Egipcio (GEM)",q:"Grand Egyptian Museum"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
+  guide:["g-copto", "g-islamico"],
+  maps:[{n:"El Cairo copto (Iglesia Colgante)",q:"Hanging Church Cairo"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
 
  {d:"12",m:"Oct",dow:"Lunes",city:"El Cairo → Aswan 🚢",icon:"🛥️",
   desc:"Vuelo al sur y embarque en el crucero por el Nilo.",
