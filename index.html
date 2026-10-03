@@ -155,6 +155,12 @@ details.site[open] summary::after{transform:rotate(90deg)}
 .near summary{cursor:pointer;font-weight:700;color:var(--nile-d)}
 .near ul{padding-left:4px;list-style:none;margin-top:6px} .near li{margin:5px 0}
 @media print{details>*{display:block}}
+.cost{display:block;margin-top:3px;font-size:.74rem;font-weight:500;color:var(--muted)}
+.cost b{color:var(--ok);font-weight:700}
+.cost.zero{color:#8aa}
+.daytot{background:#e9f5ee;border:1px solid #bfe0cc;border-radius:10px;padding:8px 11px;margin:0 0 10px;font-size:.84rem;color:var(--ok)}
+.daytot span{display:block;font-size:.7rem;color:var(--muted)}
+
 .legs{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 10px}
 .leg{min-width:96px;flex-basis:0;padding:8px 6px;text-align:center;color:#fff;font-size:.72rem;line-height:1.25;border-radius:10px;box-shadow:0 2px 6px rgba(120,90,20,.12)}
 .leg b{display:block;font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .leg span{opacity:.9;font-size:.66rem}
@@ -299,7 +305,12 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
   </table>
   <div class="info-line">💵 Lleven dólares en billetes pequeños y nuevos ($1 y $5) y saquen libras en un cajero del aeropuerto de El Cairo para propinas y baños.</div></div>
 
-  <div class="ref"><h3>🧮 Resumen por persona</h3>
+  <div class="ref"><h3>🗓️ Gasto día por día (comida + transporte + entradas)</h3>
+  <div class="info-line" style="margin:0 0 8px">Suma de los costos de cada actividad del itinerario, por persona. No incluye vuelos ni alojamientos ya pagados (sí el hotel de Madrid del 20, que falta reservar). Los rangos van de lo mínimo (sin opcionales) a lo cómodo.</div>
+  <div id="daytotals"></div>
+  <div class="info-line">Súmenle las propinas de Egipto (~USD 40–60 por persona) y un colchón para compras y recuerdos.</div></div>
+
+  <div class="ref"><h3>🧮 Resumen solo entradas y propinas (por persona)</h3>
   <table class="bud">
    <tr><td>Entradas ruta del crucero (si las pagan ustedes)</td><td colspan="2">≈ $98</td></tr>
    <tr><td>Entradas El Cairo + extras Luxor</td><td colspan="2">≈ $70</td></tr>
@@ -705,18 +716,18 @@ const days=[
  {d:"06",m:"Oct",dow:"Martes",city:"Bogotá → Madrid",icon:"🛫",
   desc:"Inicio del viaje. Vuelo nocturno transatlántico.",
   plan:[
-   {t:"18:00",a:"⏰ Estar en El Dorado (3h antes · vuelo internacional)",ic:"🕒"},
-   {t:"21:25",a:"Vuelo Iberia IB0154 → Madrid · PNR P6EJR",type:"flight",ic:"✈️"},
-   {t:"noche",a:"Cena a bordo y descanso",type:"meal",free:1,ic:"🍽️"}],
+   {t:"18:00",a:"⏰ Estar en El Dorado (3h antes · vuelo internacional)",ic:"🕒",c:"Comida en aeropuerto ~COP 40.000",lo:8,hi:12},
+   {t:"21:25",a:"Vuelo Iberia IB0154 → Madrid · PNR P6EJR",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"noche",a:"Cena a bordo y descanso",type:"meal",free:1,ic:"🍽️",c:"Incluida",lo:0,hi:0}],
   maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]},
 
  {d:"07",m:"Oct",dow:"Miércoles",city:"Madrid",icon:"🇪🇸",
   desc:"Llegada a Madrid y primer contacto con la ciudad.",
   plan:[
-   {t:"14:10",a:"Llegada a Madrid-Barajas T4S (Iberia)",type:"flight",ic:"🛬"},
-   {t:"15:30",a:"Check-in Airbnb La Casita de Vicálvaro (metro L9)",type:"stay",ic:"🛏️"},
-   {t:"17:00",a:"Puerta del Sol, Plaza Mayor y Mercado de San Miguel",ic:"🚶"},
-   {t:"20:30",a:"Cena de tapas por La Latina / Cava Baja",type:"meal",ic:"🍷"}],
+   {t:"14:10",a:"Llegada a Madrid-Barajas T4S (Iberia)",type:"flight",ic:"🛬",c:"Taxi a Vicálvaro ~€30 el carro → €15",lo:17,hi:17},
+   {t:"15:30",a:"Check-in Airbnb La Casita de Vicálvaro (metro L9)",type:"stay",ic:"🛏️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"17:00",a:"Puerta del Sol, Plaza Mayor y Mercado de San Miguel",ic:"🚶",c:"Transporte ~€4 + picar en San Miguel ~€10",lo:14,hi:17},
+   {t:"20:30",a:"Cena de tapas por La Latina / Cava Baja",type:"meal",ic:"🍷",c:"Tapas €20–30",lo:23,hi:35}],
   stayTag:{name:"Airbnb La Casita de Vicálvaro",status:"ok"},
   guide:["g-austrias"],
   maps:[{n:"La Casita de Vicálvaro",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},{n:"Plaza Mayor",q:"Plaza Mayor Madrid"}]},
@@ -724,13 +735,13 @@ const days=[
  {d:"08",m:"Oct",dow:"Jueves",city:"Madrid",icon:"🏛️",
   desc:"Prado, Bernabéu y atardecer egipcio en Madrid.",
   plan:[
-   {t:"09:00",a:"Desayuno: churros con chocolate en San Ginés",type:"meal",ic:"☕"},
-   {t:"10:00",a:"Museo del Prado",ic:"🖼️"},
-   {t:"13:30",a:"Almuerzo: cocido madrileño / menú del día",type:"meal",ic:"🍲"},
-   {t:"15:30",a:"⚽ Tour del Santiago Bernabéu (bus 27 por la Castellana o taxi desde el Prado · ~1,5 h)",ic:"🏟️"},
-   {t:"18:15",a:"Metro L10 directo Santiago Bernabéu → Plaza de España (~15 min)",ic:"🚇"},
-   {t:"19:15",a:"Atardecer en el Templo de Debod 𓋹 (un templo egipcio en Madrid) y exterior del Palacio Real",ic:"🌇"},
-   {t:"21:00",a:"Paseo por Gran Vía y cena",type:"meal",ic:"🍽️"}],
+   {t:"09:00",a:"Desayuno: churros con chocolate en San Ginés",type:"meal",ic:"☕",c:"Churros €5–7 + Cercanías ~€2",lo:8,hi:10},
+   {t:"10:00",a:"Museo del Prado",ic:"🖼️",c:"€15 (gratis lun–sáb 18–20 h)",lo:17,hi:17},
+   {t:"13:30",a:"Almuerzo: cocido madrileño / menú del día",type:"meal",ic:"🍲",c:"Menú del día €15–20",lo:17,hi:23},
+   {t:"15:30",a:"⚽ Tour del Santiago Bernabéu (bus 27 por la Castellana o taxi desde el Prado · ~1,5 h)",ic:"🏟️",c:"€37 + bus €2",lo:45,hi:45},
+   {t:"18:15",a:"Metro L10 directo Santiago Bernabéu → Plaza de España (~15 min)",ic:"🚇",c:"Metro ~€2",lo:2,hi:2},
+   {t:"19:15",a:"Atardecer en el Templo de Debod 𓋹 (un templo egipcio en Madrid) y exterior del Palacio Real",ic:"🌇",c:"Gratis",lo:0,hi:0},
+   {t:"21:00",a:"Paseo por Gran Vía y cena",type:"meal",ic:"🍽️",c:"Cena €20–30 + Cercanías ~€2",lo:25,hi:37}],
   stayTag:{name:"Airbnb La Casita de Vicálvaro",status:"ok"},
   guide:["g-prado", "g-bernabeu", "g-debod"],
   maps:[{n:"Museo del Prado",q:"Museo del Prado Madrid"},{n:"Estadio Santiago Bernabéu",q:"Estadio Santiago Bernabéu Madrid"}]},
@@ -738,27 +749,27 @@ const days=[
  {d:"09",m:"Oct",dow:"Viernes",city:"Madrid → El Cairo",icon:"🛫",
   desc:"Mañana en el Retiro y salida rumbo a Egipto (vía Atenas).",
   plan:[
-   {t:"09:00",a:"Cercanías Vicálvaro → Atocha (~15 min)",ic:"🚆"},
-   {t:"09:30",a:"Parque del Retiro, estanque y Palacio de Cristal",ic:"🌳"},
-   {t:"11:15",a:"Regreso a Vicálvaro",ic:"🚆"},
-   {t:"12:00",a:"Checkout del Airbnb (dejar maletas)",type:"stay",ic:"🧳"},
-   {t:"13:00",a:"Almuerzo temprano",type:"meal",ic:"🍽️"},
-   {t:"15:20",a:"⏰ Estar en Madrid-Barajas T2 (3h antes · internacional)",ic:"🕒"},
-   {t:"18:20",a:"Vuelo Aegean A3741 → Atenas (llega 22:50) · 7TI2LS",type:"flight",ic:"✈️"},
-   {t:"22:50",a:"Escala en Atenas · 2h05",type:"free",ic:"🔄"},
-   {t:"00:55",a:"Vuelo Aegean A3930 Atenas → El Cairo (llega 02:50 +1) · 7TI2LS",type:"flight",ic:"✈️"}],
+   {t:"09:00",a:"Cercanías Vicálvaro → Atocha (~15 min)",ic:"🚆",c:"Cercanías ida y vuelta ~€4",lo:5,hi:5},
+   {t:"09:30",a:"Parque del Retiro, estanque y Palacio de Cristal",ic:"🌳",c:"Gratis (barca en el estanque ~€6, opcional)",lo:0,hi:7},
+   {t:"11:15",a:"Regreso a Vicálvaro",ic:"🚆",c:"Incluido arriba",lo:0,hi:0},
+   {t:"12:00",a:"Checkout del Airbnb (dejar maletas)",type:"stay",ic:"🧳",c:"Pagado ✓",lo:0,hi:0},
+   {t:"13:00",a:"Almuerzo temprano",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21},
+   {t:"15:20",a:"⏰ Estar en Madrid-Barajas T2 (3h antes · internacional)",ic:"🕒",c:"Taxi al aeropuerto ~€30 el carro → €15",lo:15,hi:17},
+   {t:"18:20",a:"Vuelo Aegean A3741 → Atenas (llega 22:50) · 7TI2LS",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"22:50",a:"Escala en Atenas · 2h05",type:"free",ic:"🔄",c:"Snack €5–10",lo:6,hi:12},
+   {t:"00:55",a:"Vuelo Aegean A3930 Atenas → El Cairo (llega 02:50 +1) · 7TI2LS",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0}],
   maps:[{n:"Aeropuerto Madrid-Barajas T2",q:"Aeropuerto Madrid Barajas Terminal 2"}]},
 
  {d:"10",m:"Oct",dow:"Sábado",city:"El Cairo",icon:"🐫",
   desc:"Llegada de madrugada y ¡el gran día de las pirámides! 🎂 ¡Feliz cumpleaños, Kevin!",
   plan:[
-   {t:"02:50",a:"Llegada a El Cairo (T3) · traslado a Zamalek",type:"flight",ic:"🛬"},
-   {t:"03:40",a:"Check-in y descanso en el Estudio Zamalek (confirmar llegada de madrugada con el anfitrión)",type:"stay",ic:"🛏️"},
-   {t:"10:00",a:"Desayuno tardío",type:"meal",ic:"☕"},
-   {t:"11:00",a:"Pirámides de Giza y la Esfinge",ic:"🔺"},
-   {t:"14:00",a:"Almuerzo con vista a las pirámides",type:"meal",ic:"🍽️"},
-   {t:"16:00",a:"Paseo en camello opcional · atardecer en Giza",ic:"🐪"},
-   {t:"20:00",a:"Cena en Zamalek",type:"meal",ic:"🍽️"}],
+   {t:"02:50",a:"Llegada a El Cairo (T3) · traslado a Zamalek",type:"flight",ic:"🛬",c:"Uber ~300–450 EGP el carro → ~200 EGP (+ visa USD 25 si les toca a la llegada)",lo:3,hi:4},
+   {t:"03:40",a:"Check-in y descanso en el Estudio Zamalek (confirmar llegada de madrugada con el anfitrión)",type:"stay",ic:"🛏️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"10:00",a:"Desayuno tardío",type:"meal",ic:"☕",c:"200–350 EGP",lo:4,hi:7},
+   {t:"11:00",a:"Pirámides de Giza y la Esfinge",ic:"🔺",c:"Entrada 700 EGP + Uber ida y vuelta ~400 EGP",lo:21,hi:23},
+   {t:"14:00",a:"Almuerzo con vista a las pirámides",type:"meal",ic:"🍽️",c:"600–1.000 EGP",lo:12,hi:19},
+   {t:"16:00",a:"Paseo en camello opcional · atardecer en Giza",ic:"🐪",c:"Camello opcional 500–1.000 EGP (pactar precio total)",lo:0,hi:19},
+   {t:"20:00",a:"Cena en Zamalek",type:"meal",ic:"🍽️",c:"500–900 EGP",lo:10,hi:17}],
   stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
   guide:["g-giza"],
   maps:[{n:"Estudio Zamalek (hotel)",q:"Abu El Feda Street Zamalek Cairo"},{n:"Pirámides de Giza",q:"Pyramids of Giza"}]},
@@ -766,11 +777,11 @@ const days=[
  {d:"11",m:"Oct",dow:"Domingo",city:"El Cairo",icon:"🏺",
   desc:"Tesoros faraónicos y el bullicio del bazar.",
   plan:[
-   {t:"09:00",a:"Desayuno",type:"meal",ic:"☕"},
-   {t:"10:00",a:"Gran Museo Egipcio (GEM) — junto a Giza",ic:"🏛️"},
-   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
-   {t:"15:30",a:"Calle Al-Muizz → Khan el-Khalili → minaretes de Bab Zuweila · té en El Fishawy",ic:"🛍️"},
-   {t:"20:00",a:"Cena · preparar maleta (¡vuelo 05:20!)",type:"meal",ic:"🧳"}],
+   {t:"09:00",a:"Desayuno",type:"meal",ic:"☕",c:"200–350 EGP",lo:4,hi:7},
+   {t:"10:00",a:"Gran Museo Egipcio (GEM) — junto a Giza",ic:"🏛️",c:"Entrada 1.450 EGP + Uber ~400 EGP",lo:34,hi:37},
+   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️",c:"300–600 EGP",lo:6,hi:12},
+   {t:"15:30",a:"Calle Al-Muizz → Khan el-Khalili → minaretes de Bab Zuweila · té en El Fishawy",ic:"🛍️",c:"Monumentos ~390 EGP + Uber ~200 + té ~100 EGP",lo:13,hi:15},
+   {t:"20:00",a:"Cena · preparar maleta (¡vuelo 05:20!)",type:"meal",ic:"🧳",c:"400–700 EGP",lo:8,hi:14}],
   stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
   guide:["g-gem", "g-islamico", "g-copto"],
   maps:[{n:"Gran Museo Egipcio (GEM)",q:"Grand Egyptian Museum"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
@@ -778,13 +789,13 @@ const days=[
  {d:"12",m:"Oct",dow:"Lunes",city:"El Cairo → Aswan 🚢",icon:"🛥️",
   desc:"Vuelo al sur y embarque en el crucero por el Nilo.",
   plan:[
-   {t:"02:45",a:"Salida de Zamalek al aeropuerto",ic:"🚕"},
-   {t:"03:20",a:"⏰ En el aeropuerto de El Cairo (2h antes · doméstico)",ic:"🕒"},
-   {t:"05:20",a:"Vuelo EgyptAir MS280 → Aswan (llega 06:40) · YM8EP2",type:"flight",ic:"✈️"},
-   {t:"08:30",a:"Presa Alta, Templo de Philae y Obelisco inacabado",ic:"🏛️"},
-   {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️"},
-   {t:"14:00",a:"Embarque en el crucero · cóctel de bienvenida",type:"stay",ic:"🛳️"},
-   {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
+   {t:"02:45",a:"Salida de Zamalek al aeropuerto",ic:"🚕",c:"Uber ~150–250 EGP por persona",lo:3,hi:5},
+   {t:"03:20",a:"⏰ En el aeropuerto de El Cairo (2h antes · doméstico)",ic:"🕒",c:"—",lo:0,hi:0},
+   {t:"05:20",a:"Vuelo EgyptAir MS280 → Aswan (llega 06:40) · YM8EP2",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"08:30",a:"Presa Alta, Templo de Philae y Obelisco inacabado",ic:"🏛️",c:"970 EGP (si el crucero no las cubre)",lo:0,hi:19},
+   {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️",c:"300–600 EGP (o a bordo, incluido)",lo:0,hi:12},
+   {t:"14:00",a:"Embarque en el crucero · cóctel de bienvenida",type:"stay",ic:"🛳️",c:"Incluido ✓",lo:0,hi:0},
+   {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️",c:"Incluida ✓",lo:0,hi:0}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 1",status:"ok"},
   guide:["g-philae", "g-nubia"],
   maps:[{n:"Aeropuerto de Aswan",q:"Aswan International Airport"},{n:"Templo de Philae",q:"Philae Temple Aswan"},{n:"Presa Alta de Asuán",q:"Aswan High Dam"}]},
@@ -792,11 +803,11 @@ const days=[
  {d:"13",m:"Oct",dow:"Martes",city:"Nilo · Aswan",icon:"⛵",
   desc:"Navegando el Nilo, con Abu Simbel incluido en el paquete.",
   plan:[
-   {t:"04:00",a:"Excursión a Abu Simbel (incluida en Imperial Egypt · confirmar hora con el operador)",ic:"🌄"},
-   {t:"09:00",a:"Desayuno a bordo",type:"meal",ic:"☕"},
-   {t:"12:00",a:"Navegación · almuerzo a bordo",type:"meal",ic:"🍽️"},
-   {t:"16:00",a:"Templo de Kom Ombo al atardecer",ic:"🏛️"},
-   {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
+   {t:"04:00",a:"Excursión a Abu Simbel (incluida en Imperial Egypt · confirmar hora con el operador)",ic:"🌄",c:"Entrada 822 EGP (excursión incluida)",lo:16,hi:16},
+   {t:"09:00",a:"Desayuno a bordo",type:"meal",ic:"☕",c:"Incluido ✓",lo:0,hi:0},
+   {t:"12:00",a:"Navegación · almuerzo a bordo",type:"meal",ic:"🍽️",c:"Incluido ✓",lo:0,hi:0},
+   {t:"16:00",a:"Templo de Kom Ombo al atardecer",ic:"🏛️",c:"450 EGP",lo:9,hi:9},
+   {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️",c:"Incluida ✓",lo:0,hi:0}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 2",status:"ok"},
   guide:["g-abusimbel", "g-komombo"],
   maps:[{n:"Abu Simbel",q:"Abu Simbel Temples"},{n:"Templo de Kom Ombo",q:"Kom Ombo Temple"}]},
@@ -804,10 +815,10 @@ const days=[
  {d:"14",m:"Oct",dow:"Miércoles",city:"Nilo → Luxor",icon:"⛵",
   desc:"Templos junto al río rumbo a Luxor.",
   plan:[
-   {t:"08:00",a:"Desayuno",type:"meal",ic:"☕"},
-   {t:"09:00",a:"Templo de Edfu (en calesa)",ic:"🐎"},
-   {t:"13:00",a:"Navegación · almuerzo · esclusa de Esna",type:"meal",ic:"🍽️"},
-   {t:"20:00",a:"Cena · noche de galabeya (opcional)",type:"meal",ic:"🎉"}],
+   {t:"08:00",a:"Desayuno",type:"meal",ic:"☕",c:"Incluido ✓",lo:0,hi:0},
+   {t:"09:00",a:"Templo de Edfu (en calesa)",ic:"🐎",c:"550 EGP + propina al cochero 50–100 EGP",lo:12,hi:13},
+   {t:"13:00",a:"Navegación · almuerzo · esclusa de Esna",type:"meal",ic:"🍽️",c:"Incluido ✓",lo:0,hi:0},
+   {t:"20:00",a:"Cena · noche de galabeya (opcional)",type:"meal",ic:"🎉",c:"Incluida · galabeya opcional 300–600 EGP",lo:0,hi:12}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 3",status:"ok"},
   guide:["g-edfu"],
   maps:[{n:"Templo de Edfu",q:"Temple of Edfu"}]},
@@ -815,13 +826,13 @@ const days=[
  {d:"15",m:"Oct",dow:"Jueves",city:"Luxor",icon:"🏛️",
   desc:"Desembarque y templos de la orilla Este.",
   plan:[
-   {t:"08:00",a:"Desayuno y desembarque (confirmar qué visitas de Luxor incluye ya el crucero)",type:"meal",ic:"☕"},
-   {t:"09:00",a:"Taxi al KR Elite Hotel (orilla Oeste) · dejar maletas",type:"stay",ic:"🛏️"},
-   {t:"10:00",a:"Ferry público a la orilla Este (~5 EGP)",ic:"⛴️"},
-   {t:"10:30",a:"Templo de Karnak",ic:"🏛️"},
-   {t:"13:30",a:"Almuerzo + Museo de Luxor (hora de calor)",type:"meal",ic:"🍽️"},
-   {t:"16:30",a:"Templo de Luxor y Avenida de las Esfinges (atardecer)",ic:"🌇"},
-   {t:"20:00",a:"Cena y ferry de vuelta a la orilla Oeste",type:"meal",ic:"🍽️"}],
+   {t:"08:00",a:"Desayuno y desembarque (confirmar qué visitas de Luxor incluye ya el crucero)",type:"meal",ic:"☕",c:"Incluido ✓",lo:0,hi:0},
+   {t:"09:00",a:"Taxi al KR Elite Hotel (orilla Oeste) · dejar maletas",type:"stay",ic:"🛏️",c:"Taxi ~200–300 EGP el carro → ~150",lo:2,hi:3},
+   {t:"10:00",a:"Ferry público a la orilla Este (~5 EGP)",ic:"⛴️",c:"5 EGP",lo:0,hi:0},
+   {t:"10:30",a:"Templo de Karnak",ic:"🏛️",c:"600 EGP + taxi o calesa ~75 EGP",lo:13,hi:14},
+   {t:"13:30",a:"Almuerzo + Museo de Luxor (hora de calor)",type:"meal",ic:"🍽️",c:"Almuerzo 300–500 + museo 400 EGP",lo:14,hi:18},
+   {t:"16:30",a:"Templo de Luxor y Avenida de las Esfinges (atardecer)",ic:"🌇",c:"500 EGP",lo:10,hi:10},
+   {t:"20:00",a:"Cena y ferry de vuelta a la orilla Oeste",type:"meal",ic:"🍽️",c:"400–700 EGP + ferry",lo:8,hi:14}],
   stayTag:{name:"KR Elite Hotel ⭐9.5",status:"ok"},
   guide:["g-karnak", "g-luxormuseum", "g-luxortemple"],
   maps:[{n:"KR Elite Hotel",q:"KR Elite Hotel Luxor"},{n:"Templo de Karnak",q:"Karnak Temple"},{n:"Templo de Luxor",q:"Luxor Temple"}]},
@@ -829,28 +840,28 @@ const days=[
  {d:"16",m:"Oct",dow:"Viernes",city:"Luxor → El Cairo",icon:"🎈",
   desc:"Orilla Oeste y vuelo nocturno de regreso a El Cairo.",
   plan:[
-   {t:"05:30",a:"Globo aerostático al amanecer (incluido en Imperial Egypt · confirmar día con el operador)",ic:"🎈"},
-   {t:"08:00",a:"Desayuno · checkout (guardar maletas)",type:"meal",ic:"🧳"},
-   {t:"09:00",a:"Valle de los Reyes, Hatshepsut y Colosos de Memnón (taxi por día con el hotel)",ic:"⚰️"},
-   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
-   {t:"15:00",a:"Medinet Habu y Deir el-Medina (joyas sin multitudes) · o relax",ic:"🎨"},
-   {t:"18:15",a:"Salida al aeropuerto (orilla Este, ~40 min)",ic:"🚕"},
-   {t:"19:10",a:"⏰ En el aeropuerto de Luxor (2h antes · doméstico)",ic:"🕒"},
-   {t:"21:10",a:"Vuelo EgyptAir MS069 → El Cairo (llega 22:20) · YMGEXP",type:"flight",ic:"✈️"},
-   {t:"noche",a:"Espera en el aeropuerto (conexión 04:00)",type:"free",ic:"🕓"}],
+   {t:"05:30",a:"Globo aerostático al amanecer (incluido en Imperial Egypt · confirmar día con el operador)",ic:"🎈",c:"Incluido ✓",lo:0,hi:0},
+   {t:"08:00",a:"Desayuno · checkout (guardar maletas)",type:"meal",ic:"🧳",c:"150–250 EGP si no viene con el hotel",lo:0,hi:5},
+   {t:"09:00",a:"Valle de los Reyes, Hatshepsut y Colosos de Memnón (taxi por día con el hotel)",ic:"⚰️",c:"Valle 750 + Hatshepsut 440 + KV9 220 + taxi del día ~600 EGP por persona",lo:37,hi:42},
+   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️",c:"300–500 EGP",lo:6,hi:10},
+   {t:"15:00",a:"Medinet Habu y Deir el-Medina (joyas sin multitudes) · o relax",ic:"🎨",c:"440 EGP",lo:8,hi:8},
+   {t:"18:15",a:"Salida al aeropuerto (orilla Este, ~40 min)",ic:"🚕",c:"Taxi ~300–500 EGP el carro → ~200",lo:3,hi:5},
+   {t:"19:10",a:"⏰ En el aeropuerto de Luxor (2h antes · doméstico)",ic:"🕒",c:"—",lo:0,hi:0},
+   {t:"21:10",a:"Vuelo EgyptAir MS069 → El Cairo (llega 22:20) · YMGEXP",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"noche",a:"Espera en el aeropuerto (conexión 04:00)",type:"free",ic:"🕓",c:"Comida en el aeropuerto ~USD 8–12",lo:8,hi:12}],
   guide:["g-valle", "g-hatshepsut", "g-memnon", "g-medinethabu", "g-deirmedina"],
   maps:[{n:"Valle de los Reyes",q:"Valley of the Kings"},{n:"Templo de Hatshepsut",q:"Mortuary Temple of Hatshepsut"}]},
 
  {d:"17",m:"Oct",dow:"Sábado",city:"El Cairo → Atenas",icon:"🇬🇷",
   desc:"Vuelo de madrugada a Grecia y primer día en Atenas.",
   plan:[
-   {t:"01:00",a:"⏰ Check-in internacional en El Cairo (3h antes)",ic:"🕒"},
-   {t:"04:00",a:"Vuelo Aegean A3931 → Atenas (llega 06:00) · 7TV5KM",type:"flight",ic:"✈️"},
-   {t:"07:30",a:"Metro M3 (€9) → dejar maletas en consigna (no se admiten en la Acrópolis) · desayuno griego",type:"meal",ic:"☕"},
-   {t:"09:00",a:"Acrópolis y Partenón (temprano, menos gente)",ic:"🏛️"},
-   {t:"13:00",a:"Almuerzo en Plaka",type:"meal",ic:"🍽️"},
-   {t:"16:00",a:"Ágora Antigua y Monastiraki",ic:"🏺"},
-   {t:"20:30",a:"Cena griega",type:"meal",ic:"🍽️"}],
+   {t:"01:00",a:"⏰ Check-in internacional en El Cairo (3h antes)",ic:"🕒",c:"Café ~USD 3–5",lo:3,hi:5},
+   {t:"04:00",a:"Vuelo Aegean A3931 → Atenas (llega 06:00) · 7TV5KM",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"07:30",a:"Metro M3 (€9) → dejar maletas en consigna (no se admiten en la Acrópolis) · desayuno griego",type:"meal",ic:"☕",c:"Metro €9 + consigna €5–8 + desayuno €6–8",lo:23,hi:29},
+   {t:"09:00",a:"Acrópolis y Partenón (temprano, menos gente)",ic:"🏛️",c:"€30",lo:35,hi:35},
+   {t:"13:00",a:"Almuerzo en Plaka",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21},
+   {t:"16:00",a:"Ágora Antigua y Monastiraki",ic:"🏺",c:"€20",lo:23,hi:23},
+   {t:"20:30",a:"Cena griega",type:"meal",ic:"🍽️",c:"€20–28",lo:23,hi:32}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb) · check-in 15:00",status:"ok"},
   guide:["g-acropolis", "g-agora"],
   maps:[{n:"Airbnb (Galaxidiou 38)",q:"38.00761,23.72001"},{n:"Acrópolis de Atenas",q:"Acropolis of Athens"}]},
@@ -858,12 +869,12 @@ const days=[
  {d:"18",m:"Oct",dow:"Domingo",city:"Atenas",icon:"🏛️",
   desc:"Museos y los barrios más bonitos.",
   plan:[
-   {t:"09:00",a:"Desayuno",type:"meal",ic:"☕"},
-   {t:"10:00",a:"Museo de la Acrópolis",ic:"🏛️"},
-   {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️"},
-   {t:"15:00",a:"Plaka, Anafiotika y colina Licabeto",ic:"🚶"},
-   {t:"18:30",a:"Atardecer en la colina de Filopapo / Pnyx (frente al Partenón)",ic:"🌇"},
-   {t:"20:30",a:"Cena",type:"meal",ic:"🍽️"}],
+   {t:"09:00",a:"Desayuno",type:"meal",ic:"☕",c:"€6–8 + metro ~€2",lo:9,hi:12},
+   {t:"10:00",a:"Museo de la Acrópolis",ic:"🏛️",c:"€20",lo:23,hi:23},
+   {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21},
+   {t:"15:00",a:"Plaka, Anafiotika y colina Licabeto",ic:"🚶",c:"Gratis caminando · funicular del Licabeto ~€10, opcional",lo:0,hi:12},
+   {t:"18:30",a:"Atardecer en la colina de Filopapo / Pnyx (frente al Partenón)",ic:"🌇",c:"Gratis",lo:0,hi:0},
+   {t:"20:30",a:"Cena",type:"meal",ic:"🍽️",c:"€20–28",lo:23,hi:32}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
   guide:["g-acromuseum", "g-pnyx", "g-nam", "g-kerameikos"],
   maps:[{n:"Museo de la Acrópolis",q:"Acropolis Museum"},{n:"Colina Licabeto",q:"Mount Lycabettus Athens"}]},
@@ -871,10 +882,10 @@ const days=[
  {d:"19",m:"Oct",dow:"Lunes",city:"Atenas",icon:"🌊",
   desc:"Excursión de un día o museos.",
   plan:[
-   {t:"08:30",a:"Excursión: Delfos (bus KTEL desde Liosion 260, junto al Airbnb) o Cabo Sunión",ic:"🏛️"},
-   {t:"13:30",a:"Almuerzo en ruta",type:"meal",ic:"🍽️"},
-   {t:"17:00",a:"Regreso · Museo Arqueológico Nacional (opcional)",ic:"🏺"},
-   {t:"20:30",a:"Cena de despedida",type:"meal",ic:"🍷"}],
+   {t:"08:30",a:"Excursión: Delfos (bus KTEL desde Liosion 260, junto al Airbnb) o Cabo Sunión",ic:"🏛️",c:"Delfos: bus ~€40 ida y vuelta + entrada €20 · Sunión: ~€16 + €10",lo:30,hi:70},
+   {t:"13:30",a:"Almuerzo en ruta",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21},
+   {t:"17:00",a:"Regreso · Museo Arqueológico Nacional (opcional)",ic:"🏺",c:"€20 (opcional)",lo:0,hi:23},
+   {t:"20:30",a:"Cena de despedida",type:"meal",ic:"🍷",c:"€25–35",lo:29,hi:41}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
   guide:["g-delphi", "g-sounion"],
   maps:[{n:"Cabo Sunio",q:"Cape Sounion Temple of Poseidon"},{n:"Delfos",q:"Delphi Greece"}]},
@@ -882,20 +893,20 @@ const days=[
  {d:"20",m:"Oct",dow:"Martes",city:"Atenas → Madrid",icon:"🛫",
   desc:"Última mañana en Grecia y vuelo a Madrid.",
   plan:[
-   {t:"09:00",a:"Mañana libre / compras · checkout",ic:"🛍️"},
-   {t:"11:30",a:"⏰ En el aeropuerto de Atenas (3h antes · internacional)",ic:"🚇"},
-   {t:"14:30",a:"Vuelo Aegean A3740 → Madrid (llega 17:25) · 9XOAZB",type:"flight",ic:"✈️"},
-   {t:"18:30",a:"Check-in hotel cerca del aeropuerto · cena tranquila",type:"stay",ic:"🛏️"}],
+   {t:"09:00",a:"Mañana libre / compras · checkout",ic:"🛍️",c:"Desayuno €8–10 + metro al aeropuerto €9",lo:20,hi:22},
+   {t:"11:30",a:"⏰ En el aeropuerto de Atenas (3h antes · internacional)",ic:"🚇",c:"—",lo:0,hi:0},
+   {t:"14:30",a:"Vuelo Aegean A3740 → Madrid (llega 17:25) · 9XOAZB",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"18:30",a:"Check-in hotel cerca del aeropuerto · cena tranquila",type:"stay",ic:"🛏️",c:"Hotel ~USD 61–84 por persona (por reservar) + cena €15–20",lo:78,hi:107}],
   stayTag:{name:"Hotel Madrid (cerca aeropuerto)",status:"pend"},
   maps:[{n:"Aeropuerto Madrid-Barajas",q:"Aeropuerto Madrid Barajas"}]},
 
  {d:"21",m:"Oct",dow:"Miércoles",city:"Madrid → Bogotá",icon:"🏡",
   desc:"Vuelo de regreso a casa. ¡Fin del viaje!",
   plan:[
-   {t:"08:30",a:"Desayuno y checkout",type:"meal",ic:"☕"},
-   {t:"09:10",a:"⏰ En Madrid-Barajas T4 (Iberia · 3h antes · internacional)",ic:"🕒"},
-   {t:"12:10",a:"Vuelo Iberia IB0151 → Bogotá (llega 15:40) · P6EJR",type:"flight",ic:"✈️"},
-   {t:"15:40",a:"¡Llegada a casa! 🎉",ic:"🏡"}],
+   {t:"08:30",a:"Desayuno y checkout",type:"meal",ic:"☕",c:"€8–12 si no está incluido",lo:0,hi:14},
+   {t:"09:10",a:"⏰ En Madrid-Barajas T4 (Iberia · 3h antes · internacional)",ic:"🕒",c:"Traslado gratis (Hotel101) o ~€5",lo:0,hi:6},
+   {t:"12:10",a:"Vuelo Iberia IB0151 → Bogotá (llega 15:40) · P6EJR",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
+   {t:"15:40",a:"¡Llegada a casa! 🎉",ic:"🏡",c:"Taxi ~COP 35.000",lo:4,hi:5}],
   maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]}
 ];
 
@@ -910,6 +921,11 @@ const stays=[
 
 function mapsUrl(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);}
 
+function dayTot(x){let lo=0,hi=0;x.plan.forEach(p=>{lo+=p.lo||0;hi+=p.hi||0});
+ return '<div class="daytot">💵 Gasto del día: <b>≈ USD '+(lo===hi?lo:lo+'–'+hi)+' por persona</b><span>comida, transporte y entradas · sin vuelos ni alojamientos ya pagados</span></div>';}
+function renderTotals(){let L=0,H=0,rows='';days.forEach(x=>{let lo=0,hi=0;x.plan.forEach(p=>{lo+=p.lo||0;hi+=p.hi||0});L+=lo;H+=hi;
+  rows+='<tr><td>'+x.d+' Oct · '+x.city+'</td><td colspan="2">$'+lo+'–'+hi+'</td></tr>';});
+ document.getElementById('daytotals').innerHTML='<table class="bud">'+rows+'<tr class="tot"><td>Total del viaje por persona</td><td colspan="2">≈ USD '+L+'–'+H+'</td></tr><tr class="tot"><td>Total pareja</td><td colspan="2">≈ USD '+(2*L)+'–'+(2*H)+'</td></tr></table>';}
 function render(){
  const tl=document.getElementById('timeline');
  days.forEach((x,i)=>{
@@ -917,7 +933,8 @@ function render(){
    x.plan.forEach(p=>{
      const cls=(p.type||'')+(p.free?' ':'');
      const tcls='time'+(p.free||p.t==='noche'||p.t==='libre'?' free':'');
-     li+='<li class="'+cls+'"><span class="'+tcls+'">'+p.t+'</span><span class="act"><span class="ic">'+(p.ic||'•')+'</span>'+p.a+'</span></li>';
+     const cc=p.c?'<span class="cost'+(p.hi===0?' zero':'')+'">💵 '+p.c+(p.hi>0?' <b>≈ $'+(p.lo===p.hi?p.lo:p.lo+'–'+p.hi)+'</b>':'')+'</span>':'';
+     li+='<li class="'+cls+'"><span class="'+tcls+'">'+p.t+'</span><span class="act"><span class="ic">'+(p.ic||'•')+'</span>'+p.a+cc+'</span></li>';
    });
    let maps='';
    if(x.maps)x.maps.forEach((m,j)=>maps+='<a class="maps'+(j%2?' g':'')+'" target="_blank" rel="noopener" href="'+mapsUrl(m.q)+'">📍 '+m.n+'</a>');
@@ -934,7 +951,7 @@ function render(){
       '<div class="t"><div class="city">'+x.icon+' '+x.city+'</div><div class="dow">'+x.dow+'</div></div>'+
       '<div class="chev">›</div></div>'+
     '<div class="day-body"><div class="day-inner">'+
-      '<div class="desc">'+x.desc+'</div>'+
+      '<div class="desc">'+x.desc+'</div>'+dayTot(x)+
       '<ul class="plan">'+li+'</ul>'+stagLine+maps+
     '</div></div>';
    tl.appendChild(el);
@@ -976,6 +993,7 @@ function renderCal(){
  if(today){const t=document.querySelector('.cday.today');if(t)t.scrollIntoView({inline:'center',block:'nearest'});}
 }
 renderCal();
+renderTotals();
 function showTab(k){document.querySelectorAll('.gpanel').forEach(p=>p.classList.toggle('on',p.dataset.tab===k));
  document.querySelectorAll('.gtab').forEach(b=>b.classList.toggle('on',b.dataset.tab===k));
  try{localStorage.setItem('gtab',k)}catch(e){}}
