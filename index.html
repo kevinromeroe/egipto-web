@@ -155,6 +155,9 @@ details.site[open] summary::after{transform:rotate(90deg)}
 .near summary{cursor:pointer;font-weight:700;color:var(--nile-d)}
 .near ul{padding-left:4px;list-style:none;margin-top:6px} .near li{margin:5px 0}
 @media print{details>*{display:block}}
+.plan-yes,.plan-opt{display:inline-block;margin-top:4px;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.plan-yes{background:#e2f3ea;color:var(--ok)} .plan-opt{background:#f1ece0;color:var(--muted)}
+
 li.move .act{color:var(--nile-d);font-size:.84rem;background:#eef6f6;border-radius:8px;padding:5px 8px}
 li.move .time{background:transparent;border-color:transparent;color:var(--nile)}
 .dish{display:block;margin-top:4px;font-size:.78rem;font-weight:500;color:var(--ink);background:#fff4e0;border-radius:7px;padding:4px 7px}
@@ -309,20 +312,6 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
    <tr class="tot"><td>Reserva sugerida</td><td colspan="2">≈ USD 40–60 por persona (+$25–30 si la tripulación no está incluida). En España y Grecia la propina es opcional: redondeen o dejen 5–10%.</td></tr>
   </table>
   <div class="info-line">💵 Lleven dólares en billetes pequeños y nuevos ($1 y $5) y saquen libras en un cajero del aeropuerto de El Cairo para propinas y baños.</div></div>
-
-  <div class="ref"><h3>🗓️ Gasto día por día (comida + transporte + entradas)</h3>
-  <div class="info-line" style="margin:0 0 8px">Suma de los costos de cada actividad del itinerario, por persona. No incluye vuelos ni alojamientos ya pagados (sí el hotel de Madrid del 20, que falta reservar). Los rangos van de lo mínimo (sin opcionales) a lo cómodo.</div>
-  <div id="daytotals"></div>
-  <div class="info-line">Súmenle las propinas de Egipto (~USD 40–60 por persona) y un colchón para compras y recuerdos.</div></div>
-
-  <div class="ref"><h3>🧮 Resumen solo entradas y propinas (por persona)</h3>
-  <table class="bud">
-   <tr><td>Entradas ruta del crucero (si las pagan ustedes)</td><td colspan="2">≈ $98</td></tr>
-   <tr><td>Entradas El Cairo + extras Luxor</td><td colspan="2">≈ $70</td></tr>
-   <tr><td>Entradas Madrid + Atenas</td><td colspan="2">≈ $188</td></tr>
-   <tr><td>Propinas Egipto</td><td colspan="2">≈ $40–60</td></tr>
-   <tr class="tot"><td>Total por persona</td><td colspan="2">≈ USD 395–415 · <b>pareja ≈ USD 790–830</b> (sin opcionales)</td></tr>
-  </table></div>
 
   <div class="divider">𓊪 𓏏 𓎛</div>
   <div class="section-title">✈️ Vuelos</div>
@@ -804,7 +793,7 @@ const days=[
    {t:"19:15",a:"<b>Uber</b> de Bab Zuweila / Al-Azhar a Zamalek (~25 min)",type:"move",ic:"🚕"},
    {t:"20:00",a:"Cena · preparar maleta (¡vuelo 05:20!)",type:"meal",ic:"🧳",c:"400–700 EGP",lo:8,hi:14,dish:["Hamam mahshi (pichón relleno de trigo: típico egipcio)", "Konafa (postre de fideos crujientes con almíbar)", "Basbousa (bizcocho de sémola)"]}],
   stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
-  guide:["g-gem", "g-islamico", "g-copto"],
+  guide:["g-gem", "g-islamico"],
   maps:[{n:"Gran Museo Egipcio (GEM)",q:"Grand Egyptian Museum"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
 
  {d:"12",m:"Oct",dow:"Lunes",city:"El Cairo → Aswan 🚢",icon:"🛥️",
@@ -819,7 +808,7 @@ const days=[
    {t:"14:00",a:"Embarque en el crucero · cóctel de bienvenida",type:"stay",ic:"🛳️",c:"Incluido ✓",lo:0,hi:0},
    {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️",c:"Incluida ✓",lo:0,hi:0}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 1",status:"ok"},
-  guide:["g-philae", "g-nubia"],
+  guide:["g-philae"],
   maps:[{n:"Aeropuerto de Aswan",q:"Aswan International Airport"},{n:"Templo de Philae",q:"Philae Temple Aswan"},{n:"Presa Alta de Asuán",q:"Aswan High Dam"}]},
 
  {d:"13",m:"Oct",dow:"Martes",city:"Nilo · Aswan",icon:"⛵",
@@ -870,7 +859,7 @@ const days=[
    {t:"08:45",a:"<b>Taxi por el día</b> contratado con el hotel (orilla Oeste): Valle de los Reyes (~15 min) → Hatshepsut (~10 min) → Colosos de Memnón (en el camino)",type:"move",ic:"🚕"},
    {t:"09:00",a:"Valle de los Reyes, Hatshepsut y Colosos de Memnón (taxi por día con el hotel)",ic:"⚰️",c:"Valle 750 + Hatshepsut 440 + KV9 220 + taxi del día ~600 EGP por persona",lo:37,hi:42},
    {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️",c:"300–500 EGP",lo:6,hi:10,dish:["Comida casera en un restaurante de la orilla Oeste", "Pollo a la parrilla con pan baladi", "Té con menta y dátiles"]},
-   {t:"15:00",a:"Medinet Habu y Deir el-Medina (están a 5 min uno del otro, con el mismo taxi) · o relax",ic:"🎨",c:"440 EGP",lo:8,hi:8},
+   {t:"15:00",a:"<b>Medinet Habu</b> si les queda energía (Deir el-Medina está al lado, solo si van sobrados) · o siesta en el hotel: esa noche casi no duermen",ic:"🎨",c:"220–440 EGP",lo:0,hi:8},
    {t:"18:15",a:"Recoger maletas en el hotel → <b>taxi</b> al aeropuerto (orilla Este, por el puente, ~40 min)",ic:"🚕",c:"Taxi ~300–500 EGP el carro → ~200",lo:3,hi:5},
    {t:"19:10",a:"⏰ En el aeropuerto de Luxor (2h antes · doméstico)",ic:"🕒",c:"—",lo:0,hi:0},
    {t:"21:10",a:"Vuelo EgyptAir MS069 → El Cairo (llega 22:20) · YMGEXP",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
@@ -879,7 +868,7 @@ const days=[
   maps:[{n:"Valle de los Reyes",q:"Valley of the Kings"},{n:"Templo de Hatshepsut",q:"Mortuary Temple of Hatshepsut"}]},
 
  {d:"17",m:"Oct",dow:"Sábado",city:"El Cairo → Atenas",icon:"🇬🇷",
-  desc:"Vuelo de madrugada a Grecia y primer día en Atenas.",
+  desc:"Vuelo de madrugada, Acrópolis temprano y tarde de descanso (¡noche sin dormir!).",
   plan:[
    {t:"01:00",a:"⏰ Check-in internacional en El Cairo (3h antes)",ic:"🕒",c:"Café ~USD 3–5",lo:3,hi:5},
    {t:"04:00",a:"Vuelo Aegean A3931 → Atenas (llega 06:00) · 7TV5KM",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
@@ -888,12 +877,11 @@ const days=[
    {t:"09:00",a:"Acrópolis y Partenón (temprano, menos gente)",ic:"🏛️",c:"€30",lo:35,hi:35},
    {t:"12:45",a:"Bajar a Plaka: <b>5 min a pie</b>",type:"move",ic:"🚶"},
    {t:"13:00",a:"Almuerzo en Plaka",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21,dish:["Souvlaki o gyros en pita", "Ensalada griega (horiatiki)", "Tzatziki"]},
-   {t:"15:45",a:"De Plaka al Ágora Antigua: <b>~10 min a pie</b>",type:"move",ic:"🚶"},
-   {t:"16:00",a:"Ágora Antigua y Monastiraki",ic:"🏺",c:"€20",lo:23,hi:23},
-   {t:"18:30",a:"Recoger maletas → <b>Metro M1 (verde)</b> Monastiraki → <b>Attiki</b> (3 paradas, ~10 min) → <b>~12 min a pie</b> al Airbnb (Galaxidiou 38) · check-in desde las 15:00",type:"move",ic:"🚇"},
-   {t:"20:30",a:"Cena griega",type:"meal",ic:"🍽️",c:"€20–28",lo:23,hi:32,dish:["Moussaka", "Kleftiko (cordero al horno, deshecho)", "Saganaki (queso frito)"]}],
+   {t:"14:15",a:"Recoger maletas en la consigna → <b>Metro M1 (verde)</b> Monastiraki → <b>Attiki</b> (3 paradas, ~10 min) → <b>~12 min a pie</b> al Airbnb (Galaxidiou 38)",type:"move",ic:"🚇"},
+   {t:"15:00",a:"Check-in en el Airbnb y <b>siesta</b>: llevan una noche entera sin dormir (vuelo de las 04:00)",type:"stay",ic:"😴",c:"Pagado ✓",lo:0,hi:0},
+   {t:"20:30",a:"Cena griega cerca del Airbnb (Metaxourgeio / Kolonos, ambiente local)",type:"meal",ic:"🍽️",c:"€20–28",lo:23,hi:32,dish:["Moussaka", "Kleftiko (cordero al horno, deshecho)", "Saganaki (queso frito)"]}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb) · check-in 15:00",status:"ok"},
-  guide:["g-acropolis", "g-agora"],
+  guide:["g-acropolis"],
   maps:[{n:"Airbnb (Galaxidiou 38)",q:"38.00761,23.72001"},{n:"Acrópolis de Atenas",q:"Acropolis of Athens"}]},
 
  {d:"18",m:"Oct",dow:"Domingo",city:"Atenas",icon:"🏛️",
@@ -903,13 +891,13 @@ const days=[
    {t:"09:35",a:"<b>Metro M2 (roja)</b> directo de Attiki a <b>Akropoli</b> (~15 min); el museo está a la salida",type:"move",ic:"🚇"},
    {t:"10:00",a:"Museo de la Acrópolis",ic:"🏛️",c:"€20",lo:23,hi:23},
    {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21,dish:["Gemistá (tomates y pimientos rellenos)", "Keftedes (albóndigas griegas)", "Fava de Santorini (puré de arvejas amarillas)"]},
-   {t:"15:00",a:"Plaka y Anafiotika (el «pueblito de las islas» al pie de la Acrópolis) · <b>todo a pie</b> desde el museo (~10 min)",ic:"🚶",c:"Gratis caminando · funicular del Licabeto ~€10, opcional",lo:0,hi:12},
-   {t:"18:00",a:"De Plaka a la colina de Filopapo: <b>~20 min a pie</b> por el paseo peatonal Dionysiou Areopagitou",type:"move",ic:"🚶"},
+   {t:"15:00",a:"Paseo por Plaka y Anafiotika (el «pueblito de las islas») → <b>~10 min a pie</b> → <b>Ágora Antigua y Templo de Hefesto</b>",ic:"🚶",c:"Ágora €20 (Plaka y Anafiotika gratis)",lo:23,hi:23},
+   {t:"18:00",a:"Del Ágora a la Pnyx y la colina de Filopapo: <b>~15 min a pie</b>",type:"move",ic:"🚶"},
    {t:"18:30",a:"Atardecer en la colina de Filopapo / Pnyx (frente al Partenón)",ic:"🌇",c:"Gratis",lo:0,hi:0},
    {t:"19:45",a:"Bajar caminando a Thiseio o Koukaki para cenar (~10 min). Después, metro de regreso a Attiki",type:"move",ic:"🚶"},
    {t:"20:30",a:"Cena",type:"meal",ic:"🍽️",c:"€20–28",lo:23,hi:32,dish:["Pulpo a la brasa", "Dolmadakia (hojas de parra rellenas)", "Loukoumades de postre (buñuelos con miel)"]}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
-  guide:["g-acromuseum", "g-pnyx", "g-nam", "g-kerameikos"],
+  guide:["g-acromuseum", "g-agora", "g-pnyx"],
   maps:[{n:"Museo de la Acrópolis",q:"Acropolis Museum"},{n:"Colina Licabeto",q:"Mount Lycabettus Athens"}]},
 
  {d:"19",m:"Oct",dow:"Lunes",city:"Atenas",icon:"🌊",
@@ -917,7 +905,7 @@ const days=[
   plan:[
    {t:"08:30",a:"Excursión: Delfos en <b>bus KTEL desde la terminal de Liosion 260</b> (~10–20 min a pie o taxi corto desde el Airbnb; verifiquen en Maps) · ~3 h. O Cabo Sunión: <b>bus KTEL</b> desde Pedion tou Areos (calle Mavromateon; metro M1 a Viktoria + 10 min a pie)",ic:"🏛️",c:"Delfos: bus ~€40 ida y vuelta + entrada €20 · Sunión: ~€16 + €10",lo:30,hi:70},
    {t:"13:30",a:"Almuerzo en ruta",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21,dish:["Kontosouvli (cerdo al espetón, típico de la montaña)", "Queso formaela de Arachova, a la plancha", "Pastitsio (pasta al horno griega)"]},
-   {t:"17:00",a:"Regreso · Museo Arqueológico Nacional (opcional): <b>metro M1</b> Attiki → Viktoria (2 paradas) + 7 min a pie",ic:"🏺",c:"€20 (opcional)",lo:0,hi:23},
+   {t:"18:00",a:"Regreso a Atenas (el bus de Delfos llega hacia las 19:00–19:30) · descanso en el Airbnb",type:"free",ic:"🚌",c:"Incluido en el bus",lo:0,hi:0},
    {t:"20:30",a:"Cena de despedida",type:"meal",ic:"🍷",c:"€25–35",lo:29,hi:41,dish:["Paidakia (chuletas de cordero a la brasa)", "Giouvetsi (cordero con orzo al horno)", "Galaktoboureko (hojaldre con crema y almíbar)"]}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
   guide:["g-delphi", "g-sounion"],
@@ -957,9 +945,6 @@ function mapsUrl(q){return "https://www.google.com/maps/search/?api=1&query="+en
 
 function dayTot(x){let lo=0,hi=0;x.plan.forEach(p=>{lo+=p.lo||0;hi+=p.hi||0});
  return '<div class="daytot">💵 Gasto del día: <b>≈ USD '+(lo===hi?lo:lo+'–'+hi)+' por persona</b><span>comida, transporte y entradas · sin vuelos ni alojamientos ya pagados</span></div>';}
-function renderTotals(){let L=0,H=0,rows='';days.forEach(x=>{let lo=0,hi=0;x.plan.forEach(p=>{lo+=p.lo||0;hi+=p.hi||0});L+=lo;H+=hi;
-  rows+='<tr><td>'+x.d+' Oct · '+x.city+'</td><td colspan="2">$'+lo+'–'+hi+'</td></tr>';});
- document.getElementById('daytotals').innerHTML='<table class="bud">'+rows+'<tr class="tot"><td>Total del viaje por persona</td><td colspan="2">≈ USD '+L+'–'+H+'</td></tr><tr class="tot"><td>Total pareja</td><td colspan="2">≈ USD '+(2*L)+'–'+(2*H)+'</td></tr></table>';}
 function render(){
  const tl=document.getElementById('timeline');
  days.forEach((x,i)=>{
@@ -1028,7 +1013,6 @@ function renderCal(){
  if(today){const t=document.querySelector('.cday.today');if(t)t.scrollIntoView({inline:'center',block:'nearest'});}
 }
 renderCal();
-renderTotals();
 function showTab(k){document.querySelectorAll('.gpanel').forEach(p=>p.classList.toggle('on',p.dataset.tab===k));
  document.querySelectorAll('.gtab').forEach(b=>b.classList.toggle('on',b.dataset.tab===k));
  try{localStorage.setItem('gtab',k)}catch(e){}}
@@ -1044,7 +1028,9 @@ function renderGuide(){
   let h='<div class="gpanel" data-tab="'+key+'">';
   c.items.forEach(s=>{
    const tcls=s.tag==='Joya'?'gem':(s.tag==='Gratis'?'free':'must');
-   h+='<article class="site" id="'+s.id+'"><div class="shead"><span class="sic">'+s.ic+'</span><div class="sname">'+s.name+'<br><span class="gtag '+tcls+'">'+(s.tag==='Joya'?'💎 Joya poco visitada':(s.tag==='Gratis'?'🆓 Gratis':'⭐ Infaltable'))+'</span></div></div><div class="sbody">'+
+   const inDays=days.filter(x=>(x.guide||[]).includes(s.id)).map(x=>+x.d);
+   const when=inDays.length?'<span class="plan-yes">📅 En el plan: '+inDays.join(' y ')+' oct</span>':'<span class="plan-opt">➕ Si les sobra tiempo</span>';
+   h+='<article class="site" id="'+s.id+'"><div class="shead"><span class="sic">'+s.ic+'</span><div class="sname">'+s.name+'<br><span class="gtag '+tcls+'">'+(s.tag==='Joya'?'💎 Joya poco visitada':(s.tag==='Gratis'?'🆓 Gratis':'⭐ Infaltable'))+'</span> '+when+'</div></div><div class="sbody">'+
     '<p class="swhat">'+s.what+'</p>'+
     '<div class="sh">✨ Lo que vale la pena</div><ul>'+s.must.map(m=>'<li>'+m+'</li>').join('')+'</ul>'+
     '<div class="sbox fun"><b>🤯 Dato curioso:</b> '+s.fun+'</div>'+
