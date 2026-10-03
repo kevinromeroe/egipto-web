@@ -155,6 +155,28 @@ details.site[open] summary::after{transform:rotate(90deg)}
 .near summary{cursor:pointer;font-weight:700;color:var(--nile-d)}
 .near ul{padding-left:4px;list-style:none;margin-top:6px} .near li{margin:5px 0}
 @media print{details>*{display:block}}
+.legs{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 10px}
+.leg{min-width:96px;flex-basis:0;padding:8px 6px;text-align:center;color:#fff;font-size:.72rem;line-height:1.25;border-radius:10px;box-shadow:0 2px 6px rgba(120,90,20,.12)}
+.leg b{display:block;font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .leg span{opacity:.9;font-size:.66rem}
+.leg.es,.cday.es .cn{background:#c0392b} .leg.eg,.cday.eg .cn{background:#b8860b} .leg.gr,.cday.gr .cn{background:#1f5fa8} .leg.co,.cday.co .cn{background:#5c6b73}
+.cal{display:flex;gap:7px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin}
+.cday{flex:0 0 74px;display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:7px 4px;cursor:pointer;font-family:inherit;color:var(--ink)}
+.cday .cw{font-size:.66rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.cday .cn{color:#fff;font-weight:800;font-family:Georgia,serif;font-size:1.05rem;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cday .cf{font-size:1rem} .cday .cc{font-size:.68rem;font-weight:700;text-align:center;line-height:1.15;color:var(--lapis-d)}
+.cday.today{outline:3px solid var(--gold);outline-offset:1px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 3px 0 8px;vertical-align:middle}
+.dot.es{background:#c0392b}.dot.eg{background:#b8860b}.dot.gr{background:#1f5fa8}.dot.co{background:#5c6b73}
+table.bud td{vertical-align:top}
+table.bud td:first-child{white-space:normal!important;font-weight:500!important;color:var(--ink)!important}
+table.bud td:nth-child(2){white-space:nowrap;color:var(--muted)}
+table.bud td:nth-child(3){white-space:nowrap;font-weight:700;color:var(--lapis);text-align:right}
+table.bud tr.sub td{font-weight:700!important;color:var(--terra)!important;padding-top:12px;border-bottom:2px solid var(--line)}
+table.bud td[colspan]{white-space:normal!important;text-align:left!important}
+table.bud td:first-child{width:52%}
+table.bud tr.tot td{font-weight:800!important;color:var(--lapis-d)!important;background:#fbf3dd}
+
 .gtabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 2px;margin:0 -2px;
   background:linear-gradient(180deg,var(--papyrus) 85%,rgba(244,232,201,0));scrollbar-width:none}
 .gtabs::-webkit-scrollbar{display:none}
@@ -191,6 +213,11 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
 </header>
 
 <div class="wrap">
+  <div class="section-title">📍 ¿Dónde estamos cada día?</div>
+  <div class="legs" id="legs"></div>
+  <div class="cal" id="cal"></div>
+  <div class="legend">Toca un día para ir a su plan · <span class="dot es"></span>España <span class="dot eg"></span>Egipto <span class="dot gr"></span>Grecia <span class="dot co"></span>Colombia</div>
+
   <div class="section-title">☥ Itinerario día a día</div>
   <div class="legend">Toca cada día para ver el plan completo · horas sugeridas en hora local</div>
   <div id="timeline"></div>
@@ -199,10 +226,87 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
 
   <div class="section-title">🧭 Guía del viaje</div>
   <div class="legend">Elige una ciudad: lo que de verdad vale la pena, el dato curioso y cómo llegar. Al final, jeroglíficos y griego.</div>
+  <div class="gwrap">
   <div class="gtabs" id="gtabs"></div>
   <div id="guide"></div>
   <div class="gpanel" id="glyphs" data-tab="glyphs"><div class="legend">Con 10 minutos de esto, los muros de los templos dejan de ser «dibujitos».</div></div>
   <div class="gpanel" id="greek" data-tab="greek"><div class="legend">Muchas letras ya las conocen por las matemáticas. Aquí van las que engañan.</div></div>
+  </div>
+
+  <div class="section-title">💵 Entradas y propinas (por persona)</div>
+  <div class="legend">Precios oficiales 2026 para extranjeros · 1 USD ≈ 52 EGP · en Egipto casi todo se paga <b>solo con tarjeta</b></div>
+
+  <div class="ref"><h3>🚢 Ruta del crucero (Asuán → Luxor)</h3>
+  <div class="info-line" style="margin:0 0 8px">Su paquete Imperial Egypt dice «Admission Ticket Not Included»: pregunten al operador cuáles pagan ustedes. Si no cubre ninguna, su presupuesto de ~USD 100 por persona alcanza justo.</div>
+  <table class="bud">
+   <tr><td>Presa Alta</td><td>200 EGP</td><td>$3.8</td></tr>
+   <tr><td>Obelisco inacabado</td><td>220 EGP</td><td>$4.2</td></tr>
+   <tr><td>Templo de Philae</td><td>550 EGP</td><td>$10.6</td></tr>
+   <tr><td>Abu Simbel</td><td>822 EGP</td><td>$15.8</td></tr>
+   <tr><td>Kom Ombo</td><td>450 EGP</td><td>$8.7</td></tr>
+   <tr><td>Edfu</td><td>550 EGP</td><td>$10.6</td></tr>
+   <tr><td>Karnak</td><td>600 EGP</td><td>$11.5</td></tr>
+   <tr><td>Templo de Luxor</td><td>500 EGP</td><td>$9.6</td></tr>
+   <tr><td>Valle de los Reyes (3 tumbas)</td><td>750 EGP</td><td>$14.4</td></tr>
+   <tr><td>Templo de Hatshepsut</td><td>440 EGP</td><td>$8.5</td></tr>
+   <tr class="tot"><td>Total si pagan todo</td><td>5.082 EGP</td><td>≈ $98</td></tr>
+  </table></div>
+
+  <div class="ref"><h3>🎟️ Por fuera del crucero</h3>
+  <table class="bud">
+   <tr class="sub"><td colspan="3">🇪🇬 El Cairo</td></tr>
+   <tr><td>Meseta de Giza (pirámides y Esfinge)</td><td>700 EGP</td><td>$13.5</td></tr>
+   <tr><td>Gran Museo Egipcio (GEM)</td><td>1.450 EGP</td><td>$27.9</td></tr>
+   <tr><td>Monumentos de Al-Muizz (Qalawun y más)</td><td>220 EGP</td><td>$4.2</td></tr>
+   <tr><td>Minaretes de Bab Zuweila</td><td>40 EGP</td><td>$0.8</td></tr>
+   <tr><td>Bayt al-Suhaymi</td><td>~80–180 EGP</td><td>~$2.5</td></tr>
+   <tr><td>El Cairo copto (iglesias y sinagoga)</td><td>gratis</td><td>$0</td></tr>
+   <tr class="sub"><td colspan="3">🇪🇬 Luxor (extras recomendados)</td></tr>
+   <tr><td>Museo de Luxor</td><td>400 EGP</td><td>$7.7</td></tr>
+   <tr><td>Medinet Habu</td><td>220 EGP</td><td>$4.2</td></tr>
+   <tr><td>Deir el-Medina</td><td>220 EGP</td><td>$4.2</td></tr>
+   <tr><td>Tumba de Ramsés V/VI (KV9)</td><td>220 EGP</td><td>$4.2</td></tr>
+   <tr><td>Colosos de Memnón</td><td>gratis</td><td>$0</td></tr>
+   <tr class="tot"><td>Subtotal Egipto</td><td>~3.700 EGP</td><td>≈ $70</td></tr>
+   <tr class="sub"><td colspan="3">⭐ Opcionales (si les sobra)</td></tr>
+   <tr><td>Interior de la Gran Pirámide</td><td>1.500 EGP</td><td>$28.8</td></tr>
+   <tr><td>Tumba de Tutankamón</td><td>700 EGP</td><td>$13.5</td></tr>
+   <tr><td>Tumba de Seti I (la más bella)</td><td>2.000 EGP</td><td>$38.5</td></tr>
+   <tr class="sub"><td colspan="3">🇪🇸 Madrid</td></tr>
+   <tr><td>Museo del Prado (gratis lun–sáb 18–20 h)</td><td>€15</td><td>~$17</td></tr>
+   <tr><td>Tour Santiago Bernabéu (online)</td><td>€37</td><td>~$43</td></tr>
+   <tr><td>Templo de Debod</td><td>gratis</td><td>$0</td></tr>
+   <tr class="sub"><td colspan="3">🇬🇷 Atenas</td></tr>
+   <tr><td>Acrópolis (hhticket.gr)</td><td>€30</td><td>~$35</td></tr>
+   <tr><td>Museo de la Acrópolis</td><td>€20</td><td>~$23</td></tr>
+   <tr><td>Ágora Antigua</td><td>€20</td><td>~$23</td></tr>
+   <tr><td>Museo Arqueológico Nacional</td><td>€20</td><td>~$23</td></tr>
+   <tr><td>Delfos <i>o</i> Sunión (+ bus KTEL)</td><td>€20 / €10</td><td>~$23 / $12</td></tr>
+   <tr><td>Pnyx, Areópago y Filopapo</td><td>gratis</td><td>$0</td></tr>
+   <tr class="tot"><td>Subtotal Europa</td><td>~€162</td><td>≈ $188</td></tr>
+  </table></div>
+
+  <div class="ref"><h3>🤲 Propinas en Egipto (bakshish)</h3>
+  <table class="bud">
+   <tr><td>Tripulación del crucero</td><td colspan="2">Su paquete dice que incluye propinas. Si no, lo usual es USD 8–10 por persona por noche (3 noches ≈ $25–30), en un sobre en recepción la última noche.</td></tr>
+   <tr><td>Guía egiptólogo</td><td colspan="2">USD 5–10 por persona por día de tour, entregado directo al guía al final</td></tr>
+   <tr><td>Chofer (Abu Simbel, taxi por día)</td><td colspan="2">USD 3–5 por día, o 100–200 EGP</td></tr>
+   <tr><td>Cochero (calesa en Edfu), felucca</td><td colspan="2">50–100 EGP</td></tr>
+   <tr><td>Maleteros y porteros</td><td colspan="2">20 EGP por maleta</td></tr>
+   <tr><td>Baños en sitios turísticos</td><td colspan="2">10–20 EGP (lleven siempre billetes chicos)</td></tr>
+   <tr><td>Restaurantes</td><td colspan="2">~10% si no viene incluido el servicio</td></tr>
+   <tr class="tot"><td>Reserva sugerida</td><td colspan="2">≈ USD 40–60 por persona (+$25–30 si la tripulación no está incluida). En España y Grecia la propina es opcional: redondeen o dejen 5–10%.</td></tr>
+  </table>
+  <div class="info-line">💵 Lleven dólares en billetes pequeños y nuevos ($1 y $5) y saquen libras en un cajero del aeropuerto de El Cairo para propinas y baños.</div></div>
+
+  <div class="ref"><h3>🧮 Resumen por persona</h3>
+  <table class="bud">
+   <tr><td>Entradas ruta del crucero (si las pagan ustedes)</td><td colspan="2">≈ $98</td></tr>
+   <tr><td>Entradas El Cairo + extras Luxor</td><td colspan="2">≈ $70</td></tr>
+   <tr><td>Entradas Madrid + Atenas</td><td colspan="2">≈ $188</td></tr>
+   <tr><td>Propinas Egipto</td><td colspan="2">≈ $40–60</td></tr>
+   <tr class="tot"><td>Total por persona</td><td colspan="2">≈ USD 395–415 · <b>pareja ≈ USD 790–830</b> (sin opcionales)</td></tr>
+  </table></div>
 
   <div class="divider">𓊪 𓏏 𓎛</div>
   <div class="section-title">✈️ Vuelos</div>
@@ -231,6 +335,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
     <tr><td>🇪🇺</td><td><b>Schengen:</b> colombianos SIN visa (≤90 días) ✓. <b>ETIAS</b> aún no se exige en oct 2026 ✓</td></tr>
     <tr><td>🏨</td><td>Reservar <b>Madrid regreso</b> (1 noche, 20 Oct, cerca del aeropuerto)</td></tr>
     <tr><td>🪪</td><td>Dar <b>datos de identidad/pasaporte</b> al Airbnb de Madrid (registro de huéspedes, ley española)</td></tr>
+    <tr><td>📶</td><td>✅ <b>eSIM Saily</b> compradas (Europa + Egipto) · actívenlas al aterrizar en cada región</td></tr>
     <tr><td>🛡️</td><td>✅ <b>Seguro comprado</b>: Universal Assistance · voucher <b>T035589045</b> · 07–21 Oct. ⚠️ Pedir que empiece el <b>06 Oct</b> (día de salida) y confirmar tope médico ≥€30.000</td></tr>
     <tr><td>🧳</td><td>Evaluar <b>equipaje facturado</b> (todos los tramos van con 0 maletas)</td></tr>
   </table></div>
@@ -262,6 +367,14 @@ const guide=[
    fun:"Llegó desmontado, en barco y en cientos de cajas con las piedras numeradas, y se reconstruyó piedra por piedra en el parque del Cuartel de la Montaña.",
    how:"Metro Plaza de España (L2/L3/L10) o Ventura Rodríguez, 5 min caminando. Queda al lado del Palacio Real.",
    tip:"El atardecer en Madrid a inicios de octubre es hacia las 19:45: lleguen media hora antes."},
+  {id:"g-bernabeu",ic:"⚽",name:"Estadio Santiago Bernabéu",tag:"Infaltable",
+   what:"La casa del Real Madrid, recién renovada: techo retráctil, fachada de acero envolvente y un museo con las Copas de Europa del club.",
+   must:["<b>Tour Bernabéu</b>: vistas panorámicas del estadio, vestuario, túnel de salida, banquillo y sala de prensa.",
+         "<b>Museo de trofeos</b>: la sala de las Copas de Europa es la foto obligada.",
+         "<b>Alrededor:</b> la tienda oficial en el mismo estadio; el Paseo de la Castellana, el gran eje moderno de Madrid; el <b>Mercado de Chamartín</b> (producto gourmet, ~10 min caminando) y el <b>Museo Sorolla</b>, casa-museo del «pintor de la luz» con jardín andaluz (2 paradas de metro L10, en Gregorio Marañón). Es una joya."],
+   fun:"Mientras estén en Madrid no habrá partido en casa: el Madrid juega en el Bernabéu el 10 (Villarreal; ustedes estarán en El Cairo), el 18 (Sevilla; en Atenas) y el 21 a las 21:00 (Champions contra Leipzig; ya habrán despegado a Bogotá a las 12:10). El tour del jueves 8 funciona en horario normal.",
+   how:"Metro L10, estación Santiago Bernabéu. Desde el Prado: bus 27 por la Castellana (~25 min) o taxi (~15 min).",
+   tip:"Entrada online desde €37 (en taquilla +€3). Abre de lunes a sábado de 9:30 a 19:00. Calculen 1–1,5 h. Compren online la franja de las 15:30 del jueves 8."},
   {id:"g-austrias",ic:"🏰",name:"Madrid de los Austrias",tag:"Infaltable",
    what:"El Madrid más antiguo: Plaza Mayor, Puerta del Sol, Mercado de San Miguel, Cava Baja y La Latina.",
    must:["Pisar la placa del <b>Kilómetro 0</b> en la Puerta del Sol: desde ahí se miden todas las carreteras de España.",
@@ -609,23 +722,25 @@ const days=[
   maps:[{n:"La Casita de Vicálvaro",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},{n:"Plaza Mayor",q:"Plaza Mayor Madrid"}]},
 
  {d:"08",m:"Oct",dow:"Jueves",city:"Madrid",icon:"🏛️",
-  desc:"Día completo de museos, parques y gastronomía madrileña.",
+  desc:"Prado, Bernabéu y atardecer egipcio en Madrid.",
   plan:[
    {t:"09:00",a:"Desayuno: churros con chocolate en San Ginés",type:"meal",ic:"☕"},
    {t:"10:00",a:"Museo del Prado",ic:"🖼️"},
    {t:"13:30",a:"Almuerzo: cocido madrileño / menú del día",type:"meal",ic:"🍲"},
-   {t:"16:00",a:"Parque del Retiro y Palacio de Cristal",ic:"🌳"},
-   {t:"18:00",a:"Gran Vía y exterior del Palacio Real",ic:"🏰"},
-   {t:"19:15",a:"Atardecer en el Templo de Debod 𓋹 (un templo egipcio en Madrid)",ic:"🌇"},
-   {t:"21:00",a:"Cena",type:"meal",ic:"🍽️"}],
+   {t:"15:30",a:"⚽ Tour del Santiago Bernabéu (bus 27 por la Castellana o taxi desde el Prado · ~1,5 h)",ic:"🏟️"},
+   {t:"18:15",a:"Metro L10 directo Santiago Bernabéu → Plaza de España (~15 min)",ic:"🚇"},
+   {t:"19:15",a:"Atardecer en el Templo de Debod 𓋹 (un templo egipcio en Madrid) y exterior del Palacio Real",ic:"🌇"},
+   {t:"21:00",a:"Paseo por Gran Vía y cena",type:"meal",ic:"🍽️"}],
   stayTag:{name:"Airbnb La Casita de Vicálvaro",status:"ok"},
-  guide:["g-prado", "g-debod", "g-austrias"],
-  maps:[{n:"Museo del Prado",q:"Museo del Prado Madrid"},{n:"Parque del Retiro",q:"Parque del Retiro Madrid"}]},
+  guide:["g-prado", "g-bernabeu", "g-debod"],
+  maps:[{n:"Museo del Prado",q:"Museo del Prado Madrid"},{n:"Estadio Santiago Bernabéu",q:"Estadio Santiago Bernabéu Madrid"}]},
 
  {d:"09",m:"Oct",dow:"Viernes",city:"Madrid → El Cairo",icon:"🛫",
-  desc:"Mañana libre y salida rumbo a Egipto (vía Atenas).",
+  desc:"Mañana en el Retiro y salida rumbo a Egipto (vía Atenas).",
   plan:[
-   {t:"10:00",a:"Mañana libre: compras / barrio de Salamanca",ic:"🛍️"},
+   {t:"09:00",a:"Cercanías Vicálvaro → Atocha (~15 min)",ic:"🚆"},
+   {t:"09:30",a:"Parque del Retiro, estanque y Palacio de Cristal",ic:"🌳"},
+   {t:"11:15",a:"Regreso a Vicálvaro",ic:"🚆"},
    {t:"12:00",a:"Checkout del Airbnb (dejar maletas)",type:"stay",ic:"🧳"},
    {t:"13:00",a:"Almuerzo temprano",type:"meal",ic:"🍽️"},
    {t:"15:20",a:"⏰ Estar en Madrid-Barajas T2 (3h antes · internacional)",ic:"🕒"},
@@ -834,6 +949,33 @@ function render(){
  });
 }
 render();
+
+const route=[
+ {d:6,w:"Mar",c:"co",f:"🇨🇴",city:"Bogotá ✈️",i:0},
+ {d:7,w:"Mié",c:"es",f:"🇪🇸",city:"Madrid",i:1},
+ {d:8,w:"Jue",c:"es",f:"🇪🇸",city:"Madrid",i:2},
+ {d:9,w:"Vie",c:"es",f:"🇪🇸",city:"Madrid ✈️",i:3},
+ {d:10,w:"Sáb",c:"eg",f:"🇪🇬",city:"El Cairo",i:4},
+ {d:11,w:"Dom",c:"eg",f:"🇪🇬",city:"El Cairo",i:5},
+ {d:12,w:"Lun",c:"eg",f:"🇪🇬",city:"Asuán 🚢",i:6},
+ {d:13,w:"Mar",c:"eg",f:"🇪🇬",city:"Nilo 🚢",i:7},
+ {d:14,w:"Mié",c:"eg",f:"🇪🇬",city:"Nilo 🚢",i:8},
+ {d:15,w:"Jue",c:"eg",f:"🇪🇬",city:"Luxor",i:9},
+ {d:16,w:"Vie",c:"eg",f:"🇪🇬",city:"Luxor ✈️",i:10},
+ {d:17,w:"Sáb",c:"gr",f:"🇬🇷",city:"Atenas",i:11},
+ {d:18,w:"Dom",c:"gr",f:"🇬🇷",city:"Atenas",i:12},
+ {d:19,w:"Lun",c:"gr",f:"🇬🇷",city:"Atenas",i:13},
+ {d:20,w:"Mar",c:"es",f:"🇪🇸",city:"Madrid",i:14},
+ {d:21,w:"Mié",c:"co",f:"🏠",city:"Bogotá",i:15}];
+const legs=[["es","🇪🇸 Madrid","7–9",3],["eg","🇪🇬 El Cairo","10–11",2],["eg","🚢 Nilo","12–14",3],["eg","🏛️ Luxor","15–16",2],["gr","🇬🇷 Atenas","17–19",3],["es","🇪🇸 Madrid","20",1],["co","🏠 Bogotá","21",1]];
+function goDay(i){const d=document.querySelectorAll('.day')[i];if(!d)return;d.classList.add('open');setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'start'}),30);}
+function renderCal(){
+ const now=new Date(),today=(now.getFullYear()===2026&&now.getMonth()===9)?now.getDate():0;
+ document.getElementById('legs').innerHTML=legs.map(l=>'<div class="leg '+l[0]+'" style="flex-grow:'+l[3]+'"><b>'+l[1]+'</b><span>'+l[2]+' oct</span></div>').join('');
+ document.getElementById('cal').innerHTML=route.map(r=>'<button class="cday '+r.c+(r.d===today?' today':'')+'" onclick="goDay('+r.i+')"><span class="cw">'+r.w+'</span><span class="cn">'+r.d+'</span><span class="cf">'+r.f+'</span><span class="cc">'+r.city+'</span></button>').join('');
+ if(today){const t=document.querySelector('.cday.today');if(t)t.scrollIntoView({inline:'center',block:'nearest'});}
+}
+renderCal();
 function showTab(k){document.querySelectorAll('.gpanel').forEach(p=>p.classList.toggle('on',p.dataset.tab===k));
  document.querySelectorAll('.gtab').forEach(b=>b.classList.toggle('on',b.dataset.tab===k));
  try{localStorage.setItem('gtab',k)}catch(e){}}
