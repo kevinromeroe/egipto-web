@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viaje a Egipto 2026 · Itinerario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
 <style>
 :root{
   color-scheme: light;
@@ -105,6 +107,70 @@ li.stay .act{color:var(--gold-d);font-weight:600}
 .ref td:first-child{color:var(--lapis);white-space:nowrap;padding-right:10px;font-weight:600}
 .dates-sm{font-size:.8rem;color:var(--muted);margin-bottom:4px}
 footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;padding:18px}
+
+/* guía cultural */
+.gchips{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.gchip{font-size:.76rem;font-weight:600;color:var(--lapis-d);background:#eef1f8;border:1px solid #c9d4ea;
+  padding:5px 10px;border-radius:14px;text-decoration:none}
+.gcity{font-family:"Georgia",serif;font-weight:700;color:var(--terra);margin:18px 2px 6px;font-size:1rem}
+details.site{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:9px 0;
+  box-shadow:0 2px 8px rgba(120,90,20,.06);scroll-margin-top:12px}
+details.site summary{list-style:none;cursor:pointer;padding:12px 14px;display:flex;align-items:center;gap:10px}
+details.site summary::-webkit-details-marker{display:none}
+details.site summary::after{content:"›";margin-left:auto;color:var(--gold-d);font-weight:700;font-size:1.2rem;transition:transform .2s}
+details.site[open] summary::after{transform:rotate(90deg)}
+.sic{font-size:1.25rem;font-family:"Noto Sans Egyptian Hieroglyphs",sans-serif}
+.sname{font-weight:700;color:var(--lapis-d);flex:1;min-width:0}
+.gtag{display:inline-block;margin-top:4px;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.gtag.must{background:#fdf1d2;color:var(--gold-d)} .gtag.gem{background:#e3eefc;color:var(--lapis)} .gtag.free{background:#e2f3ea;color:var(--ok)}
+.sbody{padding:0 15px 15px;font-size:.88rem}
+.swhat{margin-bottom:8px}
+.sh{font-weight:700;color:var(--lapis);margin:8px 0 4px}
+.sbody ul{padding-left:18px} .sbody li{margin:4px 0}
+.sbox{margin-top:8px;padding:8px 10px;border-radius:9px;font-size:.85rem}
+.sbox.fun{background:#fff4e0;border-left:3px solid var(--terra)}
+.sbox.how{background:#e8f4f4;border-left:3px solid var(--nile)}
+.sbox.tip{background:#f3efe3;border-left:3px solid var(--gold)}
+.hg{font-family:"Noto Sans Egyptian Hieroglyphs",sans-serif;color:var(--lapis-d)}
+.hg.big{font-size:2.2rem;line-height:1.2} .hg.mid{font-size:1.6rem;white-space:nowrap}
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.gcell{background:#fbf6e8;border:1px solid var(--line);border-radius:10px;padding:8px;text-align:center}
+.gname{font-weight:700;color:var(--terra);font-size:.85rem}
+.gmean{font-size:.8rem;color:var(--muted)}
+.phrase{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:8px 0;border-bottom:1px dashed #eadfbf}
+.phrase>div{flex:1 1 220px;min-width:0}
+.cart{max-width:100%;overflow-x:auto}
+.phrase:last-child{border-bottom:0}
+.cart{display:inline-block;font-size:1.5rem;white-space:nowrap;border:2.5px solid var(--gold-d);border-right-width:7px;
+  border-radius:999px;padding:3px 14px;background:#fffaf0;flex:0 0 auto}
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:6px}
+.acell{display:flex;flex-direction:column;align-items:center;background:#fbf6e8;border-radius:8px;padding:5px}
+.acell .hg{font-size:1.6rem} .acell small{font-size:.7rem;color:var(--muted);text-align:center}
+.rules{padding-left:18px;font-size:.87rem} .rules li{margin:5px 0}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:6px}
+.lcell{display:flex;flex-direction:column;align-items:center;background:#eef3f8;border-radius:8px;padding:6px;text-align:center}
+.lcell .gl{font-family:Georgia,serif;font-size:1.25rem;color:var(--lapis-d)} .lcell small{font-size:.68rem;color:var(--muted)}
+.gl2{font-family:Georgia,serif;color:var(--lapis-d)!important;white-space:normal!important}
+.near{margin-top:10px;font-size:.85rem}
+.near summary{cursor:pointer;font-weight:700;color:var(--nile-d)}
+.near ul{padding-left:4px;list-style:none;margin-top:6px} .near li{margin:5px 0}
+@media print{details>*{display:block}}
+.gtabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 2px;margin:0 -2px;
+  background:linear-gradient(180deg,var(--papyrus) 85%,rgba(244,232,201,0));scrollbar-width:none}
+.gtabs::-webkit-scrollbar{display:none}
+.gtab{flex:0 0 auto;border:1.5px solid var(--gold);background:var(--card);color:var(--lapis-d);font-weight:700;
+  font-size:.82rem;padding:8px 13px;border-radius:20px;cursor:pointer;white-space:nowrap;font-family:inherit}
+.gtab.on{background:linear-gradient(135deg,var(--lapis-l),var(--lapis));color:#fff;border-color:var(--lapis)}
+.gtab .hg{color:inherit}
+.gpanel{display:none} .gpanel.on{display:block}
+article.site{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:12px 0;overflow:hidden;
+  box-shadow:0 2px 10px rgba(120,90,20,.08);scroll-margin-top:64px}
+.shead{display:flex;align-items:center;gap:12px;padding:13px 15px;background:linear-gradient(90deg,#fffdf6,#fbf3dd);border-bottom:1px solid var(--line)}
+.shead .sic{flex:0 0 44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  background:linear-gradient(135deg,var(--lapis-l),var(--lapis));border:1.5px solid var(--gold);border-radius:12px;color:#fff}
+.sbody{padding-top:10px!important}
+@media print{.gtabs{display:none}.gpanel{display:block!important}}
+
 .divider{text-align:center;color:var(--gold-d);letter-spacing:10px;margin:22px 0 4px;opacity:.7}
 </style>
 </head>
@@ -131,16 +197,24 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;pad
 
   <div class="divider">𓊪 𓏏 𓎛</div>
 
+  <div class="section-title">🧭 Guía del viaje</div>
+  <div class="legend">Elige una ciudad: lo que de verdad vale la pena, el dato curioso y cómo llegar. Al final, jeroglíficos y griego.</div>
+  <div class="gtabs" id="gtabs"></div>
+  <div id="guide"></div>
+  <div class="gpanel" id="glyphs" data-tab="glyphs"><div class="legend">Con 10 minutos de esto, los muros de los templos dejan de ser «dibujitos».</div></div>
+  <div class="gpanel" id="greek" data-tab="greek"><div class="legend">Muchas letras ya las conocen por las matemáticas. Aquí van las que engañan.</div></div>
+
+  <div class="divider">𓊪 𓏏 𓎛</div>
   <div class="section-title">✈️ Vuelos</div>
   <div class="ref">
     <table>
-      <tr><td>6 Oct</td><td><b>Bogotá → Madrid</b> · Iberia IB0154 · 21:25 → 7 Oct 14:10 · <b>P6EJR</b></td></tr>
+      <tr><td>6 Oct</td><td><b>Bogotá → Madrid</b> · Iberia IB0154 · 21:25 → 7 Oct 14:10 (Barajas T4S) · <b>P6EJR</b></td></tr>
       <tr><td>9 Oct</td><td><b>Madrid → El Cairo</b> · A3741 18:20→Atenas 22:50 · <b>escala 2h05</b> · A3930 00:55→El Cairo 02:50 (+1) · <b>7TI2LS</b></td></tr>
       <tr><td>12 Oct</td><td><b>El Cairo → Aswan</b> · EgyptAir MS280 · 05:20 → 06:40 · <b>YM8EP2</b></td></tr>
       <tr><td>16 Oct</td><td><b>Luxor → El Cairo</b> · EgyptAir MS069 · 21:10 → 22:20 · <b>YMGEXP</b></td></tr>
       <tr><td>17 Oct</td><td><b>El Cairo → Atenas</b> · Aegean A3931 · 04:00 → 06:00 · <b>7TV5KM</b></td></tr>
       <tr><td>20 Oct</td><td><b>Atenas → Madrid</b> · Aegean A3740 · 14:30 → 17:25 · <b>9XOAZB</b></td></tr>
-      <tr><td>21 Oct</td><td><b>Madrid → Bogotá</b> · Iberia IB0151 · 12:10 → 15:40 · <b>P6EJR</b></td></tr>
+      <tr><td>21 Oct</td><td><b>Madrid → Bogotá</b> · Iberia IB0151 · 12:10 (Barajas T4/T4S) → 15:40 · <b>P6EJR</b></td></tr>
     </table>
     <div class="info-line">⚠️ Todos los tramos con <b>0 maletas facturadas</b> (solo equipaje de mano).</div>
   </div>
@@ -150,11 +224,14 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;pad
 
   <div class="section-title">📝 Pendientes clave</div>
   <div class="ref"><table>
-    <tr><td>🛂</td><td><b>e-Visa de Egipto</b> (online, 1 entrada, 30 días) + pasaporte vigente ≥6 meses</td></tr>
-    <tr><td>🇪🇺</td><td><b>Schengen:</b> colombianos SIN visa (≤90 días) ✓. Verificar <b>ETIAS</b> (€20 online) si ya aplica en oct 2026</td></tr>
+    <tr><td>🛂</td><td><b>URGENTE · Visa de Egipto:</b> e-Visa online (1 entrada, 30 días) o visa a la llegada en El Cairo (USD 25 en efectivo) + pasaporte vigente ≥6 meses</td></tr>
+    <tr><td>🎂</td><td><b>Corregir fecha de nacimiento de Angie</b> con EgyptAir (YM8EP2 dice 1998, YMGEXP dice 1997)</td></tr>
+    <tr><td>🌙</td><td>Confirmar con el anfitrión de Zamalek el <b>check-in de madrugada</b> del 10 Oct (llegada 02:50) o reservar la noche del 9</td></tr>
+    <tr><td>🎫</td><td>Confirmar que el billete Iberia <b>…206</b> está a nombre de Angie</td></tr>
+    <tr><td>🇪🇺</td><td><b>Schengen:</b> colombianos SIN visa (≤90 días) ✓. <b>ETIAS</b> aún no se exige en oct 2026 ✓</td></tr>
     <tr><td>🏨</td><td>Reservar <b>Madrid regreso</b> (1 noche, 20 Oct, cerca del aeropuerto)</td></tr>
     <tr><td>🪪</td><td>Dar <b>datos de identidad/pasaporte</b> al Airbnb de Madrid (registro de huéspedes, ley española)</td></tr>
-    <tr><td>🛡️</td><td><b>Seguro de viaje</b> con cobertura médica ≥€30.000 (Assist Card/SURA desde ~USD 25 · 15 días)</td></tr>
+    <tr><td>🛡️</td><td>✅ <b>Seguro comprado</b>: Universal Assistance · voucher <b>T035589045</b> · 07–21 Oct. ⚠️ Pedir que empiece el <b>06 Oct</b> (día de salida) y confirmar tope médico ≥€30.000</td></tr>
     <tr><td>🧳</td><td>Evaluar <b>equipaje facturado</b> (todos los tramos van con 0 maletas)</td></tr>
   </table></div>
 
@@ -165,6 +242,352 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:32px;pad
 </div>
 
 <script>
+
+/* ===== GUÍA CULTURAL ===== */
+const guide=[
+ {city:"🇪🇸 Madrid",items:[
+  {id:"g-prado",ic:"🖼️",name:"Museo del Prado",tag:"Infaltable",
+   what:"Una de las pinacotecas más importantes del mundo. No intenten verlo todo: con estas obras en unas 2 horas se llevan lo esencial.",
+   must:["<b>Las Meninas</b> (Velázquez): el pintor se retrató a sí mismo pintando… y los reyes aparecen solo en un espejo del fondo. El cuadro «te mira».",
+         "<b>Pinturas negras</b> de Goya: el <i>Saturno devorando a su hijo</i> lo pintó en la pared del comedor de su casa. Después lo arrancaron del muro y lo pasaron a lienzo.",
+         "<b>El jardín de las delicias</b> (El Bosco): acérquense, que cada centímetro tiene una escena absurda.",
+         "<b>El 3 de mayo de 1808</b> (Goya): el fusilamiento que inventó la pintura de guerra moderna."],
+   fun:"Las Pinturas negras nunca se hicieron para ser vistas: Goya las pintó ya viejo, sordo y solo, para él mismo.",
+   how:"Desde Vicálvaro: Cercanías (C2 o C7) hasta Atocha (~15 min) y 10 min caminando.",
+   tip:"Entrada gratis de lunes a sábado 18:00–20:00 (domingos 17:00–19:00), pero con fila. Con entrada online (~€15) entran sin esperar."},
+  {id:"g-debod",ic:"𓋹",name:"Templo de Debod · un templo egipcio en Madrid",tag:"Gratis",
+   what:"Templo egipcio auténtico del siglo II a.C. Egipto se lo regaló a España en 1968 por ayudar a salvar los templos de Nubia de la inundación de la Presa de Asuán.",
+   must:["Es el «prólogo» perfecto del viaje: es la misma campaña de la UNESCO que salvó <b>Abu Simbel</b> y <b>Philae</b>, que verán días después.",
+         "Atardecer detrás del templo, reflejado en el estanque: uno de los más bonitos de Madrid."],
+   fun:"Llegó desmontado, en barco y en cientos de cajas con las piedras numeradas, y se reconstruyó piedra por piedra en el parque del Cuartel de la Montaña.",
+   how:"Metro Plaza de España (L2/L3/L10) o Ventura Rodríguez, 5 min caminando. Queda al lado del Palacio Real.",
+   tip:"El atardecer en Madrid a inicios de octubre es hacia las 19:45: lleguen media hora antes."},
+  {id:"g-austrias",ic:"🏰",name:"Madrid de los Austrias",tag:"Infaltable",
+   what:"El Madrid más antiguo: Plaza Mayor, Puerta del Sol, Mercado de San Miguel, Cava Baja y La Latina.",
+   must:["Pisar la placa del <b>Kilómetro 0</b> en la Puerta del Sol: desde ahí se miden todas las carreteras de España.",
+         "<b>Sobrino de Botín</b> (calle Cuchilleros), fundado en 1725: el restaurante más antiguo del mundo según el Guinness. Aunque sea, asómense al horno.",
+         "Tapas en la <b>Cava Baja</b>: pidan una caña y una tapa en cada bar en vez de una sola comida grande."],
+   fun:"Goya, según la leyenda, trabajó de joven lavando platos en Botín.",
+   how:"Cercanías hasta Sol (C3/C4 desde Atocha) o metro L1/L2/L3.",
+   tip:"Churros con chocolate en San Ginés (abierto desde 1894), a dos cuadras de Sol."}
+ ]},
+ {city:"🇪🇬 El Cairo",items:[
+  {id:"g-giza",ic:"🔺",name:"Pirámides de Giza y la Esfinge",tag:"Infaltable",
+   what:"La única de las 7 maravillas del mundo antiguo que sigue en pie. La Gran Pirámide de Keops (~2560 a.C.) medía 146 m y fue la construcción más alta hecha por humanos durante unos 3.800 años.",
+   must:["<b>Mirador Panorama</b>: la foto con las 9 pirámides alineadas.",
+         "<b>Interior de la Gran Pirámide</b> (boleto aparte): la Gran Galería es sobrecogedora. No es apto para claustrofóbicos.",
+         "Miren la <b>punta de Kefrén</b>: conserva parte del revestimiento original de caliza blanca pulida. Así brillaban todas al sol.",
+         "<b>Templo del Valle de Kefrén</b>, junto a la Esfinge: bloques de granito de Asuán perfectos. Casi todos pasan de largo.",
+         "Entre las patas de la Esfinge, la <b>Estela del Sueño</b>: el príncipe Tutmosis IV soñó que la Esfinge le prometía el trono si la desenterraba de la arena. Lo hizo… y fue faraón."],
+   fun:"La Esfinge no perdió la nariz por un cañonazo de Napoleón: dibujos anteriores a él ya la muestran sin nariz.",
+   how:"Uber desde Zamalek (~45–60 min). Destino: <b>«Giza Pyramids Visitor Center»</b>, la entrada nueva por la carretera de Fayoum. Dentro de la meseta hay buses eléctricos gratuitos.",
+   tip:"Boleto de la meseta ~700 EGP p/p, <b>solo con tarjeta</b>; se puede comprar en egymonuments.gov.eg. Ignoren a quien se ofrezca a «ayudar» en la entrada. Si montan camello, pacten antes el precio TOTAL."},
+  {id:"g-gem",ic:"🏛️",name:"Gran Museo Egipcio (GEM)",tag:"Infaltable",
+   what:"Abrió por completo en noviembre de 2025. Es el museo más grande del mundo dedicado a una sola civilización.",
+   must:["<b>Coloso de Ramsés II</b> (11 m, 83 toneladas) en el vestíbulo.",
+         "<b>Gran Escalera</b>: un desfile de estatuas reales que sube hasta una ventana con vista a las pirámides.",
+         "<b>Galerías de Tutankamón</b>: por primera vez toda su colección junta (más de 5.000 objetos).",
+         "<b>Barca solar de Keops</b>: un barco de cedro de 4.500 años y 43 m, enterrado junto a la Gran Pirámide para el viaje del rey con el Sol."],
+   fun:"El coloso de Ramsés pasó 50 años en una rotonda llena de tráfico del centro de El Cairo (la Plaza Ramsés) antes de mudarse aquí en 2006.",
+   how:"Está junto a Giza: Uber desde Zamalek ~40 min.",
+   tip:"Compren la entrada con horario en la web oficial del GEM. Calculen 4–5 horas. Lean antes la sección de jeroglíficos de esta página: las estatuas se vuelven otra cosa."},
+  {id:"g-islamico",ic:"🕌",name:"El Cairo islámico: calle Al-Muizz, Khan el-Khalili y Bab Zuweila",tag:"Joya",
+   what:"El mayor conjunto de arquitectura islámica medieval del mundo (Patrimonio UNESCO). El Cairo fue fundado aquí en el año 969 como capital fatimí.",
+   must:["Caminar la <b>calle Al-Muizz</b> de norte a sur, desde Bab al-Futuh hasta Bab Zuweila (~1 km).",
+         "<b>Complejo de Qalawun</b> (1285): interiores de mármol y madera tallada impresionantes.",
+         "<b>Bayt al-Suhaymi</b>: casa otomana con celosías de madera (mashrabiyas) y patios.",
+         "<b>Subir a los minaretes de Bab Zuweila</b>: vista de la «ciudad de los mil minaretes». Casi ningún turista lo hace.",
+         "Té de menta en el <b>Café El Fishawy</b> (desde 1797), donde escribía Naguib Mahfouz, Nobel de Literatura."],
+   fun:"En 1260 el sultán Qutuz colgó en Bab Zuweila las cabezas de los enviados mongoles que exigían su rendición. Meses después derrotó a los mongoles en Ain Jalut.",
+   how:"Uber hasta «Bab Al Futuh» y bajar caminando por Al-Muizz hasta el Khan el-Khalili y Bab Zuweila.",
+   tip:"Ropa que cubra hombros y rodillas; Angie, un pañuelo para entrar a las mezquitas. En el Khan, ofrezcan ~30–40% del primer precio que les digan."},
+  {id:"g-copto",ic:"⛪",name:"El Cairo copto",tag:"Joya",
+   what:"El barrio cristiano y judío más antiguo de la ciudad, levantado dentro de la fortaleza romana de Babilonia.",
+   must:["<b>Iglesia Colgante</b>: construida sobre la puerta de la fortaleza romana; la nave «cuelga» sobre el vacío.",
+         "<b>Iglesia de San Sergio</b>: según la tradición, la cripta donde se refugió la Sagrada Familia en su huida a Egipto.",
+         "<b>Sinagoga Ben Ezra</b>: en su desván apareció la «Genizá de El Cairo», 300.000 documentos de mil años de vida judía."],
+   fun:"La tradición sitúa junto a Ben Ezra el lugar donde la hija del faraón encontró al bebé Moisés entre los juncos.",
+   how:"Metro línea 1, estación Mar Girgis (sale justo enfrente), o Uber.",
+   tip:"Es tranquilo y compacto: bastan 1,5 horas. Encaja bien la mañana del 11 si salen temprano."}
+ ]},
+ {city:"⛵ Asuán y el Nilo",items:[
+  {id:"g-philae",ic:"🏝️",name:"Templo de Isis en Philae",tag:"Infaltable",
+   what:"El último gran santuario de la religión egipcia antigua. La UNESCO lo desmontó y lo trasladó piedra por piedra (1977–80) a la isla de Agilkia para salvarlo de las aguas.",
+   must:["La <b>última inscripción jeroglífica de la historia</b>: escrita el 24 de agosto del 394 d.C. en la Puerta de Adriano. Después nadie volvió a escribir jeroglíficos durante 1.400 años.",
+         "<b>Cruces coptas</b> talladas sobre los relieves: el templo se convirtió en iglesia.",
+         "Una <b>inscripción en francés</b> que dejaron las tropas de Napoleón en 1799."],
+   fun:"Los cartuchos de Ptolomeo y Cleopatra de un obelisco de Philae ayudaron a Champollion a descifrar los jeroglíficos (ver sección de jeroglíficos).",
+   how:"Lancha desde el embarcadero de Shellal (~10 min). Normalmente va incluido en el tour del crucero.",
+   tip:"Si van por su cuenta, el precio de la lancha es por bote, no por persona: negocien."},
+  {id:"g-nubia",ic:"🛶",name:"Museo Nubio, Elefantina y felucca al atardecer",tag:"Joya",
+   what:"Asuán es la puerta de Nubia: el reino de Kush, cuyos «faraones negros» gobernaron todo Egipto (dinastía XXV).",
+   must:["<b>Museo Nubio</b>: premiado por su diseño. Cuenta cómo se salvaron los templos de la inundación del lago Nasser.",
+         "<b>Felucca al atardecer</b> alrededor de la isla Elefantina y la isla Kitchener (jardín botánico).",
+         "<b>Nilómetro de Elefantina</b>: escalera que medía la crecida del Nilo. Con esa medida se calculaban los impuestos del año."],
+   fun:"Elefantina se llama así por el comercio de marfil, o por las rocas grises del río que parecen lomos de elefante.",
+   how:"Taxi o calesa en Asuán (no hay Uber). Las feluccas salen desde la Corniche: pacten el precio por hora.",
+   tip:"Si el crucero ya incluye Philae y la Presa Alta, usen la tarde libre del 12 para esto."},
+  {id:"g-abusimbel",ic:"🌄",name:"Abu Simbel",tag:"Infaltable",
+   what:"Dos templos tallados en la montaña por Ramsés II (~1264 a.C.): uno para él y otro para su esposa Nefertari.",
+   must:["Los <b>4 colosos de 20 m</b> de la fachada.",
+         "Dentro, la <b>Batalla de Qadesh</b>: Ramsés en su carro contra los hititas. Es propaganda: la batalla fue un empate.",
+         "El <b>santuario</b>: el 22 de febrero y el 22 de octubre el sol entra hasta el fondo e ilumina 3 de las 4 estatuas. Ptah, dios del inframundo, siempre queda en la sombra.",
+         "<b>Templo de Nefertari</b>: algo rarísimo, la reina aparece del mismo tamaño que el rey."],
+   fun:"🇬🇷 En la pierna de uno de los colosos hay un grafito en GRIEGO de mercenarios del faraón Psamético II (591 a.C.): una de las inscripciones griegas más antiguas que existen. Empieza así: «ΒΑΣΙΛΕΟΣ ΕΛΘΟΝΤΟΣ ΕΣ ΕΛΕΦΑΝΤΙΝΑΝ ΨΑΜΑΤΙΧΟ» («Cuando el rey Psamético vino a Elefantina…»).",
+   how:"Incluido en su paquete Imperial Egypt: salida ~04:00 y unas 3 h de bus por el desierto.",
+   tip:"Lleven un saco para la madrugada. Entre 1964 y 1968 el templo se cortó en más de 1.000 bloques y se subió 65 m: busquen las juntas de los cortes en la piedra."},
+  {id:"g-komombo",ic:"🐊",name:"Kom Ombo",tag:"Infaltable",
+   what:"Un templo doble y simétrico: la mitad para Sobek (dios cocodrilo) y la otra mitad para Haroeris (Horus el Viejo).",
+   must:["El relieve de los <b>«instrumentos quirúrgicos»</b> (bisturís, pinzas, ventosas…). Su interpretación sigue en debate.",
+         "Un <b>calendario de fiestas</b> tallado en la pared.",
+         "<b>Museo de los Cocodrilos</b>: cocodrilos momificados de verdad."],
+   fun:"Lo construyeron los Ptolomeos, reyes de origen GRIEGO que se hicieron representar como faraones. Busquen sus cartuchos: «Ptolomeo» se lee fácil (ver sección de jeroglíficos).",
+   how:"El crucero atraca al pie del templo.",
+   tip:"La visita suele ser al atardecer, cuando la luz es preciosa."},
+  {id:"g-edfu",ic:"🦅",name:"Templo de Horus en Edfu",tag:"Infaltable",
+   what:"El templo mejor conservado de todo Egipto (237–57 a.C.), dedicado a Horus, el dios halcón.",
+   must:["Los <b>halcones de granito</b> que custodian la entrada: foto obligada.",
+         "En los muros, el «drama» de <b>Horus contra Set</b>: Horus arponea a su tío Set, que aparece como un hipopótamo diminuto.",
+         "El <b>naos de granito</b> de Nectanebo II en el santuario, donde vivía la estatua del dios."],
+   fun:"Estuvo enterrado en arena hasta el techo, con casas construidas encima, hasta que Auguste Mariette lo excavó en 1860. Por eso está tan completo.",
+   how:"En calesa desde el barco (incluida). Den propina al cochero.",
+   tip:"Las calesas tienen mala fama por el trato a los caballos: si ven alguno maltratado, pidan otra."}
+ ]},
+ {city:"🏛️ Luxor",items:[
+  {id:"g-karnak",ic:"🏛️",name:"Templos de Karnak",tag:"Infaltable",
+   what:"El complejo religioso más grande jamás construido. Treinta faraones lo ampliaron durante unos 2.000 años.",
+   must:["<b>Sala Hipóstila</b>: 134 columnas; las 12 centrales miden 21 m. Párense en el centro y miren hacia arriba.",
+         "<b>Obelisco de Hatshepsut</b> (~30 m): el más alto que sigue en pie en Egipto.",
+         "El <b>escarabajo gigante</b> junto al lago sagrado: la tradición dice que dar 7 vueltas a su alrededor trae suerte.",
+         "<b>Museo al aire libre</b> (boleto aparte): la Capilla Roja de Hatshepsut y la Capilla Blanca. Casi nadie entra."],
+   fun:"Se suele decir que en la Sala Hipóstila cabría entera la catedral de Notre Dame.",
+   how:"Desde su hotel (orilla Oeste): ferry público al otro lado (~5 EGP) y taxi o calesa hasta Karnak (~10 min).",
+   tip:"Lleguen temprano o después de las 15:00. Lleven sombrero y agua."},
+  {id:"g-luxortemple",ic:"🌇",name:"Templo de Luxor y Avenida de las Esfinges",tag:"Infaltable",
+   what:"El templo del centro de la ciudad, unido a Karnak por la Avenida de las Esfinges (2,7 km, reabierta en 2021).",
+   must:["Ir al <b>atardecer</b> y quedarse hasta que se encienden las luces.",
+         "Caminar un tramo de la <b>Avenida de las Esfinges</b>.",
+         "La <b>mezquita de Abu el-Haggag</b>, construida encima del templo cuando estaba enterrado: su puerta quedó colgando en el aire."],
+   fun:"El obelisco gemelo del que ven en la entrada está en la Plaza de la Concordia de París desde 1836.",
+   how:"En la Corniche, orilla Este. Desde el ferry público son 5 min caminando.",
+   tip:"Entre Karnak y este templo está el Museo de Luxor (siguiente tarjeta)."},
+  {id:"g-luxormuseum",ic:"🗿",name:"Museo de Luxor",tag:"Joya",
+   what:"Un museo pequeño y perfecto, casi vacío. Está muy subestimado.",
+   must:["Las estatuas del <b>escondite de 1989</b>: aparecieron enterradas bajo el patio del templo de Luxor.",
+         "Momias reales (probablemente Ahmose I, el faraón que expulsó a los hicsos, y Ramsés I)."],
+   fun:"La momia que se cree de Ramsés I pasó más de un siglo en un museo de curiosidades en las cataratas del Niágara, antes de volver a Egipto en 2003.",
+   how:"En la Corniche, entre Karnak y el Templo de Luxor.",
+   tip:"Ideal para la hora de más calor."},
+  {id:"g-valle",ic:"⚰️",name:"Valle de los Reyes",tag:"Infaltable",
+   what:"El cementerio de los faraones del Imperio Nuevo: más de 60 tumbas excavadas en la montaña.",
+   must:["El boleto general incluye <b>3 tumbas</b> a elegir entre las abiertas ese día.",
+         "<b>Ramsés V/VI (KV9)</b>, boleto aparte: techo astronómico con la diosa Nut tragándose el sol de noche y pariéndolo al amanecer. Para muchos es la mejor relación precio/asombro.",
+         "<b>Seti I (KV17)</b>, boleto aparte y caro: la tumba más larga y mejor decorada.",
+         "<b>Tutankamón (KV62)</b>, boleto aparte: pequeña, pero su momia sigue ahí."],
+   fun:"🇬🇷 Hay grafitis de turistas griegos y romanos de hace 2.000 años, por ejemplo en KV9 y KV2. Los griegos llamaban a estas tumbas «siringas» (flautas) por su forma larga.",
+   how:"Desde su hotel, en la orilla Oeste: taxi ~15 min. Contraten un taxi por día con el hotel.",
+   tip:"Vayan a primera hora: a las 11 ya hace mucho calor. Lleven agua y efectivo para propinas."},
+  {id:"g-medinethabu",ic:"🎨",name:"Medinet Habu",tag:"Joya",
+   what:"El templo funerario de Ramsés III. Muchos egiptólogos lo prefieren a Karnak, y hay muy poca gente.",
+   must:["Los <b>colores originales</b> en techos y columnas.",
+         "Los relieves de la batalla contra los <b>«Pueblos del Mar»</b>: los invasores misteriosos que acabaron con medio Mediterráneo hacia el 1177 a.C."],
+   fun:"Su puerta de entrada imita una fortaleza siria: Ramsés III quiso que su templo pareciera un castillo.",
+   how:"A 5–10 min en taxi de su hotel.",
+   tip:"Perfecto para la tarde del 16, antes de ir al aeropuerto."},
+  {id:"g-deirmedina",ic:"🔨",name:"Deir el-Medina, el pueblo de los artesanos",tag:"Joya",
+   what:"El pueblo de los obreros y artistas que excavaron y pintaron las tumbas reales. Sus propias tumbas son pequeñas, pero conservan colores intactos.",
+   must:["<b>Tumba de Sennedjem</b>: campos, cosechas, el más allá… colores que parecen de ayer."],
+   fun:"Aquí ocurrió la <b>primera huelga registrada de la historia</b>: en el año 29 de Ramsés III los obreros se cruzaron de brazos porque no les llegaba la ración de grano.",
+   how:"Al lado de Medinet Habu; se combinan fácil.",
+   tip:"Tiene boleto propio, que se compra en la taquilla general de la orilla Oeste."},
+  {id:"g-hatshepsut",ic:"👑",name:"Templo de Hatshepsut (Deir el-Bahari)",tag:"Infaltable",
+   what:"Templo en terrazas, encajado en un acantilado. Lo construyó Hatshepsut, una mujer que gobernó como faraón unos 20 años.",
+   must:["Los relieves de la <b>expedición al País de Punt</b>: jirafas, árboles de incienso y una reina de Punt muy obesa.",
+         "La <b>capilla de Hathor</b>: columnas rematadas con un rostro de mujer con orejas de vaca.",
+         "Figuras de la reina <b>borradas a cincel</b>: tras su muerte quisieron eliminarla de la historia."],
+   fun:"En las estatuas, Hatshepsut aparece con la barba postiza de los faraones.",
+   how:"Taxi ~15 min desde su hotel. Hay un trencito desde la taquilla.",
+   tip:"Pega el sol de lleno: mejor a primera hora."},
+  {id:"g-memnon",ic:"🗿",name:"Colosos de Memnón y Ramesseum",tag:"Gratis",
+   what:"Dos estatuas de 18 m de Amenhotep III, en medio del campo. Muy cerca está el Ramesseum, el templo de Ramsés II.",
+   must:["🇬🇷 Tras un terremoto (27 a.C.) uno de los colosos empezó a «cantar» al amanecer. Los griegos dijeron que era Memnón, el héroe de Troya, saludando a su madre Eos, la Aurora.",
+         "Busquen los <b>poemas en griego</b> grabados en las piernas por turistas romanos. Uno es de Julia Balbila, que vino con el emperador Adriano en el año 130.",
+         "En el <b>Ramesseum</b> está el coloso caído de Ramsés II que inspiró el poema «Ozymandias» de Shelley."],
+   fun:"Hacia el año 199, el emperador Septimio Severo mandó reparar la estatua… y nunca volvió a cantar.",
+   how:"Al lado de la carretera, a pocos minutos de su hotel. Los Colosos se ven gratis.",
+   tip:"«Ozymandias» es como los griegos pronunciaban «User-maat-Ra», el nombre de trono de Ramsés II. Lo verán en un cartucho."}
+ ]},
+ {city:"🇬🇷 Atenas",items:[
+  {id:"g-acropolis",ic:"🏛️",name:"Acrópolis y Partenón",tag:"Infaltable",
+   what:"La «ciudad alta» de Atenas. El Partenón (447–432 a.C.) se construyó en tiempos de Pericles, con el escultor Fidias, para Atenea Parthenos (la virgen).",
+   must:["El <b>Partenón no tiene líneas rectas</b>: las columnas se inclinan levemente hacia dentro y el suelo se curva para que, de lejos, se vea perfecto.",
+         "El <b>Erecteion y las Cariátides</b>: las que hay arriba son copias. 5 originales están en el Museo de la Acrópolis y la sexta en el Museo Británico.",
+         "El <b>olivo de Atenea</b> junto al Erecteion: según el mito, el regalo con el que Atenea le ganó la ciudad a Poseidón.",
+         "Al pie sur, el <b>Teatro de Dioniso</b>: aquí se estrenaron las tragedias de Sófocles y Eurípides. Es donde nació el teatro."],
+   fun:"El Partenón estuvo casi entero hasta 1687, cuando un cañonazo veneciano hizo estallar la pólvora que los otomanos guardaban dentro.",
+   how:"Metro M2 (línea roja) desde Sepolia o Attiki hasta la estación Akropoli (~15 min).",
+   tip:"Entrada €30 en hhticket.gr, con franja horaria. Del 16 al 31 de octubre abre de 08:00 a 18:00. Entren a las 8:00 o después de las 16:00. Usen zapatos con agarre: el mármol resbala. No dejan subir con maletas: usen una consigna."},
+  {id:"g-acromuseum",ic:"🏺",name:"Museo de la Acrópolis",tag:"Infaltable",
+   what:"Uno de los mejores museos arqueológicos del mundo, construido sobre un barrio antiguo que se ve a través del piso de vidrio.",
+   must:["<b>Galería del Partenón</b> (último piso): está orientada exactamente como el templo, con el friso en su orden original. Las piezas que están en Londres aparecen como moldes blancos: un mensaje político silencioso.",
+         "Las <b>Cariátides originales</b>, limpiadas con láser."],
+   fun:"Desde la galería superior se ve el Partenón real por la ventana, alineado con las esculturas.",
+   how:"Metro Akropoli (M2), a la salida.",
+   tip:"Vean primero el museo y después la Acrópolis: entenderán todo el doble."},
+  {id:"g-agora",ic:"🗣️",name:"Ágora Antigua y Templo de Hefesto",tag:"Infaltable",
+   what:"La plaza pública de la Atenas clásica: mercado, tribunales y debate. Aquí caminaba y preguntaba Sócrates.",
+   must:["El <b>Templo de Hefesto</b>: el templo dórico mejor conservado de Grecia, con techo y todo.",
+         "La <b>Stoa de Átalo</b> (reconstruida), con su museo.",
+         "En el museo, los <b>ostraka</b>: trozos de cerámica con nombres grabados para votar el destierro de un político. De ahí viene la palabra «ostracismo»."],
+   fun:"Busquen un óstrakon con el nombre de Temístocles: «ΘΕΜΙΣΘΟΚΛΕΣ». Lo desterraron después de haber salvado a Grecia en Salamina.",
+   how:"Metro Monastiraki o Thiseio (M1).",
+   tip:"Tiene sombra de árboles: ideal para la tarde."},
+  {id:"g-pnyx",ic:"🌅",name:"Pnyx, Areópago y colina de Filopapo",tag:"Gratis",
+   what:"Las colinas frente a la Acrópolis. Aquí nació, literalmente, la democracia.",
+   must:["En la <b>Pnyx</b>, la tribuna de piedra (bema) donde hablaron Pericles y Demóstenes ante la Asamblea del pueblo.",
+         "En el <b>Areópago</b>, una placa de bronce con el discurso de San Pablo a los atenienses (Hechos 17).",
+         "En <b>Filopapo</b>, la mejor vista de frente del Partenón al atardecer, casi sin turistas."],
+   fun:"La palabra «democracia» viene de δῆμος (dēmos, pueblo) y κράτος (krátos, poder).",
+   how:"Caminando desde el metro Akropoli o Thiseio.",
+   tip:"Es una alternativa más auténtica que el Licabeto para el atardecer. Lleven linterna para bajar."},
+  {id:"g-kerameikos",ic:"🕊️",name:"Cerámico (cementerio antiguo)",tag:"Joya",
+   what:"El cementerio de la Atenas clásica, junto a la puerta del Dipilón, de donde salía la Vía Sacra hacia Eleusis.",
+   must:["<b>Estelas funerarias</b> con escenas de despedida muy humanas.",
+         "Un sitio tranquilo, con tortugas, a ~3 km de su Airbnb (metro directo)."],
+   fun:"Aquí pronunció Pericles su famoso Discurso Fúnebre (431 a.C.), uno de los grandes elogios a la democracia.",
+   how:"Metro M1 desde Attiki hasta Thiseio (directo, sin cambios), o Kerameikos (M3).",
+   tip:"Muy poca gente; perfecto para una hora de calma."},
+  {id:"g-nam",ic:"⚙️",name:"Museo Arqueológico Nacional",tag:"Joya",
+   what:"El museo más importante de arte griego antiguo del mundo, y muchos turistas no lo visitan.",
+   must:["El <b>Mecanismo de Anticitera</b> (s. II–I a.C.): un «computador» de engranajes de bronce que predecía eclipses.",
+         "La <b>Máscara de Agamenón</b>, de oro, encontrada en Micenas.",
+         "El <b>Bronce de Artemisio</b> (¿Zeus o Poseidón?) y el <b>Jinete de Artemisio</b>, rescatados del fondo del mar.",
+         "Bonus: tiene una <b>sala egipcia</b>. ¡A esas alturas ya sabrán leer cartuchos!"],
+   fun:"El Mecanismo de Anticitera apareció en un naufragio en 1901, y se tardó más de un siglo en entender qué era.",
+   how:"~30 min caminando desde su Airbnb, o metro M1 desde Attiki hasta Viktoria (2 paradas).",
+   tip:"Calculen 2–3 horas."}
+ ]},
+ {city:"🚌 Excursiones desde Atenas (19 Oct)",items:[
+  {id:"g-delphi",ic:"🔮",name:"Delfos",tag:"Infaltable",
+   what:"El «ombligo del mundo» y sede del Oráculo de Apolo, al que consultaron reyes durante siglos.",
+   must:["El <b>Templo de Apolo</b>, donde estaba grabado «ΓΝΩΘΙ ΣΑΥΤΟΝ» (conócete a ti mismo).",
+         "El <b>teatro y el estadio</b>, colgados de la montaña sobre un valle de olivos.",
+         "El <b>Auriga de Delfos</b> (museo): un bronce del 478 a.C. que conserva sus ojos originales incrustados.",
+         "El <b>omphalos</b>, la piedra «ombligo del mundo»."],
+   fun:"Según el mito, Zeus soltó dos águilas desde los extremos opuestos del mundo y se cruzaron justo aquí.",
+   how:"Bus KTEL desde la terminal de Liosion 260, ¡a pocas cuadras de su Airbnb! Son ~3 h; suele haber salida a las 08:30. Horarios en ktel-fokidas.gr.",
+   tip:"Es día completo. Si prefieren algo más corto, elijan Sunión."},
+  {id:"g-sounion",ic:"🌊",name:"Cabo Sunión · Templo de Poseidón",tag:"Infaltable",
+   what:"Un templo de Poseidón (444–440 a.C.) en lo alto de un acantilado sobre el mar Egeo. Su atardecer es legendario.",
+   must:["El <b>atardecer</b> desde el templo.",
+         "Busquen el nombre <b>«BYRON»</b>: el poeta Lord Byron lo grabó en una columna."],
+   fun:"Según una versión del mito, el rey Egeo se lanzó al mar desde aquí al ver velas negras, creyendo muerto a su hijo Teseo. Por eso el mar se llama Egeo… igual que la aerolínea que los lleva: Aegean ✈️.",
+   how:"Bus KTEL Attikis desde Pedion tou Areos (calle Mavromateon), ~2 h por la costa. También hay tours de medio día.",
+   tip:"Se puede combinar: Delfos un día y Sunión la tarde del 18."}
+ ]}
+];
+
+/* ===== QUÉ HAY CERCA DE CADA ALOJAMIENTO ===== */
+const near={
+ "Madrid (ida)":{
+  about:"Vicálvaro fue un pueblo independiente hasta 1951. Hoy es un barrio residencial tranquilo y auténtico: madrileños de verdad y precios de barrio.",
+  list:["🚆 <b>Cercanías Vicálvaro</b> (C2/C7) → Atocha en ~15 min: es la forma más rápida de llegar al centro.",
+        "🚇 Metro L9 (Vicálvaro / Puerta de Arganda).",
+        "🍺 Bares de barrio con caña + tapa a buen precio, mucho más baratos que en el centro.",
+        "🛒 Supermercados cerca para desayunos."],
+  arrive:"Desde Barajas T4S: taxi o Uber ~20–25 min. En transporte público: Cercanías C1 de T4 a Atocha y luego C2/C7 a Vicálvaro (~50 min)."},
+ "El Cairo":{
+  about:"Zamalek es una isla en medio del Nilo y el barrio más verde, seguro y tranquilo de El Cairo: embajadas, cafés y galerías.",
+  list:["🏰 <b>Palacio Gezira</b> (hoy hotel Marriott): construido en 1869 para la emperatriz Eugenia de Francia en la inauguración del Canal de Suez. Se puede entrar al jardín a tomar algo.",
+        "🗼 <b>Torre de El Cairo</b> (187 m, 1961), con forma de flor de loto: vista de 360° al atardecer.",
+        "🎨 <b>Palacio Aisha Fahmy</b> (centro de artes) y el <b>Museo de Cerámica Islámica</b>.",
+        "📚 Librería <b>Diwan</b> (calle 26 de Julio).",
+        "⛵ <b>Felucca al atardecer</b> desde la Corniche de Zamalek: pacten el precio por hora.",
+        "🍽️ <b>Abou El Sid</b>: cocina egipcia clásica. Prueben molokhia, mahshi y el koshari callejero."],
+  arrive:"Desde el aeropuerto (T3), de madrugada: Uber ~30–40 min. Pregúntenle a Abdullah si les consigue un traslado."},
+ "Luxor":{
+  about:"⚠️ Según los listados, el KR Elite está en la <b>orilla Oeste</b> (Al Bairat, Tourist Port Road), no en la Este. Es el lado rural: campos de caña de azúcar, burros y vida de pueblo, a minutos de las tumbas.",
+  list:["⚰️ A ~15 min del <b>Valle de los Reyes</b>, Hatshepsut, Medinet Habu y Deir el-Medina.",
+        "🗿 <b>Colosos de Memnón</b> en el camino.",
+        "🎈 La zona de despegue de los <b>globos</b> está en esta orilla.",
+        "⛴️ El <b>ferry público</b> (~5 EGP) cruza a la orilla Este (Karnak, Templo de Luxor) en minutos."],
+  arrive:"No hay Uber en Luxor: usen taxis pactados o el traslado del hotel. El aeropuerto está en la orilla Este (~35–45 min en taxi por el puente)."},
+ "Atenas":{
+  about:"Galaxidiou 38 está en Kolonos/Sepolia: una Atenas residencial y auténtica, fuera del circuito turístico.",
+  list:["🎓 <b>Academia de Platón</b> (~2 km): el parque donde Platón fundó su escuela en el 387 a.C. De aquí viene la palabra «academia». Gratis y casi vacío.",
+        "🎭 <b>Colina de Colono</b>: el pueblo natal de Sófocles y escenario de su «Edipo en Colono».",
+        "🚇 Metro <b>Sepolia</b> (M2, ~10 min caminando) o <b>Attiki</b> (M1/M2, ~12 min).",
+        "🚌 <b>Terminal KTEL Liosion 260</b>: buses a Delfos, muy cerca.",
+        "🐟 <b>Mercado Central Varvakios</b> (calle Athinas): carne, pescado y especias como en la vida real, a pocas paradas."],
+  arrive:"Desde el aeropuerto: Metro M3 (azul, boleto aeropuerto €9) hasta Syntagma y cambio a M2 (roja) hasta Attiki o Sepolia (~1 h). El primer metro sale hacia las 06:30. Taxi: ~€40–55."}
+};
+
+/* ===== JEROGLÍFICOS ===== */
+const glyphSigns=[
+ ["𓋹","ankh","vida — la «llave» que los dioses acercan a la nariz del faraón"],
+ ["𓊽","djed","estabilidad — la columna vertebral de Osiris"],
+ ["𓌀","was","poder, dominio — el cetro de los dioses"],
+ ["𓂀","udjat","ojo de Horus: protección y sanación"],
+ ["𓆣","jeper","escarabajo: «llegar a ser», renacer cada mañana"],
+ ["𓇳","Ra","el sol / el dios Ra"],
+ ["𓊹","netjer","dios (una bandera en un mástil)"],
+ ["𓄤","nefer","bello, bueno — como en Nefer-titi y Nefertari"],
+ ["𓆄","Maat","la pluma de la verdad, la justicia y el orden"],
+ ["𓍶","shen","eternidad — un cartucho es un shen estirado"],
+ ["𓅃","Horus","el halcón: el faraón es Horus en la tierra"],
+ ["𓉐𓉻","per-aa","«casa grande» → de aquí viene la palabra FARAÓN"]
+];
+const glyphPhrases=[
+ ["𓋹𓍑𓋴","ankh, udja, seneb","«¡vida, prosperidad, salud!»: aparece detrás del nombre del rey"],
+ ["𓂞𓋹","di ankh","«dotado de vida»: lo verán junto a casi todas las figuras de faraones"],
+ ["𓂞𓋹𓆓𓏏𓇾","di ankh djet","«dotado de vida para siempre»"],
+ ["𓇓𓆤","nesu-bity","«rey del Alto y Bajo Egipto» (junco + abeja): va antes del 1.er cartucho"],
+ ["𓅭𓇳","sa Ra","«hijo de Ra» (pato + sol): va antes del 2.º cartucho"],
+ ["𓇓𓏏𓊵𓏏𓊪𓂞","hetep di nesu","«ofrenda que da el rey»: empieza casi todas las inscripciones de tumbas"]
+];
+const glyphAlpha=[
+ ["𓄿","a (buitre)"],["𓇋","i (junco)"],["𓇌","y (dos juncos)"],["𓂝","a gutural (brazo)"],["𓅱","u / w (pollito)"],
+ ["𓃀","b (pie)"],["𓊪","p (taburete)"],["𓆑","f (víbora)"],["𓅓","m (búho)"],["𓈖","n (agua)"],
+ ["𓂋","r (boca)"],["𓉔","h (patio)"],["𓎛","h fuerte (mecha)"],["𓐍","j (criba)"],["𓋴","s (tela)"],
+ ["𓈙","sh (estanque)"],["𓈎","q (colina)"],["𓎡","k (cesta)"],["𓎼","g (jarra)"],["𓏏","t (pan)"],
+ ["𓍿","ch (cuerda)"],["𓂧","d (mano)"],["𓆓","dy / ll (cobra)"]
+];
+const cartouches=[
+ {g:"𓇳𓄟𓋴𓋴",n:"Ramsés",r:"Ra + mes (nacer) + s + s → Ra-mes-su: «Ra lo engendró». Lo verán en Abu Simbel, Karnak, Luxor y el GEM."},
+ {g:"𓇳𓄊𓁦",n:"User-maat-Ra",r:"El nombre de trono de Ramsés II: «poderosa es la justicia de Ra». Los griegos lo oyeron como «Ozymandias»."},
+ {g:"𓇋𓏠𓈖𓏏𓅱𓏏𓋹",n:"Tutankamón",r:"Amón (𓇋𓏠𓈖) va primero por respeto, pero se lee al final: Tut-ankh-Amón, «imagen viva de Amón»."},
+ {g:"𓊪𓏏𓍯𓃭𓐝𓇌𓋴",n:"Ptolomeo",r:"P-T-O-L-M-Y-S. ¡Es un nombre GRIEGO! Gracias a este cartucho de la Piedra de Rosetta, Champollion descifró los jeroglíficos en 1822. Búsquenlo en Kom Ombo, Edfu y Philae."},
+ {g:"𓈎𓃭𓇋𓍯𓊪𓄿𓂧𓂋𓄿",n:"Cleopatra",r:"K-L-I-O-P-A-D-R-A. Comparte la P, la O y la L con Ptolomeo: así comprobó Champollion que los signos eran sonidos."}
+];
+
+/* ===== GRIEGO ===== */
+const greekLetters=[
+ ["Η η","i","no es «h»"],["Υ υ","i","no es «u»"],["Ρ ρ","r","no es «p»"],["Χ χ","j","como en «jamón»"],
+ ["Β β","v","no es «b»"],["Γ γ","g / y","«y» antes de e, i"],["Δ δ","d suave","como «th» de <i>this</i>"],["Θ θ","z","como la z de España"],
+ ["Ξ ξ","ks","Ξ = x"],["Ψ ψ","ps","psicología"],["Φ φ","f","filosofía"],["Ω ω","o","omega, «o grande»"],
+ ["Λ λ","l",""],["Π π","p",""],["Σ σ ς","s","ς solo al final de palabra"],["ΟΥ","u","dos letras = un sonido"],
+ ["ΑΙ","e",""],["ΕΙ / ΟΙ","i",""],["ΜΠ","b","ΜΠΑΡ = bar"],["ΝΤ","d",""]
+];
+const greekWords=[
+ ["ΕΞΟΔΟΣ","éxodos","SALIDA → «éxodo»"],["ΕΙΣΟΔΟΣ","ísodos","ENTRADA"],
+ ["ΑΝΔΡΩΝ / ΓΥΝΑΙΚΩΝ","andrón / yinekón","baño hombres / mujeres (→ «ginecólogo»)"],
+ ["ΑΝΟΙΧΤΟ / ΚΛΕΙΣΤΟ","aníjto / klistó","abierto / cerrado"],
+ ["ΦΑΡΜΑΚΕΙΟ","farmakío","farmacia"],["ΑΚΡΟΠΟΛΗ","akrópoli","«ciudad alta»"],
+ ["ΑΘΗΝΑ","azína","Atenas"],["ΠΛΑΤΕΙΑ","platía","plaza"],
+ ["Καλημέρα","kaliméra","buenos días"],["Γεια σας","yiá sas","hola / adiós"],
+ ["Ευχαριστώ","efjaristó","gracias (→ «eucaristía»)"],["Παρακαλώ","parakaló","por favor / de nada"],
+ ["Ναι / Όχι","ne / óji","⚠️ ¡«ne» significa SÍ! «óji» es NO"],
+ ["Τον λογαριασμό, παρακαλώ","ton logariasmó, parakaló","la cuenta, por favor"],
+ ["Στην υγειά μας!","stin iyiá mas","¡salud! (al brindar)"]
+];
+const greekInscr=[
+ ["ΓΝΩΘΙ ΣΑΥΤΟΝ","«Conócete a ti mismo»: estaba grabado en el templo de Apolo en Delfos."],
+ ["ΜΗΔΕΝ ΑΓΑΝ","«Nada en exceso»: la otra máxima de Delfos."],
+ ["ΘΕΜΙΣΘΟΚΛΕΣ","Temístocles: búsquenlo en los ostraka del Museo del Ágora."],
+ ["ΒΑΣΙΛΕΟΣ ΕΛΘΟΝΤΟΣ…","«Cuando vino el rey…»: el grafito griego de Abu Simbel (591 a.C.). ¡Lo verán primero en Egipto!"]
+];
+
+
 const days=[
  {d:"06",m:"Oct",dow:"Martes",city:"Bogotá → Madrid",icon:"🛫",
   desc:"Inicio del viaje. Vuelo nocturno transatlántico.",
@@ -177,11 +600,12 @@ const days=[
  {d:"07",m:"Oct",dow:"Miércoles",city:"Madrid",icon:"🇪🇸",
   desc:"Llegada a Madrid y primer contacto con la ciudad.",
   plan:[
-   {t:"14:10",a:"Llegada a Madrid-Barajas T2",type:"flight",ic:"🛬"},
+   {t:"14:10",a:"Llegada a Madrid-Barajas T4S (Iberia)",type:"flight",ic:"🛬"},
    {t:"15:30",a:"Check-in Airbnb La Casita de Vicálvaro (metro L9)",type:"stay",ic:"🛏️"},
    {t:"17:00",a:"Puerta del Sol, Plaza Mayor y Mercado de San Miguel",ic:"🚶"},
    {t:"20:30",a:"Cena de tapas por La Latina / Cava Baja",type:"meal",ic:"🍷"}],
   stayTag:{name:"Airbnb La Casita de Vicálvaro",status:"ok"},
+  guide:["g-austrias"],
   maps:[{n:"La Casita de Vicálvaro",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},{n:"Plaza Mayor",q:"Plaza Mayor Madrid"}]},
 
  {d:"08",m:"Oct",dow:"Jueves",city:"Madrid",icon:"🏛️",
@@ -192,8 +616,10 @@ const days=[
    {t:"13:30",a:"Almuerzo: cocido madrileño / menú del día",type:"meal",ic:"🍲"},
    {t:"16:00",a:"Parque del Retiro y Palacio de Cristal",ic:"🌳"},
    {t:"18:00",a:"Gran Vía y exterior del Palacio Real",ic:"🏰"},
+   {t:"19:15",a:"Atardecer en el Templo de Debod 𓋹 (un templo egipcio en Madrid)",ic:"🌇"},
    {t:"21:00",a:"Cena",type:"meal",ic:"🍽️"}],
   stayTag:{name:"Airbnb La Casita de Vicálvaro",status:"ok"},
+  guide:["g-prado", "g-debod", "g-austrias"],
   maps:[{n:"Museo del Prado",q:"Museo del Prado Madrid"},{n:"Parque del Retiro",q:"Parque del Retiro Madrid"}]},
 
  {d:"09",m:"Oct",dow:"Viernes",city:"Madrid → El Cairo",icon:"🛫",
@@ -209,16 +635,17 @@ const days=[
   maps:[{n:"Aeropuerto Madrid-Barajas T2",q:"Aeropuerto Madrid Barajas Terminal 2"}]},
 
  {d:"10",m:"Oct",dow:"Sábado",city:"El Cairo",icon:"🐫",
-  desc:"Llegada de madrugada y ¡el gran día de las pirámides!",
+  desc:"Llegada de madrugada y ¡el gran día de las pirámides! 🎂 ¡Feliz cumpleaños, Kevin!",
   plan:[
    {t:"02:50",a:"Llegada a El Cairo (T3) · traslado a Zamalek",type:"flight",ic:"🛬"},
-   {t:"03:40",a:"Check-in y descanso en el Estudio Zamalek",type:"stay",ic:"🛏️"},
+   {t:"03:40",a:"Check-in y descanso en el Estudio Zamalek (confirmar llegada de madrugada con el anfitrión)",type:"stay",ic:"🛏️"},
    {t:"10:00",a:"Desayuno tardío",type:"meal",ic:"☕"},
    {t:"11:00",a:"Pirámides de Giza y la Esfinge",ic:"🔺"},
    {t:"14:00",a:"Almuerzo con vista a las pirámides",type:"meal",ic:"🍽️"},
    {t:"16:00",a:"Paseo en camello opcional · atardecer en Giza",ic:"🐪"},
    {t:"20:00",a:"Cena en Zamalek",type:"meal",ic:"🍽️"}],
   stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
+  guide:["g-giza"],
   maps:[{n:"Estudio Zamalek (hotel)",q:"Abu El Feda Street Zamalek Cairo"},{n:"Pirámides de Giza",q:"Pyramids of Giza"}]},
 
  {d:"11",m:"Oct",dow:"Domingo",city:"El Cairo",icon:"🏺",
@@ -227,9 +654,10 @@ const days=[
    {t:"09:00",a:"Desayuno",type:"meal",ic:"☕"},
    {t:"10:00",a:"Gran Museo Egipcio (GEM) — junto a Giza",ic:"🏛️"},
    {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
-   {t:"15:30",a:"Bazar Khan el-Khalili + El Cairo copto (opcional)",ic:"🛍️"},
+   {t:"15:30",a:"Calle Al-Muizz → Khan el-Khalili → minaretes de Bab Zuweila · té en El Fishawy",ic:"🛍️"},
    {t:"20:00",a:"Cena · preparar maleta (¡vuelo 05:20!)",type:"meal",ic:"🧳"}],
   stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
+  guide:["g-gem", "g-islamico", "g-copto"],
   maps:[{n:"Gran Museo Egipcio (GEM)",q:"Grand Egyptian Museum"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
 
  {d:"12",m:"Oct",dow:"Lunes",city:"El Cairo → Aswan 🚢",icon:"🛥️",
@@ -243,17 +671,19 @@ const days=[
    {t:"14:00",a:"Embarque en el crucero · cóctel de bienvenida",type:"stay",ic:"🛳️"},
    {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 1",status:"ok"},
+  guide:["g-philae", "g-nubia"],
   maps:[{n:"Aeropuerto de Aswan",q:"Aswan International Airport"},{n:"Templo de Philae",q:"Philae Temple Aswan"},{n:"Presa Alta de Asuán",q:"Aswan High Dam"}]},
 
  {d:"13",m:"Oct",dow:"Martes",city:"Nilo · Aswan",icon:"⛵",
-  desc:"Navegando el Nilo, con opción de Abu Simbel.",
+  desc:"Navegando el Nilo, con Abu Simbel incluido en el paquete.",
   plan:[
-   {t:"04:00",a:"Excursión opcional a Abu Simbel (madrugada)",ic:"🌄"},
+   {t:"04:00",a:"Excursión a Abu Simbel (incluida en Imperial Egypt · confirmar hora con el operador)",ic:"🌄"},
    {t:"09:00",a:"Desayuno a bordo",type:"meal",ic:"☕"},
    {t:"12:00",a:"Navegación · almuerzo a bordo",type:"meal",ic:"🍽️"},
    {t:"16:00",a:"Templo de Kom Ombo al atardecer",ic:"🏛️"},
    {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️"}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 2",status:"ok"},
+  guide:["g-abusimbel", "g-komombo"],
   maps:[{n:"Abu Simbel",q:"Abu Simbel Temples"},{n:"Templo de Kom Ombo",q:"Kom Ombo Temple"}]},
 
  {d:"14",m:"Oct",dow:"Miércoles",city:"Nilo → Luxor",icon:"⛵",
@@ -264,31 +694,36 @@ const days=[
    {t:"13:00",a:"Navegación · almuerzo · esclusa de Esna",type:"meal",ic:"🍽️"},
    {t:"20:00",a:"Cena · noche de galabeya (opcional)",type:"meal",ic:"🎉"}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 3",status:"ok"},
+  guide:["g-edfu"],
   maps:[{n:"Templo de Edfu",q:"Temple of Edfu"}]},
 
  {d:"15",m:"Oct",dow:"Jueves",city:"Luxor",icon:"🏛️",
   desc:"Desembarque y templos de la orilla Este.",
   plan:[
-   {t:"08:00",a:"Desayuno y desembarque",type:"meal",ic:"☕"},
-   {t:"10:00",a:"Check-in KR Elite Hotel (dejar maletas)",type:"stay",ic:"🛏️"},
+   {t:"08:00",a:"Desayuno y desembarque (confirmar qué visitas de Luxor incluye ya el crucero)",type:"meal",ic:"☕"},
+   {t:"09:00",a:"Taxi al KR Elite Hotel (orilla Oeste) · dejar maletas",type:"stay",ic:"🛏️"},
+   {t:"10:00",a:"Ferry público a la orilla Este (~5 EGP)",ic:"⛴️"},
    {t:"10:30",a:"Templo de Karnak",ic:"🏛️"},
-   {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
-   {t:"16:30",a:"Templo de Luxor (atardecer)",ic:"🌇"},
-   {t:"20:00",a:"Cena en Luxor",type:"meal",ic:"🍽️"}],
+   {t:"13:30",a:"Almuerzo + Museo de Luxor (hora de calor)",type:"meal",ic:"🍽️"},
+   {t:"16:30",a:"Templo de Luxor y Avenida de las Esfinges (atardecer)",ic:"🌇"},
+   {t:"20:00",a:"Cena y ferry de vuelta a la orilla Oeste",type:"meal",ic:"🍽️"}],
   stayTag:{name:"KR Elite Hotel ⭐9.5",status:"ok"},
+  guide:["g-karnak", "g-luxormuseum", "g-luxortemple"],
   maps:[{n:"KR Elite Hotel",q:"KR Elite Hotel Luxor"},{n:"Templo de Karnak",q:"Karnak Temple"},{n:"Templo de Luxor",q:"Luxor Temple"}]},
 
  {d:"16",m:"Oct",dow:"Viernes",city:"Luxor → El Cairo",icon:"🎈",
   desc:"Orilla Oeste y vuelo nocturno de regreso a El Cairo.",
   plan:[
-   {t:"05:30",a:"Globo aerostático al amanecer (opcional)",ic:"🎈"},
+   {t:"05:30",a:"Globo aerostático al amanecer (incluido en Imperial Egypt · confirmar día con el operador)",ic:"🎈"},
    {t:"08:00",a:"Desayuno · checkout (guardar maletas)",type:"meal",ic:"🧳"},
-   {t:"09:00",a:"Valle de los Reyes, Hatshepsut y Colosos de Memnón",ic:"⚰️"},
+   {t:"09:00",a:"Valle de los Reyes, Hatshepsut y Colosos de Memnón (taxi por día con el hotel)",ic:"⚰️"},
    {t:"13:30",a:"Almuerzo",type:"meal",ic:"🍽️"},
-   {t:"15:00",a:"Tarde libre / relax junto al Nilo",type:"free",ic:"🌴"},
+   {t:"15:00",a:"Medinet Habu y Deir el-Medina (joyas sin multitudes) · o relax",ic:"🎨"},
+   {t:"18:15",a:"Salida al aeropuerto (orilla Este, ~40 min)",ic:"🚕"},
    {t:"19:10",a:"⏰ En el aeropuerto de Luxor (2h antes · doméstico)",ic:"🕒"},
    {t:"21:10",a:"Vuelo EgyptAir MS069 → El Cairo (llega 22:20) · YMGEXP",type:"flight",ic:"✈️"},
    {t:"noche",a:"Espera en el aeropuerto (conexión 04:00)",type:"free",ic:"🕓"}],
+  guide:["g-valle", "g-hatshepsut", "g-memnon", "g-medinethabu", "g-deirmedina"],
   maps:[{n:"Valle de los Reyes",q:"Valley of the Kings"},{n:"Templo de Hatshepsut",q:"Mortuary Temple of Hatshepsut"}]},
 
  {d:"17",m:"Oct",dow:"Sábado",city:"El Cairo → Atenas",icon:"🇬🇷",
@@ -296,12 +731,13 @@ const days=[
   plan:[
    {t:"01:00",a:"⏰ Check-in internacional en El Cairo (3h antes)",ic:"🕒"},
    {t:"04:00",a:"Vuelo Aegean A3931 → Atenas (llega 06:00) · 7TV5KM",type:"flight",ic:"✈️"},
-   {t:"07:30",a:"Traslado y dejar maletas · desayuno griego",type:"meal",ic:"☕"},
+   {t:"07:30",a:"Metro M3 (€9) → dejar maletas en consigna (no se admiten en la Acrópolis) · desayuno griego",type:"meal",ic:"☕"},
    {t:"09:00",a:"Acrópolis y Partenón (temprano, menos gente)",ic:"🏛️"},
    {t:"13:00",a:"Almuerzo en Plaka",type:"meal",ic:"🍽️"},
    {t:"16:00",a:"Ágora Antigua y Monastiraki",ic:"🏺"},
    {t:"20:30",a:"Cena griega",type:"meal",ic:"🍽️"}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb) · check-in 15:00",status:"ok"},
+  guide:["g-acropolis", "g-agora"],
   maps:[{n:"Airbnb (Galaxidiou 38)",q:"38.00761,23.72001"},{n:"Acrópolis de Atenas",q:"Acropolis of Athens"}]},
 
  {d:"18",m:"Oct",dow:"Domingo",city:"Atenas",icon:"🏛️",
@@ -311,19 +747,21 @@ const days=[
    {t:"10:00",a:"Museo de la Acrópolis",ic:"🏛️"},
    {t:"13:00",a:"Almuerzo",type:"meal",ic:"🍽️"},
    {t:"15:00",a:"Plaka, Anafiotika y colina Licabeto",ic:"🚶"},
-   {t:"18:30",a:"Atardecer con vistas de la ciudad",ic:"🌇"},
+   {t:"18:30",a:"Atardecer en la colina de Filopapo / Pnyx (frente al Partenón)",ic:"🌇"},
    {t:"20:30",a:"Cena",type:"meal",ic:"🍽️"}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
+  guide:["g-acromuseum", "g-pnyx", "g-nam", "g-kerameikos"],
   maps:[{n:"Museo de la Acrópolis",q:"Acropolis Museum"},{n:"Colina Licabeto",q:"Mount Lycabettus Athens"}]},
 
  {d:"19",m:"Oct",dow:"Lunes",city:"Atenas",icon:"🌊",
   desc:"Excursión de un día o museos.",
   plan:[
-   {t:"09:00",a:"Excursión: Cabo Sunio (Templo de Poseidón) o Delfos",ic:"🏛️"},
+   {t:"08:30",a:"Excursión: Delfos (bus KTEL desde Liosion 260, junto al Airbnb) o Cabo Sunión",ic:"🏛️"},
    {t:"13:30",a:"Almuerzo en ruta",type:"meal",ic:"🍽️"},
    {t:"17:00",a:"Regreso · Museo Arqueológico Nacional (opcional)",ic:"🏺"},
    {t:"20:30",a:"Cena de despedida",type:"meal",ic:"🍷"}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
+  guide:["g-delphi", "g-sounion"],
   maps:[{n:"Cabo Sunio",q:"Cape Sounion Temple of Poseidon"},{n:"Delfos",q:"Delphi Greece"}]},
 
  {d:"20",m:"Oct",dow:"Martes",city:"Atenas → Madrid",icon:"🛫",
@@ -340,7 +778,7 @@ const days=[
   desc:"Vuelo de regreso a casa. ¡Fin del viaje!",
   plan:[
    {t:"08:30",a:"Desayuno y checkout",type:"meal",ic:"☕"},
-   {t:"09:10",a:"⏰ En Madrid-Barajas T1 (3h antes · internacional)",ic:"🕒"},
+   {t:"09:10",a:"⏰ En Madrid-Barajas T4 (Iberia · 3h antes · internacional)",ic:"🕒"},
    {t:"12:10",a:"Vuelo Iberia IB0151 → Bogotá (llega 15:40) · P6EJR",type:"flight",ic:"✈️"},
    {t:"15:40",a:"¡Llegada a casa! 🎉",ic:"🏡"}],
   maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]}
@@ -350,7 +788,7 @@ const stays=[
  {city:"Madrid (ida)",dates:"7–9 Oct · 2 noches",name:"Airbnb La Casita de Vicálvaro",status:"ok",info:"C. de Villacarlos 10, Vicálvaro · 130 € total",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},
  {city:"El Cairo",dates:"10–12 Oct · 2 noches",name:"Estudio Zamalek 2 Taha Hussein",status:"ok",info:"Zamalek (Abu Al Feda) · a ~30-40 min de Giza",q:"Abu El Feda Street Zamalek Cairo"},
  {city:"Crucero Nilo",dates:"12–15 Oct · 3 noches",name:"Imperial Egypt (Viator) · Aswan → Luxor",status:"ok",info:"Embarque lun 12, desembarque jue 15 · 4.8★ (2.832 reseñas)",q:"Aswan Nile Cruise"},
- {city:"Luxor",dates:"15–16 Oct · 1 noche",name:"KR Elite Hotel ⭐9.5",status:"ok",info:"Orilla Este · COP 57.400 · cancelación gratis",q:"KR Elite Hotel Luxor"},
+ {city:"Luxor",dates:"15–16 Oct · 1 noche",name:"KR Elite Hotel ⭐9.5",status:"ok",info:"Orilla Oeste (Al Bairat) · COP 57.400 · cancelación gratis",q:"KR Elite Hotel Luxor"},
  {city:"Atenas",dates:"17–20 Oct · 3 noches",name:"Vasiliki's cosy apartment (Airbnb)",status:"ok",info:"Galaxidiou 38 · COP 429.352 · check-in 15:00",q:"38.00761,23.72001"},
  {city:"Madrid (regreso)",dates:"20–21 Oct · 1 noche",name:"Por reservar (cerca aeropuerto)",status:"pend",info:"Sugerido: Hotel101 o B&B Aeropuerto",q:"hotels near Madrid Barajas airport"}
 ];
@@ -371,6 +809,8 @@ function render(){
    let stagLine='';
    if(x.stayTag){const t=x.stayTag.status==='ok'?'<span class="tag ok">Reservado</span>':'<span class="tag pend">Pendiente</span>';
      stagLine='<div class="info-line">🛏️ <b>'+x.stayTag.name+'</b>'+t+'</div>';}
+   if(x.guide){const all={};guide.forEach(c=>c.items.forEach(s=>all[s.id]=s));
+     maps+='<div class="gchips">'+x.guide.filter(id=>all[id]).map(id=>'<a class="gchip" href="#'+id+'" onclick="openG(\''+id+'\');return false;">📖 '+all[id].name.split(' · ')[0].split(':')[0]+'</a>').join('')+'</div>';}
    const el=document.createElement('div');
    el.className='day'+(i===0?' open':'');
    el.innerHTML=
@@ -388,11 +828,68 @@ function render(){
  stays.forEach(s=>{
    const t=s.status==='ok'?'<span class="tag ok">Reservado</span>':'<span class="tag pend">Pendiente</span>';
    const el=document.createElement('div');el.className='ref';
-   el.innerHTML='<h3>'+s.city+' '+t+'</h3><div class="dates-sm">'+s.dates+'</div><div><b>'+s.name+'</b></div><div class="info-line">'+s.info+'</div><a class="maps" target="_blank" rel="noopener" href="'+mapsUrl(s.q)+'">📍 Google Maps</a>';
+   el.innerHTML='<h3>'+s.city+' '+t+'</h3><div class="dates-sm">'+s.dates+'</div><div><b>'+s.name+'</b></div><div class="info-line">'+s.info+'</div><a class="maps" target="_blank" rel="noopener" href="'+mapsUrl(s.q)+'">📍 Google Maps</a>'+
+     (near[s.city]?'<details class="near"><summary>🧭 Qué hay cerca y cómo llegar</summary><p style="margin-top:6px">'+near[s.city].about+'</p><ul>'+near[s.city].list.map(l=>'<li>'+l+'</li>').join('')+'</ul><div class="sbox how"><b>✈️ Desde el aeropuerto:</b> '+near[s.city].arrive+'</div></details>':'');
    sc.appendChild(el);
  });
 }
 render();
+function showTab(k){document.querySelectorAll('.gpanel').forEach(p=>p.classList.toggle('on',p.dataset.tab===k));
+ document.querySelectorAll('.gtab').forEach(b=>b.classList.toggle('on',b.dataset.tab===k));
+ try{localStorage.setItem('gtab',k)}catch(e){}}
+function openG(id){const el=document.getElementById(id);if(!el)return;showTab(el.closest('.gpanel').dataset.tab);
+ setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),30);}
+
+function renderGuide(){
+ const g=document.getElementById('guide'),tb=document.getElementById('gtabs');
+ const tabs=[];
+ guide.forEach((c,ci)=>{
+  const key='c'+ci,label=c.city.split(' (')[0].replace(' desde Atenas','').replace(' y el Nilo','');
+  tabs.push([key,label]);
+  let h='<div class="gpanel" data-tab="'+key+'">';
+  c.items.forEach(s=>{
+   const tcls=s.tag==='Joya'?'gem':(s.tag==='Gratis'?'free':'must');
+   h+='<article class="site" id="'+s.id+'"><div class="shead"><span class="sic">'+s.ic+'</span><div class="sname">'+s.name+'<br><span class="gtag '+tcls+'">'+(s.tag==='Joya'?'💎 Joya poco visitada':(s.tag==='Gratis'?'🆓 Gratis':'⭐ Infaltable'))+'</span></div></div><div class="sbody">'+
+    '<p class="swhat">'+s.what+'</p>'+
+    '<div class="sh">✨ Lo que vale la pena</div><ul>'+s.must.map(m=>'<li>'+m+'</li>').join('')+'</ul>'+
+    '<div class="sbox fun"><b>🤯 Dato curioso:</b> '+s.fun+'</div>'+
+    '<div class="sbox how"><b>🚕 Cómo llegar:</b> '+s.how+'</div>'+
+    '<div class="sbox tip"><b>💡 Tip:</b> '+s.tip+'</div></div></article>';
+  });
+  g.insertAdjacentHTML('beforeend',h+'</div>');
+ });
+ tabs.push(['glyphs','<span class="hg">𓂀</span> Jeroglíficos'],['greek','Α Griego']);
+ tb.innerHTML=tabs.map(t=>'<button class="gtab" data-tab="'+t[0]+'" onclick="showTab(\''+t[0]+'\')">'+t[1]+'</button>').join('');
+ // jeroglíficos
+ const hg=document.getElementById('glyphs');
+ let h='<div class="ref"><h3>📜 Cómo se leen (las 3 reglas)</h3><ol class="rules">'+
+  '<li><b>Lean hacia las caras.</b> Las personas y los animales miran hacia el inicio de la línea: si miran a la izquierda, se lee de izquierda a derecha. Las columnas, de arriba hacia abajo.</li>'+
+  '<li><b>Casi todo es sonido.</b> Unos 24 signos funcionan como «letras» (no escribían vocales). Otros valen por sílabas o palabras completas.</li>'+
+  '<li><b>El óvalo = nombre de rey.</b> El cartucho encierra el nombre del faraón. Cada rey tenía dos: el de trono (después de 𓇓𓆤) y el de nacimiento (después de 𓅭𓇳).</li></ol></div>';
+ h+='<div class="ref"><h3>🔑 12 signos que verán en TODAS partes</h3><div class="ggrid">'+glyphSigns.map(s=>'<div class="gcell"><div class="hg big">'+s[0]+'</div><div class="gname">'+s[1]+'</div><div class="gmean">'+s[2]+'</div></div>').join('')+'</div></div>';
+ h+='<div class="ref"><h3>🗣️ Frases que se repiten en los muros</h3>'+glyphPhrases.map(p=>'<div class="phrase"><span class="hg mid">'+p[0]+'</span><div><b>'+p[1]+'</b><br><span class="gmean">'+p[2]+'</span></div></div>').join('')+'</div>';
+ h+='<div class="ref"><h3>👑 Cartuchos para «cazar»</h3>'+cartouches.map(c=>'<div class="phrase"><span class="cart hg">'+c.g+'</span><div><b>'+c.n+'</b><br><span class="gmean">'+c.r+'</span></div></div>').join('')+'</div>';
+ h+='<div class="ref"><h3>🔤 El «alfabeto» (signos de un sonido)</h3><div class="agrid">'+glyphAlpha.map(a=>'<div class="acell"><span class="hg">'+a[0]+'</span><small>'+a[1]+'</small></div>').join('')+'</div>'+
+  '<div class="info-line">Los números: 𓏤 = 1 · 𓎆 = 10 · 𓍢 = 100 · 𓆼 = 1.000 · 𓂭 = 10.000 · 𓆐 = 100.000 · 𓁨 = 1.000.000 (un dios con los brazos en alto: «¡muchísimo!»).</div></div>';
+ h+='<div class="ref names"><h3>💛 Sus nombres en jeroglíficos</h3>'+
+  '<div class="phrase"><span class="cart hg">𓎡𓇋𓆑𓇋𓈖𓀀</span><div><b>KEVIN</b><br><span class="gmean">k-i-v(f)-i-n + 𓀀 (determinativo de hombre). 🎂 Lo puede estrenar el 10 de octubre en Giza.</span></div></div>'+
+  '<div class="phrase"><span class="cart hg">𓄿𓈖𓆓𓇌𓁐</span><div><b>ANGIE</b><br><span class="gmean">a-n-dy(«ll»)-y + 𓁐 (determinativo de mujer).</span></div></div>'+
+  '<div class="info-line">Si les ofrecen un cartucho con su nombre en plata u oro en el Khan el-Khalili, ya saben cómo se escribe: verifiquen que esté bien 😉</div></div>';
+ hg.insertAdjacentHTML('beforeend',h);
+ // griego
+ const gr=document.getElementById('greek');
+ let k='<div class="ref"><h3>⚠️ Las letras que engañan</h3><div class="lgrid">'+greekLetters.map(l=>'<div class="lcell"><span class="gl">'+l[0]+'</span><b>'+l[1]+'</b><small>'+l[2]+'</small></div>').join('')+'</div>'+
+  '<div class="info-line">Practiquen con los letreros del metro: ΣΥΝΤΑΓΜΑ = Síntagma, ΜΟΝΑΣΤΗΡΑΚΙ = Monastiráki, ΑΚΡΟΠΟΛΗ = Akrópoli.</div></div>';
+ k+='<div class="ref"><h3>🪧 Palabras y frases útiles</h3><table>'+greekWords.map(w=>'<tr><td class="gl2">'+w[0]+'</td><td><i>'+w[1]+'</i><br><span class="gmean">'+w[2]+'</span></td></tr>').join('')+'</table></div>';
+ k+='<div class="ref"><h3>🏛️ Inscripciones para buscar</h3><table>'+greekInscr.map(w=>'<tr><td class="gl2">'+w[0]+'</td><td class="gmean">'+w[1]+'</td></tr>').join('')+'</table>'+
+  '<div class="info-line">Palabras que ya conocen en griego: <b>democracia</b> (pueblo + poder), <b>teatro</b> (lugar para mirar), <b>museo</b> (templo de las Musas), <b>Partenón</b> (de la virgen), <b>metro</b> (medida).</div></div>';
+ gr.insertAdjacentHTML('beforeend',k);
+ let saved=null;try{saved=localStorage.getItem('gtab')}catch(e){}
+ showTab(saved&&document.querySelector('.gtab[data-tab="'+saved+'"]')?saved:'c0');
+}
+renderGuide();
+window.addEventListener('beforeprint',()=>document.querySelectorAll('details').forEach(d=>d.open=true));
+
 function descargar(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const b=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Viaje-Egipto-2026.html';document.body.appendChild(a);a.click();a.remove();}
 function imprimir(){window.print();}
 </script>
