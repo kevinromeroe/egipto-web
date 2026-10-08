@@ -155,6 +155,9 @@ details.site[open] summary::after{transform:rotate(90deg)}
 .near summary{cursor:pointer;font-weight:700;color:var(--nile-d)}
 .near ul{padding-left:4px;list-style:none;margin-top:6px} .near li{margin:5px 0}
 @media print{details>*{display:block}}
+.day.today{border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(200,161,58,.25),0 2px 10px rgba(120,90,20,.08)}
+.day.today .dow::after{content:" · HOY";color:var(--terra);font-weight:800}
+
 .plan-yes,.plan-opt{display:inline-block;margin-top:4px;font-size:.66rem;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
 .plan-yes{background:#e2f3ea;color:var(--ok)} .plan-opt{background:#f1ece0;color:var(--muted)}
 
@@ -970,6 +973,8 @@ function mapsUrl(q){return "https://www.google.com/maps/search/?api=1&query="+en
 
 function dayTot(x){let lo=0,hi=0;x.plan.forEach(p=>{lo+=p.lo||0;hi+=p.hi||0});
  return '<div class="daytot">💵 Gasto del día: <b>≈ USD '+(lo===hi?lo:lo+'–'+hi)+' por persona</b><span>comida, transporte y entradas · sin vuelos ni alojamientos ya pagados</span></div>';}
+function todayIdx(){const n=new Date();if(n.getFullYear()!==2026||n.getMonth()!==9)return -1;
+ const d=String(n.getDate()).padStart(2,'0');return days.findIndex(x=>x.d===d);}
 function render(){
  const tl=document.getElementById('timeline');
  days.forEach((x,i)=>{
@@ -989,7 +994,7 @@ function render(){
    if(x.guide){const all={};guide.forEach(c=>c.items.forEach(s=>all[s.id]=s));
      maps+='<div class="gchips">'+x.guide.filter(id=>all[id]).map(id=>'<a class="gchip" href="#'+id+'" onclick="openG(\''+id+'\');return false;">📖 '+all[id].name.split(' · ')[0].split(':')[0]+'</a>').join('')+'</div>';}
    const el=document.createElement('div');
-   el.className='day'+(i===0?' open':'');
+   const ti=todayIdx();el.className='day'+((ti>=0?i===ti:i===0)?' open today':'');
    el.innerHTML=
     '<div class="day-head" onclick="this.parentNode.classList.toggle(\'open\')">'+
       '<div class="date-badge"><div class="d">'+x.d+'</div><div class="m">'+x.m+'</div></div>'+
@@ -1091,9 +1096,14 @@ function renderGuide(){
   '<div class="info-line">Palabras que ya conocen en griego: <b>democracia</b> (pueblo + poder), <b>teatro</b> (lugar para mirar), <b>museo</b> (templo de las Musas), <b>Partenón</b> (de la virgen), <b>metro</b> (medida).</div></div>';
  gr.insertAdjacentHTML('beforeend',k);
  let saved=null;try{saved=localStorage.getItem('gtab')}catch(e){}
- showTab(saved&&document.querySelector('.gtab[data-tab="'+saved+'"]')?saved:'c0');
+ let start=saved&&document.querySelector('.gtab[data-tab="'+saved+'"]')?saved:'c0';
+ const ti=todayIdx(),tg=ti>=0&&days[ti].guide&&days[ti].guide[0];
+ if(tg){const el=document.getElementById(tg);if(el)start=el.closest('.gpanel').dataset.tab;}
+ showTab(start);
 }
 renderGuide();
+(function(){const ti=todayIdx();if(ti<0)return;const d=document.querySelectorAll('.day')[ti];
+ setTimeout(()=>d.scrollIntoView({behavior:'smooth',block:'start'}),400);})();
 window.addEventListener('beforeprint',()=>document.querySelectorAll('details').forEach(d=>d.open=true));
 
 function descargar(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const b=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='Viaje-Egipto-2026.html';document.body.appendChild(a);a.click();a.remove();}
