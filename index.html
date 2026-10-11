@@ -155,6 +155,15 @@ details.site[open] summary::after{transform:rotate(90deg)}
 .near summary{cursor:pointer;font-weight:700;color:var(--nile-d)}
 .near ul{padding-left:4px;list-style:none;margin-top:6px} .near li{margin:5px 0}
 @media print{details>*{display:block}}
+.dguide{margin-top:14px;border-top:2px solid var(--gold-l);padding-top:10px}
+.dgt{font-family:Georgia,serif;font-weight:700;color:var(--lapis);margin-bottom:6px}
+details.dsite{background:#fbf6e8;border:1px solid var(--line);border-radius:11px;margin:7px 0}
+details.dsite summary{cursor:pointer;padding:9px 11px;font-weight:700;color:var(--lapis-d);font-size:.9rem;list-style:none}
+details.dsite summary::-webkit-details-marker{display:none}
+details.dsite summary::after{content:" ›";color:var(--gold-d)}
+details.dsite[open] summary::after{content:" ⌄"}
+.dsb{padding:0 12px 12px;font-size:.85rem} .dsb ul{padding-left:18px;margin:6px 0} .dsb li{margin:3px 0}
+
 .day.today{border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(200,161,58,.25),0 2px 10px rgba(120,90,20,.08)}
 .day.today .dow::after{content:" · HOY";color:var(--terra);font-weight:800}
 
@@ -441,6 +450,22 @@ const guide=[
    fun:"En 1260 el sultán Qutuz colgó en Bab Zuweila las cabezas de los enviados mongoles que exigían su rendición. Meses después derrotó a los mongoles en Ain Jalut.",
    how:"Uber hasta «Bab Al Futuh» y bajar caminando por Al-Muizz hasta el Khan el-Khalili y Bab Zuweila.",
    tip:"Ropa que cubra hombros y rodillas; Angie, un pañuelo para entrar a las mezquitas. En el Khan, ofrezcan ~30–40% del primer precio que les digan."},
+  {id:"g-ciudadela",ic:"🕌",name:"Ciudadela de Saladino y Mezquita de Muhammad Ali",tag:"Infaltable",
+   what:"La fortaleza que Saladino levantó en 1176 sobre una colina para defender El Cairo de los cruzados. Encima está la mezquita más famosa de la ciudad, la de <b>Muhammad Ali</b> (1830–1848), la «Mezquita de Alabastro», cuyas cúpulas y minaretes se ven desde toda la ciudad.",
+   must:["El <b>interior de la mezquita</b>: una cúpula enorme llena de lámparas colgantes. Se entra descalzo; Angie, con el pelo cubierto.",
+         "El <b>reloj del patio</b>, regalo del rey de Francia a cambio del obelisco de Luxor que hoy está en la Plaza de la Concordia de París. Dicen que nunca funcionó bien.",
+         "El <b>mirador</b> desde la terraza: El Cairo a tus pies y, en días claros, las pirámides de Giza en el horizonte.",
+         "Abajo, a 5 min a pie, las mezquitas gemelas <b>Sultán Hasán</b> (1356, una de las más grandes del mundo medieval) y <b>Al-Rifai</b>, donde está enterrado el último sha de Irán."],
+   fun:"Muhammad Ali, el fundador del Egipto moderno, invitó en 1811 a los líderes mamelucos a una fiesta en esta ciudadela y los mandó matar a todos a la salida. Según la leyenda, solo uno escapó saltando a caballo por la muralla.",
+   how:"Uber hasta «Salah El Din Citadel» (~15 min desde el Museo de la Civilización).",
+   tip:"Entrada ~550 EGP, que incluye la mezquita. Abre hacia las 08:00–09:00 y cierra a las 17:00. No se puede entrar durante los rezos: si coincide, esperen unos minutos."},
+  {id:"g-torre",ic:"🗼",name:"Torre de El Cairo (Zamalek)",tag:"Joya",
+   what:"Torre de 187 m (1961) con forma de flor de loto, en la isla de Zamalek, a pocos minutos de su Airbnb. Desde arriba se ve El Cairo iluminado y el Nilo.",
+   must:["La vista de 360° de noche: los puentes iluminados sobre el Nilo.",
+         "Si les sobra energía, después una <b>felucca</b> de 1 hora desde la Corniche de Zamalek."],
+   fun:"Se construyó con fondos que, según la historia popular, Estados Unidos le dio a Nasser para comprar su lealtad. Él los usó para levantar esta torre como un gesto de independencia.",
+   how:"Uber desde el Khan (~25 min) o a pie desde su Airbnb.",
+   tip:"Entrada ~350 EGP para extranjeros. Abre hasta medianoche."},
   {id:"g-copto",ic:"⛪",name:"El Cairo copto",tag:"Joya",
    what:"El barrio cristiano y judío más antiguo de la ciudad, levantado dentro de la fortaleza romana de Babilonia.",
    must:["<b>Iglesia Colgante</b>: construida sobre la puerta de la fortaleza romana; la nave «cuelga» sobre el vacío.",
@@ -451,6 +476,27 @@ const guide=[
    tip:"Es tranquilo y compacto: bastan 1,5 horas. Encaja bien la mañana del 11 si salen temprano."}
  ]},
  {city:"⛵ Asuán y el Nilo",items:[
+  {id:"g-presa",ic:"🌊",name:"Presa Alta de Asuán",tag:"Infaltable",
+   what:"La gran presa terminada en 1970: controló por primera vez las crecidas del Nilo y creó el <b>Lago Nasser</b>, uno de los lagos artificiales más grandes del mundo.",
+   must:["La vista del Nilo por un lado y del Lago Nasser por el otro.",
+         "El monumento de la amistad egipcio-soviética, con forma de flor de loto."],
+   fun:"Su construcción inundó Nubia entera. Por eso hubo que salvar Abu Simbel, Philae… y regalarle a España el Templo de Debod, el mismo que vieron al atardecer en Madrid.",
+   how:"Incluida en la mañana de Asuán con el operador del crucero (~20 min desde la ciudad).",
+   tip:"Es una parada corta (~30 min), con buenas fotos."},
+  {id:"g-obelisco",ic:"🪨",name:"Obelisco Inacabado",tag:"Infaltable",
+   what:"Un obelisco gigante que se quedó a medio tallar en la cantera de granito, probablemente de la época de Hatshepsut.",
+   must:["Ver cómo trabajaban: las marcas de las bolas de dolerita con que golpeaban el granito siguen en la roca.",
+         "Sus medidas: habría medido ~42 m y pesado unas 1.100 toneladas, más que cualquier obelisco que se haya levantado."],
+   fun:"Se abandonó porque le apareció una grieta mientras lo tallaban. Gracias a ese error hoy sabemos cómo se hacían los obeliscos.",
+   how:"En la ciudad de Asuán, con el tour del crucero.",
+   tip:"Es corto (~30 min) y no tiene sombra: lleven sombrero y agua."},
+  {id:"g-esna",ic:"🚢",name:"Esclusa de Esna",tag:"Gratis",
+   what:"El barco cruza un desnivel del Nilo por una esclusa: entra, cierran las compuertas y el agua lo baja unos metros.",
+   must:["Salir a cubierta a verlo: es lento y curioso.",
+         "Los vendedores que se acercan en botecitos y lanzan galabeyas y manteles hasta la cubierta para negociar a gritos."],
+   fun:"Si compran algo, el pago va en una bolsa que lanzan de vuelta al bote. A veces la mitad termina en el agua.",
+   how:"Desde la cubierta del barco, sin moverse.",
+   tip:"Suele ser de noche o al atardecer, con mucha fila de barcos. Pregunten la hora en recepción."},
   {id:"g-philae",ic:"🏝️",name:"Templo de Isis en Philae",tag:"Infaltable",
    what:"El último gran santuario de la religión egipcia antigua. La UNESCO lo desmontó y lo trasladó piedra por piedra (1977–80) a la isla de Agilkia para salvarlo de las aguas.",
    must:["La <b>última inscripción jeroglífica de la historia</b>: escrita el 24 de agosto del 394 d.C. en la Puerta de Adriano. Después nadie volvió a escribir jeroglíficos durante 1.400 años.",
@@ -810,23 +856,29 @@ const days=[
   maps:[{n:"Estudio Zamalek (hotel)",q:"Abu El Feda Street Zamalek Cairo"},{n:"Pirámides de Giza",q:"Pyramids of Giza"}]},
 
  {d:"11",m:"Oct",dow:"Domingo",city:"El Cairo",icon:"🏺",
-  desc:"El Cairo copto, las momias reales y el Cairo islámico con el Khan el-Khalili.",
+  desc:"Cueva de la Sagrada Familia, momias reales, la Mezquita de Muhammad Ali, el Khan el-Khalili y la Torre de El Cairo de noche.",
   plan:[
    {t:"07:30",a:"Desayuno (antes de salir)",type:"meal",ic:"☕",c:"200–350 EGP",lo:4,hi:7,dish:["Feteer meshaltet (hojaldre egipcio con miel o queso)", "Ful medames", "Té con menta"]},
    {t:"09:00",a:"Salida desde Zamalek: <b>Uber</b> a El Cairo copto, a la «Hanging Church» (~20 min)",type:"move",ic:"🚕",c:"Uber ~100–150 EGP el carro",lo:1,hi:2},
-   {t:"09:20",a:"⛪ <b>Iglesia Colgante</b> → Iglesia de San Sergio → Sinagoga Ben Ezra · <b>todo a pie</b>, a 2–5 min entre sí. Es domingo: hay misa copta en la mañana. Se puede entrar con respeto y en silencio; hombros y rodillas cubiertos",ic:"⛪",c:"Gratis (donación voluntaria)",lo:0,hi:0},
-   {t:"10:45",a:"<b>Uber</b> al Museo Nacional de la Civilización Egipcia (Fustat, ~10 min)",type:"move",ic:"🚕",c:"Uber ~60–100 EGP el carro",lo:1,hi:1},
-   {t:"11:00",a:"🏛️ <b>Museo Nacional de la Civilización Egipcia</b> · la joya es la <b>Sala de las Momias Reales</b> (Ramsés II, Seti I, Hatshepsut…) en el sótano · ~1,5–2 h",ic:"🏛️",c:"~550 EGP",lo:11,hi:11},
-   {t:"13:00",a:"Almuerzo en el museo o en Fustat",type:"meal",ic:"🍽️",c:"300–600 EGP",lo:6,hi:12,dish:["Koshari (arroz, lentejas, pasta, garbanzos y salsa de tomate picante: el plato nacional)", "Sopa de lentejas (shorbat ads)", "Jugo de caña de azúcar (asab)"]},
-   {t:"14:00",a:"<b>Uber</b> a «Bab Al Futuh», la puerta norte de la calle Al-Muizz (~30 min). Desde ahí todo <b>a pie</b> hacia el sur",type:"move",ic:"🚕",c:"Uber ~150–250 EGP el carro",lo:2,hi:3},
-   {t:"14:30",a:"🕌 <b>Calle Al-Muizz</b>: Complejo de Qalawun, Bayt al-Suhaymi… (los monumentos cierran hacia las 17:00, así que van primero) → <b>Khan el-Khalili</b>, el bazar famoso, ~1 km",ic:"🕌",c:"Monumentos ~220 EGP + Suhaymi ~100",lo:6,hi:7},
-   {t:"16:15",a:"Subir a los <b>minaretes de Bab Zuweila</b> (10 min a pie del Khan; cierra hacia las 17:00): la mejor vista de la «ciudad de los mil minaretes»",ic:"🗼",c:"40 EGP",lo:1,hi:1},
-   {t:"17:00",a:"Volver al Khan · ☕ té en el <b>Café El Fishawy</b> (desde 1797) mientras atardece (~17:35) y se encienden las lámparas · compras y regateo (ofrezcan 30–40% del primer precio)",ic:"🛍️",c:"Té ~100 EGP + compras",lo:2,hi:4,dish:["Té de menta en El Fishawy","Karkadé (hibisco)","Sahlab (leche caliente con canela y frutos secos)"]},
-   {t:"18:30",a:"Cena en el Khan / Al-Hussein",type:"meal",ic:"🍽️",c:"400–700 EGP",lo:8,hi:14,dish:["Hamam mahshi (pichón relleno de trigo: típico egipcio)", "Konafa (postre de fideos crujientes con almíbar)", "Basbousa (bizcocho de sémola)"]},
-   {t:"20:00",a:"<b>Uber</b> a Zamalek (~25 min) · <b>maletas y a dormir temprano</b>: mañana salen a las 02:45 al aeropuerto (vuelo 05:20 a Asuán)",type:"move",ic:"🧳",c:"Uber ~150–250 EGP el carro",lo:2,hi:3}],
+   {t:"09:20",a:"⛪ <b>Iglesia Colgante</b> → <b>Iglesia de San Sergio (Abu Serga)</b>: abajo está la <b>cueva donde, según la tradición, se refugió la Sagrada Familia</b> (la Virgen María, José y el niño Jesús) en su huida a Egipto. A veces está parcialmente inundada y se ve desde la escalera → <b>Sinagoga Ben Ezra</b> · todo a pie. Es domingo: hay misa copta; entren con respeto y en silencio",ic:"⛪",c:"Gratis (donación voluntaria)",lo:0,hi:0},
+   {t:"10:40",a:"<b>Uber</b> al Museo Nacional de la Civilización Egipcia (Fustat, ~10 min)",type:"move",ic:"🚕",c:"Uber ~60–100 EGP el carro",lo:1,hi:1},
+   {t:"10:50",a:"🏛️ <b>Museo Nacional de la Civilización Egipcia</b>: la <b>Sala de las Momias Reales</b> (Ramsés II, Seti I, Hatshepsut…) · ~1,5 h",ic:"🏛️",c:"~550 EGP",lo:11,hi:11},
+   {t:"12:20",a:"<b>Uber</b> a la Ciudadela de Saladino (~15 min)",type:"move",ic:"🚕",c:"Uber ~80–120 EGP el carro",lo:1,hi:2},
+   {t:"12:35",a:"🕌 <b>Ciudadela de Saladino y Mezquita de Muhammad Ali</b> (la «de alabastro», la mezquita famosa de El Cairo) + el mirador sobre la ciudad · ~1,5 h · descalzos dentro de la mezquita; Angie con el pelo cubierto",ic:"🕌",c:"~550 EGP (incluye la mezquita)",lo:11,hi:11},
+   {t:"14:05",a:"Opcional: bajar <b>5 min a pie</b> a ver por fuera las mezquitas gemelas <b>Sultán Hasán</b> y <b>Al-Rifai</b>, y luego <b>Uber</b> al Khan el-Khalili (~15 min)",type:"move",ic:"🚕",c:"Uber ~80–120 EGP el carro",lo:1,hi:2},
+   {t:"14:30",a:"Almuerzo cerca del Khan / Al-Hussein",type:"meal",ic:"🍽️",c:"300–600 EGP",lo:6,hi:12,dish:["Koshari (arroz, lentejas, pasta, garbanzos y salsa de tomate picante: el plato nacional)", "Sopa de lentejas (shorbat ads)", "Jugo de caña de azúcar (asab)"]},
+   {t:"15:15",a:"🕌 <b>Calle Al-Muizz</b> a pie (5 min hacia el norte desde el Khan): Complejo de Qalawun y Bayt al-Suhaymi. Cierran hacia las 17:00",ic:"🕌",c:"Monumentos ~220 EGP + Suhaymi ~100",lo:6,hi:7},
+   {t:"16:20",a:"🗼 <b>Minaretes de Bab Zuweila</b> (~15 min a pie hacia el sur, pasando por el Khan; cierra hacia las 17:00): la mejor vista de la «ciudad de los mil minaretes»",ic:"🗼",c:"40 EGP",lo:1,hi:1},
+   {t:"17:00",a:"🕌 <b>Mezquita de Al-Azhar</b>, frente al Khan (fundada en el 970, una de las universidades más antiguas del mundo) · gratis · antes de la oración del atardecer (~17:35)",ic:"🕌",c:"Gratis",lo:0,hi:0},
+   {t:"17:30",a:"☕ Té en el <b>Café El Fishawy</b> (desde 1797) mientras se encienden las lámparas · compras y regateo en el <b>Khan el-Khalili</b> (ofrezcan 30–40% del primer precio)",ic:"🛍️",c:"Té ~100 EGP + compras",lo:2,hi:4,dish:["Té de menta en El Fishawy","Karkadé (hibisco)","Sahlab (leche caliente con canela y frutos secos)"]},
+   {t:"19:00",a:"Cena en el Khan / Al-Hussein",type:"meal",ic:"🍽️",c:"400–700 EGP",lo:8,hi:14,dish:["Hamam mahshi (pichón relleno de trigo: típico egipcio)", "Konafa (postre de fideos crujientes con almíbar)", "Basbousa (bizcocho de sémola)"]},
+   {t:"20:15",a:"<b>Uber</b> a la Torre de El Cairo, en Zamalek, junto a su Airbnb (~25 min)",type:"move",ic:"🚕",c:"Uber ~150–250 EGP el carro",lo:2,hi:3},
+   {t:"20:45",a:"🗼 <b>Torre de El Cairo</b> de noche: el Nilo y la ciudad iluminados (~45 min)",ic:"🗼",c:"~350 EGP",lo:7,hi:7},
+   {t:"21:30",a:"Opcional: <b>felucca</b> de 1 hora por el Nilo desde la Corniche de Zamalek (pacten el precio total por bote)",ic:"⛵",c:"~300–500 EGP la barca",lo:0,hi:5},
+   {t:"22:30",a:"Al Airbnb a pie · <b>maletas listas y a dormir</b>: mañana salen a las 02:45 al aeropuerto (vuelo 05:20 a Asuán)",type:"move",ic:"🧳"}],
   stayTag:{name:"Estudio Zamalek 2 Taha Hussein",status:"ok"},
-  guide:["g-copto", "g-islamico"],
-  maps:[{n:"Iglesia Colgante",q:"Hanging Church Cairo"},{n:"Museo de la Civilización (NMEC)",q:"National Museum of Egyptian Civilization"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
+  guide:["g-copto", "g-ciudadela", "g-islamico", "g-torre"],
+  maps:[{n:"Iglesia Colgante",q:"Hanging Church Cairo"},{n:"Abu Serga (cueva Sagrada Familia)",q:"Abu Serga Church Cairo"},{n:"Museo de la Civilización (NMEC)",q:"National Museum of Egyptian Civilization"},{n:"Ciudadela y Mezquita de Muhammad Ali",q:"Mosque of Muhammad Ali Cairo Citadel"},{n:"Torre de El Cairo",q:"Cairo Tower"},{n:"Khan el-Khalili",q:"Khan el-Khalili Cairo"}]},
 
  {d:"12",m:"Oct",dow:"Lunes",city:"El Cairo → Aswan 🚢",icon:"🛥️",
   desc:"Vuelo al sur y embarque en el crucero por el Nilo.",
@@ -840,7 +892,7 @@ const days=[
    {t:"14:00",a:"Embarque en el crucero · cóctel de bienvenida",type:"stay",ic:"🛳️",c:"Incluido ✓",lo:0,hi:0},
    {t:"20:00",a:"Cena a bordo",type:"meal",ic:"🍽️",c:"Incluida ✓",lo:0,hi:0}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 1",status:"ok"},
-  guide:["g-philae"],
+  guide:["g-presa", "g-obelisco", "g-philae", "g-nubia"],
   maps:[{n:"Aeropuerto de Aswan",q:"Aswan International Airport"},{n:"Templo de Philae",q:"Philae Temple Aswan"},{n:"Presa Alta de Asuán",q:"Aswan High Dam"}]},
 
  {d:"13",m:"Oct",dow:"Martes",city:"Nilo · Aswan",icon:"⛵",
@@ -863,7 +915,7 @@ const days=[
    {t:"13:00",a:"Navegación · almuerzo · esclusa de Esna",type:"meal",ic:"🍽️",c:"Incluido ✓",lo:0,hi:0},
    {t:"20:00",a:"Cena · noche de galabeya (opcional)",type:"meal",ic:"🎉",c:"Incluida · galabeya opcional 300–600 EGP",lo:0,hi:12,dish:["Pídanle al chef algo egipcio del día", "Mahshi de berenjena", "Om Ali o arroz con leche (roz bel laban)"]}],
   stayTag:{name:"Crucero Nilo · Imperial Egypt (Viator) — noche 3",status:"ok"},
-  guide:["g-edfu"],
+  guide:["g-edfu", "g-esna"],
   maps:[{n:"Templo de Edfu",q:"Temple of Edfu"}]},
 
  {d:"15",m:"Oct",dow:"Jueves",city:"Luxor",icon:"🏛️",
@@ -996,7 +1048,9 @@ function render(){
    if(x.stayTag){const t=x.stayTag.status==='ok'?'<span class="tag ok">Reservado</span>':'<span class="tag pend">Pendiente</span>';
      stagLine='<div class="info-line">🛏️ <b>'+x.stayTag.name+'</b>'+t+'</div>';}
    if(x.guide){const all={};guide.forEach(c=>c.items.forEach(s=>all[s.id]=s));
-     maps+='<div class="gchips">'+x.guide.filter(id=>all[id]).map(id=>'<a class="gchip" href="#'+id+'" onclick="openG(\''+id+'\');return false;">📖 '+all[id].name.split(' · ')[0].split(':')[0]+'</a>').join('')+'</div>';}
+     maps+='<div class="dguide"><div class="dgt">📖 Qué ver y entender hoy</div>'+x.guide.filter(id=>all[id]).map(id=>{const g=all[id];
+       return '<details class="dsite"><summary><span>'+g.ic+'</span> '+g.name+'</summary><div class="dsb"><p>'+g.what+'</p><ul>'+g.must.map(m=>'<li>'+m+'</li>').join('')+'</ul>'+
+       '<div class="sbox fun"><b>🤯 Dato curioso:</b> '+g.fun+'</div><div class="sbox tip"><b>💡 Tip:</b> '+g.tip+'</div></div></details>';}).join('')+'</div>';}
    const el=document.createElement('div');
    const ti=todayIdx();el.className='day'+((ti>=0?i===ti:i===0)?' open today':'');
    el.innerHTML=
