@@ -351,6 +351,8 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
     <tr><td>🎫</td><td>Confirmar que el billete Iberia <b>…206</b> está a nombre de Angie</td></tr>
     <tr><td>🇪🇺</td><td><b>Schengen:</b> colombianos SIN visa (≤90 días) ✓. <b>ETIAS</b> aún no se exige en oct 2026 ✓</td></tr>
     <tr><td>🏨</td><td>🚨 Reservar <b>Madrid regreso</b> (1 noche, 20 Oct, cerca del aeropuerto): Hotel101 recomendado (shuttle gratis)</td></tr>
+    <tr><td>❌</td><td>🚨 <b>HOY antes de las 18:00:</b> cancelar el <b>KR Elite Hotel</b> de Luxor en Booking si no lo van a usar (gratis hasta esa hora)</td></tr>
+    <tr><td>🚕</td><td>Pedir en la recepción del Steigenberger el <b>taxi de las 05:15</b> al Valle de los Reyes (16 Oct)</td></tr>
     <tr><td>🎟️</td><td>🚨 Comprar la <b>Acrópolis</b> para el sáb 17 a las 09:00 en hhticket.gr (€30) · Museo de la Acrópolis (€20) online o en taquilla</td></tr>
     <tr><td>🍽️</td><td>Reservar <b>cena con música</b> (Psarras o Geros tou Moria, dom 18 a las 20:30) y <b>Lambros</b> + <b>Akrovoli</b> (lun 19)</td></tr>
     <tr><td>🪪</td><td>Dar <b>datos de identidad/pasaporte</b> al Airbnb de Madrid (registro de huéspedes, ley española)</td></tr>
@@ -962,36 +964,35 @@ const days=[
   maps:[{n:"Templo de Edfu",q:"Temple of Edfu"}]},
 
  {d:"15",m:"Oct",dow:"Jueves",city:"Luxor",icon:"🏛️",
-  desc:"Globo cancelado · Valle de los Reyes · hotel en la orilla Oeste y tarde tranquila junto al Nilo.",
+  desc:"Globo cancelado · ✅ Valle de los Reyes, Hatshepsut y Colosos de Memnón · Steigenberger junto al Nilo.",
   plan:[
    {t:"05:30",a:"🎈 Globo aerostático: ❌ <b>no se pudo volar</b>. Pídanle hoy al operador que lo pase a mañana 16 al amanecer, si hay cupo",ic:"🎈",c:"Incluido en el paquete",lo:0,hi:0},
    {t:"08:00",a:"Desayuno y desembarque del crucero",type:"meal",ic:"☕",c:"Incluido ✓",lo:0,hi:0},
    {t:"09:00",a:"⚰️ <b>Valle de los Reyes</b> (orilla Oeste): 3 tumbas con el boleto general + vale la pena la <b>KV9 de Ramsés V/VI</b> (techo astronómico, boleto aparte de ~220 EGP) · ~2,5 h",ic:"⚰️",c:"750 EGP + KV9 220 EGP",lo:19,hi:19},
-   {t:"12:00",a:"Al <b>KR Elite Hotel</b> (orilla Oeste, ~15 min en taxi desde el Valle) · check-in y descanso en la hora de más calor",type:"stay",ic:"🛏️",c:"Taxi ~150–250 EGP el carro",lo:2,hi:3},
-   {t:"13:30",a:"Almuerzo en la orilla Oeste",type:"meal",ic:"🍽️",c:"300–500 EGP",lo:6,hi:10,dish:["Tagine de cordero o de okra (bamia)","Pollo a la parrilla con pan baladi","Té con menta y dátiles"]},
-   {t:"16:00",a:"Opcional: <b>ferry público</b> a la orilla Este (5 EGP) → <b>Museo de Luxor</b> (pequeño, perfecto y casi vacío) y paseo por la Corniche",ic:"🗿",c:"400 EGP (opcional)",lo:0,hi:8},
-   {t:"17:30",a:"⛵ Opcional: <b>felucca al atardecer</b> por el Nilo (~1 h; pacten el precio total por bote) · el sol se esconde detrás de las montañas de la orilla Oeste",ic:"⛵",c:"~300–500 EGP la barca",lo:0,hi:5},
-   {t:"20:00",a:"Cena y regreso al hotel (ferry o taxi)",type:"meal",ic:"🍽️",c:"400–700 EGP",lo:8,hi:14,dish:["Pato o pollo con freekeh (trigo verde)","Molokhia","Konafa o basbousa"]}],
-  stayTag:{name:"KR Elite Hotel ⭐9.5",status:"ok"},
-  guide:["g-valle", "g-luxormuseum"],
+   {t:"✓",a:"✅ <b>Templo de Hatshepsut</b> y ✅ <b>Colosos de Memnón</b>: visitados",ic:"👑",c:"Hecho · 440 EGP",lo:9,hi:9},
+   {t:"12:00",a:"Al <b>Steigenberger Resort Achti</b> (orilla Este, junto al Nilo) · check-in y descanso en la hora de más calor",type:"stay",ic:"🛏️",c:"Taxi ~200–300 EGP el carro",lo:2,hi:3},
+   {t:"13:30",a:"Almuerzo en el resort o cerca",type:"meal",ic:"🍽️",c:"300–600 EGP",lo:6,hi:12,dish:["Tagine de cordero o de okra (bamia)","Kofta con tahina","Jugo de mango o de caña"]},
+   {t:"16:00",a:"Opcional: <b>Museo de Luxor</b> (pequeño, perfecto y casi vacío), a ~10 min en taxi o calesa por la Corniche",ic:"🗿",c:"400 EGP (opcional)",lo:0,hi:8},
+   {t:"17:30",a:"⛵ Opcional: <b>felucca al atardecer</b> desde la Corniche (~1 h; pacten el precio total por bote)",ic:"⛵",c:"~300–500 EGP la barca",lo:0,hi:5},
+   {t:"20:00",a:"Cena cerca del hotel, en la orilla Este",type:"meal",ic:"🍽️",c:"400–700 EGP",lo:8,hi:14,dish:["Pato o pollo con freekeh (trigo verde)","Molokhia","Konafa o basbousa"]}],
+  stayTag:{name:"Steigenberger Resort Achti (orilla Este)",status:"ok"},
+  guide:["g-valle", "g-hatshepsut", "g-memnon", "g-luxormuseum"],
   maps:[{n:"KR Elite Hotel",q:"KR Elite Hotel Luxor"},{n:"Templo de Karnak",q:"Karnak Temple"},{n:"Templo de Luxor",q:"Luxor Temple"}]},
 
  {d:"16",m:"Oct",dow:"Viernes",city:"Luxor → El Cairo",icon:"🎈",
-  desc:"Hatshepsut, Colosos de Memnón y Medinet Habu, descanso y vuelo nocturno a El Cairo.",
+  desc:"Tutankamón a las 6 de la mañana, almuerzo típico en Sofra, Corniche y vuelo nocturno a El Cairo.",
   plan:[
-   {t:"05:30",a:"🎈 Opcional: <b>globo al amanecer</b>, solo si el operador lo reprogramó para hoy",ic:"🎈",c:"Incluido en el paquete",lo:0,hi:0},
-   {t:"07:30",a:"Desayuno · checkout (dejar las maletas en el hotel)",type:"meal",ic:"🧳",c:"150–250 EGP si no viene con el hotel",lo:0,hi:5},
-   {t:"08:00",a:"<b>Taxi por el día</b> contratado con el hotel: Hatshepsut (~10 min) → Colosos de Memnón (de camino) → Medinet Habu",type:"move",ic:"🚕",c:"Taxi del día ~600 EGP por persona",lo:12,hi:12},
-   {t:"08:15",a:"👑 <b>Templo de Hatshepsut</b> (Deir el-Bahari), temprano antes del sol fuerte · ~1 h",ic:"👑",c:"440 EGP",lo:9,hi:9},
-   {t:"09:45",a:"🗿 <b>Colosos de Memnón</b>, parada de fotos (~15 min)",ic:"🗿",c:"Gratis",lo:0,hi:0},
-   {t:"10:15",a:"🎨 <b>Medinet Habu</b>: los colores originales y los «Pueblos del Mar» · ~1,5 h · Deir el-Medina está al lado, si van con energía",ic:"🎨",c:"220 EGP (+220 Deir el-Medina)",lo:4,hi:8},
-   {t:"12:30",a:"Almuerzo en la orilla Oeste",type:"meal",ic:"🍽️",c:"300–500 EGP",lo:6,hi:10,dish:["Comida casera en un restaurante de la orilla Oeste","Pollo a la parrilla con pan baladi","Té con menta y dátiles"]},
-   {t:"14:00",a:"Descanso en el hotel o en la piscina: esta noche casi no duermen (vuelo a las 21:10 y conexión a las 04:00)",type:"free",ic:"😴",c:"—",lo:0,hi:0},
-   {t:"18:15",a:"Recoger maletas en el hotel → <b>taxi</b> al aeropuerto (orilla Este, por el puente, ~40 min)",ic:"🚕",c:"Taxi ~300–500 EGP el carro → ~200",lo:3,hi:5},
+   {t:"05:15",a:"<b>Taxi</b> del Steigenberger al Valle de los Reyes (cruzan el puente a la orilla Oeste, ~40 min). Pídanlo la noche anterior en la recepción",type:"move",ic:"🚕",c:"Taxi ida y vuelta ~800–1.000 EGP el carro",lo:8,hi:10},
+   {t:"06:00",a:"⚰️ <b>Tumba de Tutankamón (KV62)</b> a primera hora, sin gente. Su momia sigue ahí, en su tumba. Para entrar al Valle necesitan de nuevo el boleto general; con él pueden ver otras 2–3 tumbas si quieren",ic:"⚰️",c:"Boleto general 750 + Tutankamón ~360–700 EGP",lo:21,hi:28},
+   {t:"07:45",a:"Opcional: 🎨 <b>Medinet Habu</b> (~20 min del Valle, ~1 h): los colores originales y los «Pueblos del Mar». Es lo único de la orilla Oeste que les falta",ic:"🎨",c:"220 EGP (opcional)",lo:0,hi:4},
+   {t:"09:30",a:"Regreso al Steigenberger (~40 min) · desayuno tardío, piscina junto al Nilo y checkout (dejar las maletas en recepción)",type:"stay",ic:"🏊",c:"Desayuno del hotel o ~300 EGP",lo:0,hi:6},
+   {t:"13:00",a:"🍽️ <b>Almuerzo típico en Sofra</b> (Mohamed Farid St., ~10–15 min en taxi): casa egipcia de los años 30 con terraza de estilo otomano. ~USD 8–16 por persona",type:"meal",ic:"🍽️",c:"~400–800 EGP",lo:8,hi:16,dish:["Daoud Basha (albóndigas en salsa de tomate picante)","Tagine de pollo con verduras (tagen ferakh bil khodar)","Sahlab o jugo natural de postre"]},
+   {t:"15:00",a:"Paseo por la <b>Corniche</b> y el zoco de Luxor (a pie desde Sofra), o descanso en el resort: esta noche casi no duermen (vuelo a las 21:10 y conexión a las 04:00)",type:"free",ic:"🌴",c:"—",lo:0,hi:0},
+   {t:"18:15",a:"Recoger maletas en el Steigenberger → <b>taxi</b> al aeropuerto de Luxor (~20 min, también en la orilla Este)",ic:"🚕",c:"Taxi ~300–500 EGP el carro → ~200",lo:3,hi:5},
    {t:"19:10",a:"⏰ En el aeropuerto de Luxor (2h antes · doméstico)",ic:"🕒",c:"—",lo:0,hi:0},
    {t:"21:10",a:"Vuelo EgyptAir MS069 → El Cairo (llega 22:20) · YMGEXP",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
    {t:"noche",a:"Espera en el aeropuerto de El Cairo: <b>sin salir</b>, van de llegadas nacionales a salidas internacionales del T3 (conexión 04:00)",type:"free",ic:"🕓",c:"Comida en el aeropuerto ~USD 8–12",lo:8,hi:12}],
-  guide:["g-hatshepsut", "g-memnon", "g-medinethabu", "g-deirmedina"],
+  guide:["g-valle", "g-medinethabu", "g-luxortemple"],
   maps:[{n:"Valle de los Reyes",q:"Valley of the Kings"},{n:"Templo de Hatshepsut",q:"Mortuary Temple of Hatshepsut"}]},
 
  {d:"17",m:"Oct",dow:"Sábado",city:"El Cairo → Atenas",icon:"🇬🇷",
@@ -1055,10 +1056,11 @@ const days=[
   maps:[{n:"Lago de Vouliagmeni",q:"Lake Vouliagmeni"},{n:"Lambros (Vouliagmeni)",q:"Lambros restaurant Vouliagmeni"},{n:"Akrovoli Oyster Bar (Voula)",q:"Akrovoli Voula"}]},
 
  {d:"20",m:"Oct",dow:"Martes",city:"Atenas → Madrid",icon:"🛫",
-  desc:"Última mañana en Grecia y vuelo a Madrid.",
+  desc:"Mercado Central de Atenas temprano y vuelo a Madrid.",
   plan:[
-   {t:"09:00",a:"Mañana libre / compras · checkout",ic:"🛍️",c:"Desayuno €8–10 + metro al aeropuerto €9",lo:20,hi:22},
-   {t:"10:30",a:"Al aeropuerto: <b>Metro M2</b> Attiki → Syntagma y cambio a <b>M3</b> hasta el aeropuerto (~1 h, €9)",type:"move",ic:"🚇"},
+   {t:"08:00",a:"<b>Metro M2</b> Attiki → Omonia (3 paradas, ~7 min) → 5 min a pie: 🐟 <b>Mercado Central Varvakios</b> (desde 1886): carnicerías, pescaderías y especias en plena actividad, la Atenas real · desayuno griego en los alrededores",ic:"🐟",c:"Desayuno €8–10 + metro ~€2,40",lo:12,hi:14,dish:["Bougatsa recién hecha","Koulouri","Café griego o freddo espresso"]},
+   {t:"09:30",a:"Regreso en metro a Attiki · checkout y maletas",type:"move",ic:"🧳",c:"Metro al aeropuerto €9",lo:10,hi:10},
+   {t:"10:15",a:"Al aeropuerto: <b>Metro M2</b> Attiki → Syntagma y cambio a <b>M3</b> hasta el aeropuerto (~1 h, €9)",type:"move",ic:"🚇"},
    {t:"11:30",a:"⏰ En el aeropuerto de Atenas (3h antes · internacional)",ic:"🚇",c:"—",lo:0,hi:0},
    {t:"14:30",a:"Vuelo Aegean A3740 → Madrid (llega 17:25) · 9XOAZB",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
    {t:"18:30",a:"Del aeropuerto al hotel: shuttle gratis si es el Hotel101 (o a pie / shuttle si es el B&B Aeropuerto) · check-in y cena tranquila",type:"stay",ic:"🛏️",c:"Hotel ~USD 61–84 por persona (por reservar) + cena €15–20",lo:78,hi:107,dish:["Salmorejo (crema fría de tomate)", "Bocadillo de jamón ibérico", "La última tortilla de patatas"]}],
@@ -1079,7 +1081,7 @@ const stays=[
  {city:"Madrid (ida)",dates:"7–9 Oct · 2 noches",name:"Airbnb La Casita de Vicálvaro",status:"ok",info:"C. de Villacarlos 10, Vicálvaro · 130 € total",q:"Calle de Villacarlos 10 Vicalvaro Madrid"},
  {city:"El Cairo",dates:"10–12 Oct · 2 noches",name:"Estudio Zamalek 2 Taha Hussein",status:"ok",info:"Zamalek (Abu Al Feda) · a ~30-40 min de Giza",q:"Abu El Feda Street Zamalek Cairo"},
  {city:"Crucero Nilo",dates:"12–15 Oct · 3 noches",name:"Imperial Egypt (Viator) · Aswan → Luxor",status:"ok",info:"Embarque lun 12, desembarque jue 15 · 4.8★ (2.832 reseñas)",q:"Aswan Nile Cruise"},
- {city:"Luxor",dates:"15–16 Oct · 1 noche",name:"KR Elite Hotel ⭐9.5",status:"ok",info:"Orilla Oeste (Al Bairat) · COP 57.400 · cancelación gratis",q:"KR Elite Hotel Luxor"},
+ {city:"Luxor",dates:"15–16 Oct · 1 noche",name:"Steigenberger Resort Achti",status:"ok",info:"Orilla Este, junto al Nilo · a ~20 min del aeropuerto",q:"Steigenberger Resort Achti Luxor"},
  {city:"Atenas",dates:"17–20 Oct · 3 noches",name:"Vasiliki's cosy apartment (Airbnb)",status:"ok",info:"Galaxidiou 38 · COP 429.352 · check-in 15:00",q:"38.00761,23.72001"},
  {city:"Madrid (regreso)",dates:"20–21 Oct · 1 noche",name:"Por reservar (cerca aeropuerto)",status:"pend",info:"Sugerido: Hotel101 o B&B Aeropuerto",q:"hotels near Madrid Barajas airport"}
 ];
