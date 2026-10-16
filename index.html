@@ -360,7 +360,6 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
 
   <div class="section-title">📝 Pendientes clave</div>
   <div class="ref"><table>
-    <tr><td>🏨</td><td>🚨 Reservar <b>Madrid regreso</b> (1 noche, 20 Oct, cerca del aeropuerto): Hotel101 recomendado (shuttle gratis)</td></tr>
     <tr><td>🎟️</td><td>🚨 Comprar la <b>Acrópolis</b> para el sáb 17 a las 09:00 en hhticket.gr (€30) · Museo de la Acrópolis (€20) online o en taquilla</td></tr>
     <tr><td>🍽️</td><td>Reservar <b>cena con música</b> (Psarras o Geros tou Moria, dom 18 a las 20:30) y <b>Lambros</b> + <b>Akrovoli</b> (lun 19)</td></tr>
   </table></div>
@@ -374,6 +373,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
     <tr><td>❌</td><td>🚨 <b>HOY antes de las 18:00:</b> cancelar el <b>KR Elite Hotel</b> de Luxor en Booking si no lo van a usar (gratis hasta esa hora)</td></tr>
     <tr><td>🚕</td><td>Pedir en la recepción del Steigenberger el <b>taxi de las 05:15</b> al Valle de los Reyes (16 Oct)</td></tr>
     <tr><td>🪪</td><td>Dar <b>datos de identidad/pasaporte</b> al Airbnb de Madrid (registro de huéspedes, ley española)</td></tr>
+    <tr><td>🏨</td><td>✅ <b>Hotel Madrid 20 Oct</b>: OLBLANC Plaza de España · llegada 18:00–19:00 aprobada · €113,30 pagado</td></tr>
     <tr><td>⚽</td><td>✅ <b>Tour Bernabéu</b> comprado · <b>jueves 8 Oct, 15:30</b> · localizador <b>108298407</b> · entradas en el correo de Kevin</td></tr>
     <tr><td>📶</td><td>✅ <b>eSIM Saily</b> compradas (Europa + Egipto) · actívenlas al aterrizar en cada región</td></tr>
     <tr><td>🛡️</td><td>✅ <b>Seguro comprado</b>: Universal Assistance · voucher <b>T035589045</b> · 07–21 Oct. ⚠️ Pedir que empiece el <b>06 Oct</b> (día de salida) y confirmar tope médico ≥€30.000</td></tr>
@@ -760,6 +760,10 @@ const near={
         "🎈 La zona de despegue de los <b>globos</b> está en esta orilla.",
         "⛴️ El <b>ferry público</b> (~5 EGP) cruza a la orilla Este (Karnak, Templo de Luxor) en minutos."],
   arrive:"No hay Uber en Luxor: usen taxis pactados o el traslado del hotel. El aeropuerto está en la orilla Este (~35–45 min en taxi por el puente)."},
+ "Madrid (regreso)":{
+  about:"A 2 min de la Plaza de España, el inicio de la Gran Vía y el Templo de Debod: el mismo barrio que ya conocieron, ideal para una última noche a pie.",
+  list:["𓋹 <b>Templo de Debod</b> a 5 min a pie (atardecer ~19:25).","🌆 La <b>Gran Vía</b> empieza a 2 min.","🏰 <b>Palacio Real</b> y Plaza de Oriente a ~10 min.","🍷 <b>Plaza Mayor</b>, la Cava Baja y La Latina a ~20 min a pie."],
+  arrive:"Desde la T2: taxi con tarifa fija de €33 (~30–40 min). En metro: L8 a Nuevos Ministerios → L10 a Plaza de España (~45 min, €5)."},
  "Atenas":{
   about:"Galaxidiou 38 está en Kolonos/Sepolia: una Atenas residencial y auténtica, fuera del circuito turístico.",
   list:["🎓 <b>Academia de Platón</b> (~2 km): el parque donde Platón fundó su escuela en el 387 a.C. De aquí viene la palabra «academia». Gratis y casi vacío.",
@@ -1075,22 +1079,27 @@ const days=[
   maps:[{n:"Lago de Vouliagmeni",q:"Lake Vouliagmeni"},{n:"Lambros (Vouliagmeni)",q:"Lambros restaurant Vouliagmeni"},{n:"Akrovoli Oyster Bar (Voula)",q:"Akrovoli Voula"}]},
 
  {d:"20",m:"Oct",dow:"Martes",city:"Atenas → Madrid",icon:"🛫",
-  desc:"Mercado Central de Atenas temprano y vuelo a Madrid.",
+  desc:"Mercado Central de Atenas temprano, vuelo a Madrid y última noche en el centro.",
   plan:[
    {t:"08:00",a:"<b>Metro M2</b> Attiki → Omonia (3 paradas, ~7 min) → 5 min a pie: 🐟 <b>Mercado Central Varvakios</b> (desde 1886): carnicerías, pescaderías y especias en plena actividad, la Atenas real · desayuno griego en los alrededores",ic:"🐟",c:"Desayuno €8–10 + metro ~€2,40",lo:12,hi:14,dish:["Bougatsa recién hecha","Koulouri","Café griego o freddo espresso"]},
    {t:"09:30",a:"Regreso en metro a Attiki · checkout y maletas",type:"move",ic:"🧳",c:"Metro al aeropuerto €9",lo:10,hi:10},
    {t:"10:15",a:"Al aeropuerto: <b>Metro M2</b> Attiki → Syntagma y cambio a <b>M3</b> hasta el aeropuerto (~1 h, €9)",type:"move",ic:"🚇"},
    {t:"11:30",a:"⏰ En el aeropuerto de Atenas (3h antes · internacional)",ic:"🚇",c:"—",lo:0,hi:0},
    {t:"14:30",a:"Vuelo Aegean A3740 → Madrid (llega 17:25) · 9XOAZB",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
-   {t:"18:30",a:"Del aeropuerto al hotel: shuttle gratis si es el Hotel101 (o a pie / shuttle si es el B&B Aeropuerto) · check-in y cena tranquila",type:"stay",ic:"🛏️",c:"Hotel ~USD 61–84 por persona (por reservar) + cena €15–20",lo:78,hi:107,dish:["Salmorejo (crema fría de tomate)", "Bocadillo de jamón ibérico", "La última tortilla de patatas"]}],
-  stayTag:{name:"Hotel Madrid (cerca aeropuerto)",status:"pend"},
-  maps:[{n:"Aeropuerto Madrid-Barajas",q:"Aeropuerto Madrid Barajas"}]},
+   {t:"17:45",a:"Sin control de pasaportes (vuelo dentro de Schengen) → <b>taxi con tarifa fija de €33</b> desde la parada de la T2 al hotel (~30–40 min)",type:"move",ic:"🚕",c:"€33 el carro",lo:19,hi:19},
+   {t:"18:30",a:"🏨 Check-in en <b>OLBLANC Plaza de España</b> (C. de Arriaza 5) · llegada aprobada entre las 18:00 y las 19:00 · habitación con balcón y vista a la ciudad",type:"stay",ic:"🛏️",c:"✅ Pagado (€113,30)",lo:0,hi:0},
+   {t:"19:15",a:"🌆 <b>Último paseo por Madrid</b>, todo a pie: Plaza de España → Plaza de Oriente y el Palacio Real (~10 min) → calle Mayor → <b>Plaza Mayor</b> (~15 min)",ic:"🚶",c:"Gratis",lo:0,hi:0},
+   {t:"20:30",a:"🍷 <b>Cena de despedida</b> en la Cava Baja o en La Latina (5 min a pie de la Plaza Mayor)",type:"meal",ic:"🍷",c:"€20–30",lo:23,hi:35,dish:["Croquetas de jamón","Tortilla de patatas","Un vermut de grifo para brindar por el viaje"]},
+   {t:"22:30",a:"Regreso a pie al hotel (~20 min por la calle Bailén) · maletas listas para el vuelo de mañana",type:"move",ic:"🚶"}],
+  stayTag:{name:"OLBLANC Plaza de España by Batuecas",status:"ok"},
+  maps:[{n:"OLBLANC Plaza de España",q:"Calle de Arriaza 5, 28008 Madrid"},{n:"Plaza Mayor",q:"Plaza Mayor Madrid"}]},
 
  {d:"21",m:"Oct",dow:"Miércoles",city:"Madrid → Bogotá",icon:"🏡",
   desc:"Vuelo de regreso a casa. ¡Fin del viaje!",
   plan:[
-   {t:"08:30",a:"Desayuno y checkout",type:"meal",ic:"☕",c:"€8–12 si no está incluido",lo:0,hi:14,dish:["Tostada con tomate y aceite de oliva", "Café con leche", "Zumo de naranja natural"]},
-   {t:"09:10",a:"⏰ En Madrid-Barajas <b>T4</b> (Iberia · 3h antes): shuttle del hotel o taxi ~10 min",ic:"🕒",c:"Traslado gratis (Hotel101) o ~€5",lo:0,hi:6},
+   {t:"08:00",a:"Desayuno cerca del hotel y checkout (hasta las 11:00)",type:"meal",ic:"☕",c:"€8–12",lo:9,hi:14,dish:["Tostada con tomate y aceite de oliva", "Café con leche", "Zumo de naranja natural"]},
+   {t:"08:45",a:"<b>Taxi con tarifa fija de €33</b> del hotel a la <b>T4</b> de Barajas (~30 min). En metro: L3 Plaza de España → L10 → L8 (~50 min, €5)",type:"move",ic:"🚕",c:"€33 el carro",lo:19,hi:19},
+   {t:"09:15",a:"⏰ En Madrid-Barajas <b>T4</b> (Iberia · 3 h antes del vuelo internacional)",ic:"🕒",c:"—",lo:0,hi:0},
    {t:"12:10",a:"Vuelo Iberia IB0151 → Bogotá (llega 15:40) · P6EJR",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
    {t:"15:40",a:"¡Llegada a casa! 🎉 Taxi o app desde El Dorado",ic:"🏡",c:"Taxi ~COP 35.000",lo:4,hi:5}],
   maps:[{n:"Aeropuerto El Dorado",q:"Aeropuerto El Dorado Bogota"}]}
@@ -1102,7 +1111,7 @@ const stays=[
  {city:"Crucero Nilo",past:1,dates:"12–15 Oct · 3 noches",name:"Imperial Egypt (Viator) · Aswan → Luxor",status:"ok",info:"Embarque lun 12, desembarque jue 15 · 4.8★ (2.832 reseñas)",q:"Aswan Nile Cruise"},
  {city:"Luxor",past:1,dates:"15–16 Oct · 1 noche",name:"Steigenberger Resort Achti",status:"ok",info:"Orilla Este, junto al Nilo · a ~20 min del aeropuerto",q:"Steigenberger Resort Achti Luxor"},
  {city:"Atenas",dates:"17–20 Oct · 3 noches",name:"Vasiliki's cosy apartment (Airbnb)",status:"ok",info:"Galaxidiou 38 · COP 429.352 · check-in 15:00",q:"38.00761,23.72001"},
- {city:"Madrid (regreso)",dates:"20–21 Oct · 1 noche",name:"Por reservar (cerca aeropuerto)",status:"pend",info:"Sugerido: Hotel101 o B&B Aeropuerto",q:"hotels near Madrid Barajas airport"}
+ {city:"Madrid (regreso)",dates:"20–21 Oct · 1 noche",name:"OLBLANC Plaza de España by Batuecas",status:"ok",info:"C. de Arriaza 5 · habitación con balcón · €113,30 pagado · llegada 18:00–19:00 aprobada · cancelación gratis hasta el 17 Oct a las 23:59 · tel. +34 655 15 58 62",q:"Calle de Arriaza 5, 28008 Madrid"}
 ];
 
 function mapsUrl(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);}
