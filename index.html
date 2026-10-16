@@ -360,7 +360,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
 
   <div class="section-title">📝 Pendientes clave</div>
   <div class="ref"><table>
-    <tr><td>🎟️</td><td>🚨 Comprar la <b>Acrópolis</b> para el sáb 17 a las 09:00 en tickets.hh.gr (€30) · Museo de la Acrópolis (€20) online o en taquilla</td></tr>
+    <tr><td>🧳</td><td>Reservar hoy una <b>consigna junto al metro Akropoli</b> que abra a las 07:00 (Bounce o Radical Storage) para el sáb 17</td></tr>
     <tr><td>🍽️</td><td>Reservar <b>Lambros</b> (dom 18, 13:30) + <b>Akrovoli</b> (dom 18, 18:00) y la <b>cena con música</b> (Psarras o Geros tou Moria, lun 19, 20:30)</td></tr>
   </table></div>
   <details class="pastblock"><summary>✅ Hechos y ya pasados (Egipto, visa, seguro, eSIM, Bernabéu…)</summary>
@@ -373,6 +373,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
     <tr><td>❌</td><td>🚨 <b>HOY antes de las 18:00:</b> cancelar el <b>KR Elite Hotel</b> de Luxor en Booking si no lo van a usar (gratis hasta esa hora)</td></tr>
     <tr><td>🚕</td><td>Pedir en la recepción del Steigenberger el <b>taxi de las 05:15</b> al Valle de los Reyes (16 Oct)</td></tr>
     <tr><td>🪪</td><td>Dar <b>datos de identidad/pasaporte</b> al Airbnb de Madrid (registro de huéspedes, ley española)</td></tr>
+    <tr><td>🏛️</td><td>✅ <b>Acrópolis</b> comprada: sáb 17 Oct, franja <b>08:00–09:00</b> (€30 c/u, QR en el celular)</td></tr>
     <tr><td>🏨</td><td>✅ <b>Hotel Madrid 20 Oct</b>: OLBLANC Plaza de España · llegada 18:00–19:00 aprobada · €113,30 pagado</td></tr>
     <tr><td>⚽</td><td>✅ <b>Tour Bernabéu</b> comprado · <b>jueves 8 Oct, 15:30</b> · localizador <b>108298407</b> · entradas en el correo de Kevin</td></tr>
     <tr><td>📶</td><td>✅ <b>eSIM Saily</b> compradas (Europa + Egipto) · actívenlas al aterrizar en cada región</td></tr>
@@ -1023,18 +1024,18 @@ const days=[
   plan:[
    {t:"01:00",a:"⏰ Check-in internacional en El Cairo (3h antes)",ic:"🕒",c:"Café ~USD 3–5",lo:3,hi:5},
    {t:"04:00",a:"Vuelo Aegean A3931 → Atenas (llega 06:00) · 7TV5KM",type:"flight",ic:"✈️",c:"Pagado ✓",lo:0,hi:0},
-   {t:"07:30",a:"<b>Metro M3 (azul)</b> directo del aeropuerto a <b>Monastiraki</b> (~40 min; primer tren ~06:30) → dejar maletas en una consigna de Monastiraki (Bounce o Radical Storage): no se admiten en la Acrópolis",type:"move",ic:"🚇",c:"Metro €9 + consigna €5–8",lo:16,hi:20},
-   {t:"08:15",a:"Desayuno en Monastiraki",type:"meal",ic:"☕",c:"€6–8",lo:7,hi:9,dish:["Koulouri (rosca de pan con sésamo)","Bougatsa (hojaldre con crema)","Freddo espresso"]},
-   {t:"08:40",a:"A la entrada de la Acrópolis: <b>~15 min a pie</b> subiendo por Plaka",type:"move",ic:"🚶"},
-   {t:"09:00",a:"🏛️ <b>Acrópolis</b>: Propileos → Partenón → Erecteion y las Cariátides → bajada por la ladera sur hasta el <b>Teatro de Dioniso</b> · ~2,5 h · <b>entrada con hora: cómprenla ya en tickets.hh.gr</b>",ic:"🏛️",c:"€30",lo:35,hi:35},
-   {t:"11:40",a:"Al Museo de la Acrópolis: <b>5 min a pie</b> desde la salida sur",type:"move",ic:"🚶"},
-   {t:"11:45",a:"🏺 <b>Museo de la Acrópolis</b>: piso de vidrio, Cariátides originales y la Galería del Partenón · ~1,5 h · café en la terraza con vista al Partenón",ic:"🏺",c:"€20",lo:23,hi:23},
-   {t:"13:30",a:"Almuerzo en Makrygianni o Plaka (2–5 min a pie)",type:"meal",ic:"🍽️",c:"€12–18",lo:14,hi:21,dish:["Souvlaki o gyros en pita","Ensalada griega (horiatiki)","Tzatziki"]},
+   {t:"06:20",a:"Salir rápido (sin maleta facturada) → <b>Metro M3 (azul)</b> directo a <b>Syntagma</b> (~40 min) y M2 una parada hasta <b>Akropoli</b>. Si el vuelo llega tarde o no hay tren pronto: <b>taxi con tarifa fija (~€40)</b> directo a Akropoli",type:"move",ic:"🚇",c:"Metro €9 (o taxi ~€20 por persona)",lo:10,hi:23},
+   {t:"07:20",a:"Dejar las maletas en una <b>consigna junto al metro Akropoli</b> que abra a las 07:00 (resérvenla hoy en Bounce o Radical Storage filtrando por horario)",type:"move",ic:"🧳",c:"€5–8",lo:6,hi:9},
+   {t:"07:40",a:"A la entrada sur de la Acrópolis (calle Dionysiou Areopagitou): <b>~5 min a pie</b> desde el metro",type:"move",ic:"🚶"},
+   {t:"08:00",a:"🏛️ <b>Acrópolis</b> ✅ <b>entradas compradas, franja 08:00–09:00</b> (QR en el celular): Teatro de Dioniso → Propileos → Partenón → Erecteion y las Cariátides · ~2,5 h · a esta hora casi no hay gente",ic:"🏛️",c:"✅ Pagado (€30 c/u)",lo:0,hi:0},
+   {t:"10:30",a:"☕ <b>Desayuno-brunch</b> en Makrygianni, al pie de la Acrópolis (2 min a pie)",type:"meal",ic:"☕",c:"€10–14",lo:12,hi:16,dish:["Bougatsa (hojaldre con crema)","Yogur griego con miel y nueces","Freddo espresso"]},
+   {t:"11:30",a:"🏺 <b>Museo de la Acrópolis</b> (al frente): piso de vidrio, Cariátides originales y la Galería del Partenón · ~1,5 h",ic:"🏺",c:"€20",lo:23,hi:23},
+   {t:"13:30",a:"Almuerzo ligero en Plaka (5 min a pie) o un souvlaki para llevar",type:"meal",ic:"🍽️",c:"€8–15",lo:9,hi:17,dish:["Souvlaki o gyros en pita","Ensalada griega (horiatiki)","Tzatziki"]},
    {t:"14:45",a:"Al Ágora Antigua: <b>~15 min a pie</b> por Plaka",type:"move",ic:"🚶"},
    {t:"15:00",a:"🗣️ <b>Ágora Antigua y Templo de Hefesto</b>, donde caminaba Sócrates · busquen los ostraka en el museo de la Stoa de Átalo · cierra a las 17:30 (última entrada 17:00)",ic:"🗣️",c:"€20",lo:23,hi:23},
    {t:"16:45",a:"🛍️ <b>Monastiraki y Psiri</b> a pie: mercado de pulgas de la calle Avissinias y arte urbano en Psiri",ic:"🛍️",c:"Gratis (+ compras)",lo:0,hi:0},
    {t:"18:05",a:"🌅 <b>Atardecer en el Areópago</b> (~18:40), la roca frente a la Acrópolis donde predicó San Pablo · 10 min a pie desde Monastiraki · gratis",ic:"🌅",c:"Gratis",lo:0,hi:0},
-   {t:"19:15",a:"Recoger maletas → <b>Metro M1 (verde)</b> Monastiraki → <b>Attiki</b> (3 paradas) → ~12 min a pie al Airbnb · check-in y ducha",type:"move",ic:"🚇",c:"Metro ~€1,20",lo:1,hi:1},
+   {t:"19:15",a:"Recoger maletas en la consigna de Akropoli (10 min a pie desde el Areópago) → <b>Metro M2 (roja)</b> directo Akropoli → <b>Attiki</b> (~15 min) → ~12 min a pie al Airbnb · check-in y ducha",type:"move",ic:"🚇",c:"Metro ~€1,20",lo:1,hi:1},
    {t:"20:30",a:"Cena tranquila cerca del Airbnb y a dormir: vienen de una noche sin dormir",type:"meal",ic:"🍽️",c:"€15–22",lo:17,hi:26,dish:["Moussaka","Pastitsio","Yogur griego con miel de postre"]}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb) · check-in 15:00",status:"ok"},
   guide:["g-acropolis", "g-acromuseum", "g-agora", "g-pnyx"],
