@@ -361,7 +361,7 @@ article.site{background:var(--card);border:1px solid var(--line);border-radius:1
   <div class="section-title">📝 Pendientes clave</div>
   <div class="ref"><table>
     <tr><td>🎟️</td><td>🚨 Comprar la <b>Acrópolis</b> para el sáb 17 a las 09:00 en hhticket.gr (€30) · Museo de la Acrópolis (€20) online o en taquilla</td></tr>
-    <tr><td>🍽️</td><td>Reservar <b>cena con música</b> (Psarras o Geros tou Moria, dom 18 a las 20:30) y <b>Lambros</b> + <b>Akrovoli</b> (lun 19)</td></tr>
+    <tr><td>🍽️</td><td>Reservar <b>Lambros</b> (dom 18, 13:30) + <b>Akrovoli</b> (dom 18, 18:00) y la <b>cena con música</b> (Psarras o Geros tou Moria, lun 19, 20:30)</td></tr>
   </table></div>
   <details class="pastblock"><summary>✅ Hechos y ya pasados (Egipto, visa, seguro, eSIM, Bernabéu…)</summary>
   <div class="ref"><table>
@@ -656,7 +656,7 @@ const guide=[
          "Para pedir: kleftiko, pulpo a la brasa, saganaki y brindar con ouzo («¡Yamas!»)."],
    fun:"El <b>rebetiko</b>, el «blues griego», nació en los años 1920 entre los refugiados de Asia Menor y en los cafés del puerto del Pireo. Es Patrimonio de la UNESCO desde 2017.",
    how:"Plaka, a pie desde todos lados; metro Syntagma o Monastiraki.",
-   tip:"Reserven para las 20:30. Si es domingo, confirmen al reservar que esa noche hay música."},
+   tip:"Reserven para el lunes 19 a las 20:30 y confirmen que esa noche hay música en vivo."},
   {id:"g-riviera",ic:"🏖️",name:"Riviera ateniense: Vouliagmeni y Voula",tag:"Infaltable",
    what:"La costa al sur de Atenas, con mar azul del Egeo, calas, tabernas de pescado y el <b>Lago de Vouliagmeni</b>: agua termal salobre a ~24 °C todo el año, al pie de un acantilado.",
    must:["<b>Lago de Vouliagmeni</b> (€17 entre semana): flotar en agua tibia mientras unos pececitos les hacen «pedicure».",
@@ -1040,13 +1040,29 @@ const days=[
   guide:["g-acropolis", "g-acromuseum", "g-agora", "g-pnyx"],
   maps:[{n:"Airbnb (Galaxidiou 38)",q:"38.00761,23.72001"},{n:"Acrópolis de Atenas",q:"Acropolis of Athens"}]},
 
- {d:"18",m:"Oct",dow:"Domingo",city:"Atenas",icon:"🏛️",
-  desc:"Día 2 · Templos, plazas y el corazón de Atenas: cambio de guardia, estadio olímpico, Zeus, Plaka, atardecer en el Licabeto y cena con música.",
+ {d:"18",m:"Oct",dow:"Domingo",city:"Atenas · Riviera 🏖️",icon:"🌊",
+  desc:"Día 2 · Ida al mar (domingo): lago termal, playa, almuerzo de mar y ostras al atardecer en la Riviera ateniense.",
+  plan:[
+   {t:"08:30",a:"Desayuno y mochila de playa (vestido de baño, toalla, bloqueador)",type:"meal",ic:"☕",c:"€6–8",lo:7,hi:9,dish:["Koulouri","Bougatsa","Freddo cappuccino"]},
+   {t:"09:15",a:"<b>Metro M2 (roja)</b> directo de Attiki a <b>Elliniko</b> (~35 min, sin cambios) → taxi a Vouliagmeni (~10–15 min) o bus de la costa",type:"move",ic:"🚇",c:"Metro ~€1,20 + taxi ~€12 el carro",lo:7,hi:8},
+   {t:"10:15",a:"🏞️ <b>Lago de Vouliagmeni</b>: un lago termal entre rocas, con agua a ~24 °C todo el año y peces que hacen «pedicure» · abre de 08:30 a 18:00",ic:"🏞️",c:"€19 (domingo)",lo:22,hi:22},
+   {t:"13:30",a:"🐟 <b>Almuerzo de mar en Lambros</b> (desde 1889, frente al lago, a pie): <b>reserven sí o sí</b>, los domingos se llena",type:"meal",ic:"🐟",c:"€30–45",lo:35,hi:52,dish:["Mydopilafo (arroz con mejillones, su plato famoso)","Pescado del día a la brasa","Calamares o gambas a la parrilla"]},
+   {t:"15:30",a:"🏖️ <b>Playa de Vouliagmeni o de Kavouri</b> (5–10 min a pie o taxi corto): mar azul del Egeo, todavía templado en octubre",ic:"🏖️",c:"Gratis (tumbonas ~€10–20, opcional)",lo:0,hi:12},
+   {t:"17:45",a:"Taxi a <b>Voula</b> (~10 min)",type:"move",ic:"🚕",c:"~€10 el carro",lo:5,hi:5},
+   {t:"18:00",a:"🦪 <b>Ostras al atardecer en Akrovoli Restaurant & Oyster Bar</b> (paseo marítimo de Voula; el sol se pone ~18:35)",type:"meal",ic:"🦪",c:"€25–45",lo:29,hi:52,dish:["Ostras frescas con limón","Crudo de pescado o tartar","Una copa de vino blanco griego (Assyrtiko)"]},
+   {t:"19:45",a:"Regreso: taxi a Elliniko (~10 min) → <b>Metro M2</b> directo a Attiki (~35 min)",type:"move",ic:"🚇",c:"~€6 por persona",lo:7,hi:7},
+   {t:"21:00",a:"Noche tranquila en el Airbnb: mañana es día de ciudad, todo a pie",type:"free",ic:"🧳",c:"—",lo:0,hi:0}],
+  stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
+  guide:["g-riviera", "g-sounion"],
+  maps:[{n:"Lago de Vouliagmeni",q:"Lake Vouliagmeni"},{n:"Lambros (Vouliagmeni)",q:"Lambros restaurant Vouliagmeni"},{n:"Akrovoli Oyster Bar (Voula)",q:"Akrovoli Voula"}]},
+
+ {d:"19",m:"Oct",dow:"Lunes",city:"Atenas",icon:"🏛️",
+  desc:"Día 3 · Templos, plazas y el corazón de Atenas: cambio de guardia, estadio olímpico, Zeus, Plaka, atardecer en el Licabeto y cena con música.",
   plan:[
    {t:"09:00",a:"Desayuno",type:"meal",ic:"☕",c:"€6–8",lo:7,hi:9,dish:["Yogur griego con miel y nueces","Spanakopita","Tiropita"]},
    {t:"10:15",a:"<b>Metro M2 (roja)</b> Attiki → Syntagma (~10 min). Es el único metro del día; el resto es a pie",type:"move",ic:"🚇",c:"Metro ~€1,20",lo:1,hi:1},
    {t:"10:40",a:"Busquen sitio frente al Parlamento, en la Tumba del Soldado Desconocido",ic:"🏛️",c:"Gratis",lo:0,hi:0},
-   {t:"11:00",a:"💂 <b>Gran cambio de guardia de los Evzones</b>: solo los domingos a las 11:00, con banda militar y uniformes de gala (~40 min)",ic:"💂",c:"Gratis",lo:0,hi:0},
+   {t:"11:00",a:"💂 <b>Cambio de guardia de los Evzones</b> frente al Parlamento (cada hora en punto, ~15 min). El solemne con banda militar es solo los domingos; el del lunes es más corto pero igual de vistoso",ic:"💂",c:"Gratis",lo:0,hi:0},
    {t:"11:45",a:"🌳 <b>Jardín Nacional</b> → Zappeion · <b>~15 min a pie</b>, a la sombra",type:"move",ic:"🚶"},
    {t:"12:15",a:"🏟️ <b>Estadio Panatenaico</b>: todo de mármol, sede de los primeros Juegos Olímpicos modernos (1896) · ~45 min · corran en la pista",ic:"🏟️",c:"€12",lo:14,hi:14},
    {t:"13:10",a:"Al Templo de Zeus Olímpico: <b>~10 min a pie</b>",type:"move",ic:"🚶"},
@@ -1057,26 +1073,10 @@ const days=[
    {t:"18:00",a:"🌇 <b>Atardecer en el Licabeto</b> (~18:38): el punto más alto de Atenas, con la Acrópolis iluminada y el mar al fondo",ic:"🌇",c:"Gratis arriba",lo:0,hi:0},
    {t:"19:30",a:"Bajar en funicular → taxi corto (~10 min) o <b>~25 min a pie</b> hasta Plaka",type:"move",ic:"🚕",c:"Taxi ~€8 el carro",lo:0,hi:4},
    {t:"20:30",a:"⭐ <b>Cena especial típica con música griega en vivo</b> en Plaka (reserven): <b>Psarras</b> (taberna de 1898, patio y música casi todas las noches; ~€25–35 por persona) o <b>Geros tou Moria</b> (música en vivo y baile griego)",type:"meal",ic:"🎶",c:"€25–35",lo:29,hi:41,dish:["Kleftiko (cordero al horno, deshecho)","Pulpo a la brasa","Saganaki (queso frito) y un ouzo para brindar"]},
-   {t:"23:00",a:"<b>Metro M2</b> Syntagma → Attiki (5 min a pie desde Plaka; el metro funciona pasada la medianoche) → Airbnb",type:"move",ic:"🚇",c:"Metro ~€1,20",lo:1,hi:1}],
+   {t:"23:00",a:"<b>Metro M2</b> Syntagma → Attiki (5 min a pie desde Plaka; el metro funciona pasada la medianoche) → Airbnb · <b>maletas listas</b>: mañana vuelan a Madrid a las 14:30",type:"move",ic:"🚇",c:"Metro ~€1,20",lo:1,hi:1}],
   stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
   guide:["g-syntagma", "g-olimpico", "g-licabeto", "g-cenamusica"],
   maps:[{n:"Plaza Syntagma",q:"Syntagma Square Athens"},{n:"Estadio Panatenaico",q:"Panathenaic Stadium"},{n:"Funicular del Licabeto",q:"Lycabettus Funicular"},{n:"Psarras (Plaka)",q:"Psarras Taverna Plaka"}]},
-
- {d:"19",m:"Oct",dow:"Lunes",city:"Atenas · Riviera 🏖️",icon:"🌊",
-  desc:"Día 3 · Ida al mar: lago termal, playa, almuerzo de mar y ostras al atardecer en la Riviera ateniense.",
-  plan:[
-   {t:"08:30",a:"Desayuno y mochila de playa (vestido de baño, toalla, bloqueador)",type:"meal",ic:"☕",c:"€6–8",lo:7,hi:9,dish:["Koulouri","Bougatsa","Freddo cappuccino"]},
-   {t:"09:15",a:"<b>Metro M2 (roja)</b> directo de Attiki a <b>Elliniko</b> (~35 min, sin cambios) → taxi a Vouliagmeni (~10–15 min) o bus de la costa",type:"move",ic:"🚇",c:"Metro ~€1,20 + taxi ~€12 el carro",lo:7,hi:8},
-   {t:"10:15",a:"🏞️ <b>Lago de Vouliagmeni</b>: un lago termal entre rocas, con agua a ~24 °C todo el año y peces que hacen «pedicure» · abre de 08:30 a 18:00",ic:"🏞️",c:"€17 (lunes)",lo:20,hi:20},
-   {t:"13:30",a:"🐟 <b>Almuerzo de mar en Lambros</b> (desde 1889, frente al lago, a pie): reserven",type:"meal",ic:"🐟",c:"€30–45",lo:35,hi:52,dish:["Mydopilafo (arroz con mejillones, su plato famoso)","Pescado del día a la brasa","Calamares o gambas a la parrilla"]},
-   {t:"15:30",a:"🏖️ <b>Playa de Vouliagmeni o de Kavouri</b> (5–10 min a pie o taxi corto): mar azul del Egeo, todavía templado en octubre",ic:"🏖️",c:"Gratis (tumbonas ~€10–20, opcional)",lo:0,hi:12},
-   {t:"17:45",a:"Taxi a <b>Voula</b> (~10 min)",type:"move",ic:"🚕",c:"~€10 el carro",lo:5,hi:5},
-   {t:"18:00",a:"🦪 <b>Ostras al atardecer en Akrovoli Restaurant & Oyster Bar</b> (paseo marítimo de Voula; el sol se pone ~18:35)",type:"meal",ic:"🦪",c:"€25–45",lo:29,hi:52,dish:["Ostras frescas con limón","Crudo de pescado o tartar","Una copa de vino blanco griego (Assyrtiko)"]},
-   {t:"19:45",a:"Regreso: taxi a Elliniko (~10 min) → <b>Metro M2</b> directo a Attiki (~35 min)",type:"move",ic:"🚇",c:"~€6 por persona",lo:7,hi:7},
-   {t:"21:00",a:"Noche tranquila y <b>maletas listas</b>: mañana vuelan a Madrid a las 14:30",type:"free",ic:"🧳",c:"—",lo:0,hi:0}],
-  stayTag:{name:"Vasiliki's cosy apartment (Airbnb)",status:"ok"},
-  guide:["g-riviera", "g-sounion"],
-  maps:[{n:"Lago de Vouliagmeni",q:"Lake Vouliagmeni"},{n:"Lambros (Vouliagmeni)",q:"Lambros restaurant Vouliagmeni"},{n:"Akrovoli Oyster Bar (Voula)",q:"Akrovoli Voula"}]},
 
  {d:"20",m:"Oct",dow:"Martes",city:"Atenas → Madrid",icon:"🛫",
   desc:"Mercado Central de Atenas temprano, vuelo a Madrid y última noche en el centro.",
@@ -1179,7 +1179,7 @@ const route=[
  {d:15,w:"Jue",c:"eg",f:"🇪🇬",city:"Luxor",i:9},
  {d:16,w:"Vie",c:"eg",f:"🇪🇬",city:"Luxor ✈️",i:10},
  {d:17,w:"Sáb",c:"gr",f:"🇬🇷",city:"Atenas",i:11},
- {d:18,w:"Dom",c:"gr",f:"🇬🇷",city:"Atenas",i:12},
+ {d:18,w:"Dom",c:"gr",f:"🇬🇷",city:"Playa 🏖️",i:12},
  {d:19,w:"Lun",c:"gr",f:"🇬🇷",city:"Atenas",i:13},
  {d:20,w:"Mar",c:"es",f:"🇪🇸",city:"Madrid",i:14},
  {d:21,w:"Mié",c:"co",f:"🏠",city:"Bogotá",i:15}];
